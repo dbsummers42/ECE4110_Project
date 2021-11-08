@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PROJ0
-Fri Nov 05 21:57:53 2021
+Mon Nov 08 17:24:05 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -25,11 +25,12 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  17. Parameter Settings for User Entity Instance: ADXL345_controller:U4|gsensor:U0|spi:u0
  18. altpll Parameter Settings by Entity Instance
  19. Port Connectivity Checks: "ADXL345_controller:U4"
- 20. Port Connectivity Checks: "vga_controller:U2"
- 21. Post-Synthesis Netlist Statistics for Top Partition
- 22. Elapsed Time Per Partition
- 23. Analysis & Synthesis Messages
- 24. Analysis & Synthesis Suppressed Messages
+ 20. Port Connectivity Checks: "hw_image_generator:U3"
+ 21. Port Connectivity Checks: "vga_controller:U2"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+ 25. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -56,15 +57,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Nov 05 21:57:53 2021       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 08 17:24:05 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PROJ0                                       ;
 ; Top-level Entity Name              ; PROJ0                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 990                                         ;
-;     Total combinational functions  ; 938                                         ;
-;     Dedicated logic registers      ; 364                                         ;
-; Total registers                    ; 364                                         ;
+; Total logic elements               ; 9,211                                       ;
+;     Total combinational functions  ; 8,854                                       ;
+;     Dedicated logic registers      ; 1,470                                       ;
+; Total registers                    ; 1470                                        ;
 ; Total pins                         ; 33                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -174,7 +175,9 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -205,20 +208,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 990                      ;
+; Estimated Total logic elements              ; 9,211                    ;
 ;                                             ;                          ;
-; Total combinational functions               ; 938                      ;
+; Total combinational functions               ; 8854                     ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 203                      ;
-;     -- 3 input functions                    ; 370                      ;
-;     -- <=2 input functions                  ; 365                      ;
+;     -- 4 input functions                    ; 3399                     ;
+;     -- 3 input functions                    ; 3610                     ;
+;     -- <=2 input functions                  ; 1845                     ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 336                      ;
-;     -- arithmetic mode                      ; 602                      ;
+;     -- normal mode                          ; 4792                     ;
+;     -- arithmetic mode                      ; 4062                     ;
 ;                                             ;                          ;
-; Total registers                             ; 364                      ;
-;     -- Dedicated logic registers            ; 364                      ;
+; Total registers                             ; 1470                     ;
+;     -- Dedicated logic registers            ; 1470                     ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 33                       ;
@@ -229,9 +232,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                        ;
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; CLK_50MHZ_to_60HZ:U5|tmp ;
-; Maximum fan-out                             ; 193                      ;
-; Total fan-out                               ; 3575                     ;
-; Average fan-out                             ; 2.61                     ;
+; Maximum fan-out                             ; 1299                     ;
+; Total fan-out                               ; 31551                    ;
+; Average fan-out                             ; 3.04                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -240,12 +243,12 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------+-----------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                   ; Entity Name           ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------+-----------------------+--------------+
-; |PROJ0                                          ; 938 (261)           ; 364 (192)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 33   ; 0            ; 0          ; |PROJ0                                                                                ; PROJ0                 ; work         ;
-;    |ADXL345_controller:U4|                      ; 144 (0)             ; 95 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4                                                          ; ADXL345_controller    ; work         ;
-;       |gsensor:U0|                              ; 144 (100)           ; 95 (57)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0                                               ; gsensor               ; work         ;
+; |PROJ0                                          ; 8854 (6334)         ; 1470 (1298)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 33   ; 0            ; 0          ; |PROJ0                                                                                ; PROJ0                 ; work         ;
+;    |ADXL345_controller:U4|                      ; 143 (0)             ; 95 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4                                                          ; ADXL345_controller    ; work         ;
+;       |gsensor:U0|                              ; 143 (99)            ; 95 (57)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0                                               ; gsensor               ; work         ;
 ;          |spi:u0|                               ; 44 (44)             ; 38 (38)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0                                        ; spi                   ; work         ;
 ;    |CLK_50MHZ_to_60HZ:U5|                       ; 56 (56)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|CLK_50MHZ_to_60HZ:U5                                                           ; CLK_50MHZ_to_60HZ     ; work         ;
-;    |hw_image_generator:U3|                      ; 421 (421)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|hw_image_generator:U3                                                          ; hw_image_generator    ; work         ;
+;    |hw_image_generator:U3|                      ; 2265 (2265)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|hw_image_generator:U3                                                          ; hw_image_generator    ; work         ;
 ;    |vga_controller:U2|                          ; 56 (56)             ; 44 (44)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_controller:U2                                                              ; vga_controller        ; work         ;
 ;    |vga_pll_25_175:U1|                          ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_pll_25_175:U1                                                              ; vga_pll_25_175        ; work         ;
 ;       |altpll:altpll_component|                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_pll_25_175:U1|altpll:altpll_component                                      ; altpll                ; work         ;
@@ -273,10 +276,951 @@ Encoding Type:  One-Hot
 ; Register name                                   ; Reason for Removal                     ;
 +-------------------------------------------------+----------------------------------------+
 ; vga_controller:U2|column[10..30]                ; Stuck at GND due to stuck port data_in ;
-; vga_controller:U2|row[9..30]                    ; Stuck at GND due to stuck port data_in ;
+; vga_controller:U2|row[10..30]                   ; Stuck at GND due to stuck port data_in ;
+; enemyPosition_y[0][11]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][12]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][13]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][14]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][15]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][16]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][17]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][18]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][19]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][20]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][21]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][22]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][23]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][24]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][25]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][26]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][27]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][28]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][29]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][30]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][31]                          ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[0][9]                           ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][10]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][11]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][12]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][13]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][14]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][15]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][16]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][17]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][18]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][19]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][20]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][21]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][22]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][23]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][24]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][25]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][26]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][27]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][28]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][29]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][30]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][31]                                ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][7]                                 ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][8]                                 ; Merged with enemyPosition_y[0][10]     ;
+; enemySize[0][9]                                 ; Merged with enemyPosition_y[0][10]     ;
+; enemyPosition_y[1][11]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][12]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][13]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][14]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][15]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][16]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][17]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][18]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][19]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][20]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][21]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][22]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][23]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][24]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][25]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][26]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][27]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][28]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][29]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][30]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][31]                          ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[1][9]                           ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][10]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][11]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][12]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][13]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][14]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][15]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][16]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][17]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][18]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][19]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][20]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][21]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][22]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][23]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][24]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][25]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][26]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][27]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][28]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][29]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][30]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][31]                                ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][7]                                 ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][8]                                 ; Merged with enemyPosition_y[1][10]     ;
+; enemySize[1][9]                                 ; Merged with enemyPosition_y[1][10]     ;
+; enemyPosition_y[2][11]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][12]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][13]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][14]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][15]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][16]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][17]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][18]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][19]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][20]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][21]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][22]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][23]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][24]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][25]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][26]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][27]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][28]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][29]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][30]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][31]                          ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[2][9]                           ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][10]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][11]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][12]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][13]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][14]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][15]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][16]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][17]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][18]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][19]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][20]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][21]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][22]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][23]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][24]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][25]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][26]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][27]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][28]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][29]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][30]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][31]                                ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][7]                                 ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][8]                                 ; Merged with enemyPosition_y[2][10]     ;
+; enemySize[2][9]                                 ; Merged with enemyPosition_y[2][10]     ;
+; enemyPosition_y[3][11]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][12]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][13]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][14]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][15]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][16]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][17]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][18]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][19]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][20]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][21]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][22]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][23]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][24]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][25]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][26]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][27]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][28]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][29]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][30]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][31]                          ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[3][9]                           ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][10]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][11]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][12]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][13]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][14]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][15]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][16]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][17]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][18]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][19]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][20]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][21]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][22]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][23]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][24]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][25]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][26]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][27]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][28]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][29]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][30]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][31]                                ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][7]                                 ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][8]                                 ; Merged with enemyPosition_y[3][10]     ;
+; enemySize[3][9]                                 ; Merged with enemyPosition_y[3][10]     ;
+; enemyPosition_y[4][11]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][12]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][13]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][14]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][15]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][16]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][17]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][18]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][19]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][20]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][21]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][22]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][23]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][24]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][25]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][26]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][27]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][28]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][29]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][30]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][31]                          ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[4][9]                           ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][10]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][11]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][12]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][13]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][14]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][15]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][16]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][17]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][18]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][19]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][20]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][21]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][22]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][23]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][24]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][25]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][26]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][27]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][28]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][29]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][30]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][31]                                ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][7]                                 ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][8]                                 ; Merged with enemyPosition_y[4][10]     ;
+; enemySize[4][9]                                 ; Merged with enemyPosition_y[4][10]     ;
+; enemyPosition_y[5][11]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][12]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][13]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][14]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][15]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][16]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][17]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][18]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][19]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][20]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][21]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][22]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][23]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][24]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][25]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][26]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][27]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][28]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][29]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][30]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][31]                          ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[5][9]                           ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][10]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][11]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][12]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][13]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][14]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][15]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][16]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][17]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][18]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][19]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][20]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][21]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][22]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][23]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][24]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][25]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][26]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][27]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][28]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][29]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][30]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][31]                                ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][7]                                 ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][8]                                 ; Merged with enemyPosition_y[5][10]     ;
+; enemySize[5][9]                                 ; Merged with enemyPosition_y[5][10]     ;
+; enemyPosition_y[6][11]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][12]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][13]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][14]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][15]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][16]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][17]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][18]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][19]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][20]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][21]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][22]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][23]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][24]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][25]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][26]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][27]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][28]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][29]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][30]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][31]                          ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[6][9]                           ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][10]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][11]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][12]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][13]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][14]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][15]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][16]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][17]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][18]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][19]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][20]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][21]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][22]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][23]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][24]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][25]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][26]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][27]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][28]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][29]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][30]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][31]                                ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][7]                                 ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][8]                                 ; Merged with enemyPosition_y[6][10]     ;
+; enemySize[6][9]                                 ; Merged with enemyPosition_y[6][10]     ;
+; enemyPosition_y[7][11]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][12]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][13]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][14]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][15]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][16]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][17]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][18]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][19]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][20]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][21]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][22]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][23]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][24]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][25]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][26]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][27]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][28]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][29]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][30]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][31]                          ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[7][9]                           ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][10]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][11]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][12]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][13]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][14]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][15]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][16]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][17]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][18]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][19]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][20]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][21]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][22]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][23]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][24]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][25]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][26]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][27]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][28]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][29]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][30]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][31]                                ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][7]                                 ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][8]                                 ; Merged with enemyPosition_y[7][10]     ;
+; enemySize[7][9]                                 ; Merged with enemyPosition_y[7][10]     ;
+; enemyPosition_y[8][11]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][12]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][13]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][14]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][15]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][16]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][17]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][18]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][19]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][20]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][21]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][22]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][23]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][24]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][25]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][26]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][27]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][28]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][29]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][30]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][31]                          ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[8][9]                           ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][10]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][11]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][12]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][13]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][14]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][15]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][16]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][17]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][18]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][19]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][20]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][21]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][22]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][23]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][24]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][25]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][26]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][27]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][28]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][29]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][30]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][31]                                ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][7]                                 ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][8]                                 ; Merged with enemyPosition_y[8][10]     ;
+; enemySize[8][9]                                 ; Merged with enemyPosition_y[8][10]     ;
+; enemyPosition_y[9][11]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][12]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][13]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][14]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][15]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][16]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][17]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][18]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][19]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][20]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][21]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][22]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][23]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][24]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][25]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][26]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][27]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][28]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][29]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][30]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][31]                          ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[9][9]                           ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][10]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][11]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][12]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][13]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][14]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][15]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][16]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][17]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][18]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][19]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][20]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][21]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][22]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][23]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][24]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][25]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][26]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][27]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][28]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][29]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][30]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][31]                                ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][7]                                 ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][8]                                 ; Merged with enemyPosition_y[9][10]     ;
+; enemySize[9][9]                                 ; Merged with enemyPosition_y[9][10]     ;
+; enemyPosition_y[10][11]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][12]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][13]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][14]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][15]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][16]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][17]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][18]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][19]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][20]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][21]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][22]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][23]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][24]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][25]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][26]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][27]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][28]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][29]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][30]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][31]                         ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[10][9]                          ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][10]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][11]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][12]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][13]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][14]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][15]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][16]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][17]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][18]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][19]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][20]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][21]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][22]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][23]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][24]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][25]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][26]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][27]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][28]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][29]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][30]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][31]                               ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][7]                                ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][8]                                ; Merged with enemyPosition_y[10][10]    ;
+; enemySize[10][9]                                ; Merged with enemyPosition_y[10][10]    ;
+; enemyPosition_y[11][11]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][12]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][13]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][14]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][15]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][16]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][17]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][18]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][19]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][20]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][21]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][22]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][23]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][24]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][25]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][26]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][27]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][28]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][29]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][30]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][31]                         ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[11][9]                          ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][10]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][11]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][12]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][13]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][14]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][15]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][16]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][17]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][18]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][19]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][20]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][21]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][22]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][23]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][24]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][25]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][26]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][27]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][28]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][29]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][30]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][31]                               ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][7]                                ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][8]                                ; Merged with enemyPosition_y[11][10]    ;
+; enemySize[11][9]                                ; Merged with enemyPosition_y[11][10]    ;
+; enemyPosition_y[12][11]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][12]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][13]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][14]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][15]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][16]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][17]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][18]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][19]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][20]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][21]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][22]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][23]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][24]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][25]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][26]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][27]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][28]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][29]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][30]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][31]                         ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[12][9]                          ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][10]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][11]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][12]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][13]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][14]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][15]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][16]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][17]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][18]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][19]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][20]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][21]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][22]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][23]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][24]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][25]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][26]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][27]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][28]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][29]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][30]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][31]                               ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][7]                                ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][8]                                ; Merged with enemyPosition_y[12][10]    ;
+; enemySize[12][9]                                ; Merged with enemyPosition_y[12][10]    ;
+; enemyPosition_y[13][11]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][12]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][13]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][14]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][15]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][16]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][17]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][18]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][19]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][20]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][21]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][22]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][23]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][24]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][25]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][26]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][27]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][28]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][29]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][30]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][31]                         ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[13][9]                          ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][10]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][11]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][12]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][13]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][14]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][15]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][16]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][17]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][18]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][19]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][20]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][21]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][22]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][23]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][24]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][25]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][26]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][27]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][28]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][29]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][30]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][31]                               ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][7]                                ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][8]                                ; Merged with enemyPosition_y[13][10]    ;
+; enemySize[13][9]                                ; Merged with enemyPosition_y[13][10]    ;
+; enemyPosition_y[14][11]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][12]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][13]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][14]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][15]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][16]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][17]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][18]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][19]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][20]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][21]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][22]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][23]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][24]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][25]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][26]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][27]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][28]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][29]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][30]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][31]                         ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[14][9]                          ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][10]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][11]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][12]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][13]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][14]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][15]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][16]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][17]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][18]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][19]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][20]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][21]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][22]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][23]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][24]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][25]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][26]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][27]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][28]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][29]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][30]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][31]                               ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][7]                                ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][8]                                ; Merged with enemyPosition_y[14][10]    ;
+; enemySize[14][9]                                ; Merged with enemyPosition_y[14][10]    ;
+; enemyPosition_y[15][11]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][12]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][13]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][14]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][15]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][16]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][17]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][18]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][19]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][20]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][21]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][22]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][23]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][24]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][25]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][26]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][27]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][28]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][29]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][30]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][31]                         ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[15][9]                          ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][10]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][11]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][12]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][13]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][14]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][15]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][16]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][17]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][18]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][19]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][20]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][21]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][22]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][23]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][24]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][25]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][26]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][27]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][28]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][29]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][30]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][31]                               ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][7]                                ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][8]                                ; Merged with enemyPosition_y[15][10]    ;
+; enemySize[15][9]                                ; Merged with enemyPosition_y[15][10]    ;
+; enemyPosition_y[16][11]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][12]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][13]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][14]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][15]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][16]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][17]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][18]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][19]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][20]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][21]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][22]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][23]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][24]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][25]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][26]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][27]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][28]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][29]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][30]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][31]                         ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[16][9]                          ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][10]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][11]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][12]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][13]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][14]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][15]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][16]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][17]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][18]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][19]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][20]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][21]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][22]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][23]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][24]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][25]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][26]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][27]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][28]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][29]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][30]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][31]                               ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][7]                                ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][8]                                ; Merged with enemyPosition_y[16][10]    ;
+; enemySize[16][9]                                ; Merged with enemyPosition_y[16][10]    ;
+; enemyPosition_y[17][11]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][12]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][13]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][14]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][15]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][16]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][17]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][18]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][19]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][20]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][21]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][22]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][23]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][24]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][25]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][26]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][27]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][28]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][29]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][30]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][31]                         ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[17][9]                          ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][10]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][11]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][12]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][13]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][14]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][15]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][16]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][17]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][18]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][19]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][20]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][21]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][22]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][23]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][24]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][25]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][26]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][27]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][28]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][29]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][30]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][31]                               ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][7]                                ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][8]                                ; Merged with enemyPosition_y[17][10]    ;
+; enemySize[17][9]                                ; Merged with enemyPosition_y[17][10]    ;
+; enemyPosition_y[18][11]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][12]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][13]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][14]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][15]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][16]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][17]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][18]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][19]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][20]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][21]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][22]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][23]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][24]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][25]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][26]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][27]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][28]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][29]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][30]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][31]                         ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[18][9]                          ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][10]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][11]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][12]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][13]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][14]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][15]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][16]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][17]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][18]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][19]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][20]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][21]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][22]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][23]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][24]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][25]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][26]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][27]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][28]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][29]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][30]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][31]                               ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][7]                                ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][8]                                ; Merged with enemyPosition_y[18][10]    ;
+; enemySize[18][9]                                ; Merged with enemyPosition_y[18][10]    ;
+; enemyPosition_y[19][11]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][12]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][13]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][14]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][15]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][16]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][17]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][18]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][19]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][20]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][21]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][22]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][23]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][24]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][25]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][26]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][27]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][28]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][29]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][30]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][31]                         ; Merged with enemyPosition_y[19][10]    ;
+; enemyPosition_y[19][9]                          ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][10]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][11]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][12]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][13]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][14]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][15]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][16]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][17]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][18]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][19]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][20]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][21]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][22]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][23]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][24]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][25]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][26]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][27]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][28]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][29]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][30]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][31]                               ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][7]                                ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][8]                                ; Merged with enemyPosition_y[19][10]    ;
+; enemySize[19][9]                                ; Merged with enemyPosition_y[19][10]    ;
+; vga_controller:U2|row[9]                        ; Stuck at GND due to stuck port data_in ;
 ; ADXL345_controller:U4|gsensor:U0|spi:u0|state~2 ; Lost fanout                            ;
 ; ADXL345_controller:U4|gsensor:U0|spi:u0|state~3 ; Lost fanout                            ;
-; Total Number of Removed Registers = 45          ;                                        ;
+; Total Number of Removed Registers = 985         ;                                        ;
 +-------------------------------------------------+----------------------------------------+
 
 
@@ -285,46 +1229,124 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 364   ;
-; Number of registers using Synchronous Clear  ; 32    ;
+; Total registers                              ; 1470  ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 215   ;
+; Number of registers using Clock Enable       ; 649   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------+
-; Inverted Register Statistics                      ;
-+-----------------------------------------+---------+
-; Inverted Register                       ; Fan out ;
-+-----------------------------------------+---------+
-; vga_controller:U2|column[31]            ; 8       ;
-; vga_controller:U2|row[31]               ; 7       ;
-; vga_controller:U2|row[0]                ; 6       ;
-; vga_controller:U2|column[0]             ; 7       ;
-; num_lives[0]                            ; 3       ;
-; num_lives[1]                            ; 4       ;
-; player_left[4]                          ; 4       ;
-; player_left[3]                          ; 4       ;
-; player_left[2]                          ; 4       ;
-; player_left[1]                          ; 4       ;
-; player_top[7]                           ; 4       ;
-; player_top[6]                           ; 4       ;
-; player_top[4]                           ; 4       ;
-; player_top[3]                           ; 4       ;
-; player_top[2]                           ; 4       ;
-; player_bottom[8]                        ; 3       ;
-; player_bottom[2]                        ; 3       ;
-; player_right[6]                         ; 3       ;
-; player_right[5]                         ; 3       ;
-; player_right[3]                         ; 3       ;
-; player_right[2]                         ; 3       ;
-; player_right[1]                         ; 3       ;
-; CLK_50MHZ_to_60HZ:U5|count[0]           ; 2       ;
-; Total number of inverted registers = 23 ;         ;
-+-----------------------------------------+---------+
++------------------------------------------------------+
+; Inverted Register Statistics                         ;
++--------------------------------------------+---------+
+; Inverted Register                          ; Fan out ;
++--------------------------------------------+---------+
+; enemyPosition_x[0][10]                     ; 7       ;
+; enemyPosition_x[0][11]                     ; 7       ;
+; enemyPosition_x[0][12]                     ; 7       ;
+; enemyPosition_x[0][13]                     ; 7       ;
+; enemyPosition_x[0][14]                     ; 7       ;
+; enemyPosition_x[0][15]                     ; 7       ;
+; enemyPosition_x[0][16]                     ; 7       ;
+; enemyPosition_x[0][17]                     ; 7       ;
+; enemyPosition_x[0][18]                     ; 7       ;
+; enemyPosition_x[0][19]                     ; 7       ;
+; enemyPosition_x[0][20]                     ; 7       ;
+; enemyPosition_x[0][21]                     ; 7       ;
+; enemyPosition_x[0][22]                     ; 7       ;
+; enemyPosition_x[0][23]                     ; 7       ;
+; enemyPosition_x[0][24]                     ; 7       ;
+; enemyPosition_x[0][25]                     ; 7       ;
+; enemyPosition_x[0][30]                     ; 7       ;
+; enemyPosition_x[0][26]                     ; 7       ;
+; enemyPosition_x[0][27]                     ; 7       ;
+; enemyPosition_x[0][28]                     ; 7       ;
+; enemyPosition_x[0][29]                     ; 7       ;
+; enemyPosition_x[0][9]                      ; 8       ;
+; enemyPosition_x[0][8]                      ; 8       ;
+; enemyPosition_x[0][7]                      ; 8       ;
+; enemyPosition_x[0][6]                      ; 8       ;
+; enemyPosition_x[0][5]                      ; 8       ;
+; enemyPosition_x[0][4]                      ; 8       ;
+; enemyPosition_x[0][3]                      ; 8       ;
+; enemyPosition_x[0][2]                      ; 8       ;
+; enemyPosition_x[0][1]                      ; 8       ;
+; enemyPosition_x[0][0]                      ; 7       ;
+; vga_controller:U2|column[0]                ; 47      ;
+; vga_controller:U2|column[31]               ; 48      ;
+; enemyPosition_x[0][31]                     ; 9       ;
+; vga_controller:U2|row[31]                  ; 27      ;
+; enemyPosition_y[0][10]                     ; 55      ;
+; enemyPosition_y[0][8]                      ; 4       ;
+; enemyPosition_y[0][7]                      ; 4       ;
+; enemyPosition_y[0][6]                      ; 4       ;
+; enemyPosition_y[0][5]                      ; 4       ;
+; enemyPosition_y[0][4]                      ; 4       ;
+; enemyPosition_y[0][3]                      ; 6       ;
+; enemyPosition_y[0][2]                      ; 6       ;
+; enemyPosition_y[0][1]                      ; 4       ;
+; vga_controller:U2|row[0]                   ; 45      ;
+; enemyPosition_y[0][0]                      ; 4       ;
+; enemySize[0][6]                            ; 2       ;
+; enemySize[0][5]                            ; 2       ;
+; enemySize[0][4]                            ; 2       ;
+; enemySize[0][3]                            ; 2       ;
+; enemySize[0][2]                            ; 2       ;
+; enemySize[0][1]                            ; 2       ;
+; enemySize[0][0]                            ; 2       ;
+; enemyPosition_x[1][10]                     ; 7       ;
+; enemyPosition_x[1][11]                     ; 7       ;
+; enemyPosition_x[1][12]                     ; 7       ;
+; enemyPosition_x[1][13]                     ; 7       ;
+; enemyPosition_x[1][14]                     ; 7       ;
+; enemyPosition_x[1][15]                     ; 7       ;
+; enemyPosition_x[1][16]                     ; 7       ;
+; enemyPosition_x[1][17]                     ; 7       ;
+; enemyPosition_x[1][18]                     ; 7       ;
+; enemyPosition_x[1][19]                     ; 7       ;
+; enemyPosition_x[1][20]                     ; 7       ;
+; enemyPosition_x[1][21]                     ; 7       ;
+; enemyPosition_x[1][22]                     ; 7       ;
+; enemyPosition_x[1][23]                     ; 7       ;
+; enemyPosition_x[1][24]                     ; 7       ;
+; enemyPosition_x[1][25]                     ; 7       ;
+; enemyPosition_x[1][30]                     ; 7       ;
+; enemyPosition_x[1][26]                     ; 7       ;
+; enemyPosition_x[1][27]                     ; 7       ;
+; enemyPosition_x[1][28]                     ; 7       ;
+; enemyPosition_x[1][29]                     ; 7       ;
+; enemyPosition_x[1][9]                      ; 8       ;
+; enemyPosition_x[1][8]                      ; 8       ;
+; enemyPosition_x[1][7]                      ; 8       ;
+; enemyPosition_x[1][6]                      ; 8       ;
+; enemyPosition_x[1][5]                      ; 8       ;
+; enemyPosition_x[1][4]                      ; 8       ;
+; enemyPosition_x[1][3]                      ; 8       ;
+; enemyPosition_x[1][2]                      ; 8       ;
+; enemyPosition_x[1][1]                      ; 8       ;
+; enemyPosition_x[1][0]                      ; 7       ;
+; enemyPosition_x[1][31]                     ; 9       ;
+; enemyPosition_y[1][10]                     ; 57      ;
+; enemyPosition_y[1][8]                      ; 4       ;
+; enemyPosition_y[1][7]                      ; 4       ;
+; enemyPosition_y[1][6]                      ; 4       ;
+; enemyPosition_y[1][5]                      ; 4       ;
+; enemyPosition_y[1][4]                      ; 4       ;
+; enemyPosition_y[1][3]                      ; 6       ;
+; enemyPosition_y[1][2]                      ; 6       ;
+; enemyPosition_y[1][1]                      ; 4       ;
+; enemyPosition_y[1][0]                      ; 4       ;
+; enemySize[1][6]                            ; 2       ;
+; enemySize[1][5]                            ; 2       ;
+; enemySize[1][4]                            ; 2       ;
+; enemySize[1][3]                            ; 2       ;
+; enemySize[1][2]                            ; 2       ;
+; Total number of inverted registers = 1001* ;         ;
++--------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -332,17 +1354,42 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
-; 3:1                ; 57 bits   ; 114 LEs       ; 57 LEs               ; 57 LEs                 ; Yes        ; |PROJ0|player_bottom[16]                                      ;
-; 3:1                ; 55 bits   ; 110 LEs       ; 55 LEs               ; 55 LEs                 ; Yes        ; |PROJ0|player_right[16]                                       ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |PROJ0|invincible_counter[11]                                 ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|clk_counter[0] ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|count[0]       ;
+; 3:1                ; 55 bits   ; 110 LEs       ; 55 LEs               ; 55 LEs                 ; Yes        ; |PROJ0|player_top[22]                                         ;
+; 3:1                ; 57 bits   ; 114 LEs       ; 57 LEs               ; 57 LEs                 ; Yes        ; |PROJ0|player_left[10]                                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|clk_counter[3] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |PROJ0|currentEnemyIndex[4]                                   ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|count[2]       ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|idlecount[3]   ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PROJ0|player_bottom[2]                                       ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |PROJ0|player_right[6]                                        ;
+; 12:1               ; 30 bits   ; 240 LEs       ; 0 LEs                ; 240 LEs                ; Yes        ; |PROJ0|num_lives[19]                                          ;
+; 24:1               ; 32 bits   ; 512 LEs       ; 64 LEs               ; 448 LEs                ; Yes        ; |PROJ0|invincible_counter[31]                                 ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PROJ0|player_top[7]                                          ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PROJ0|player_left[4]                                         ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[0][9]                                  ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[1][18]                                 ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[2][25]                                 ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[3][23]                                 ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[4][29]                                 ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[5][4]                                  ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[6][6]                                  ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[7][18]                                 ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[8][21]                                 ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[9][23]                                 ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[10][25]                                ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[11][30]                                ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[12][17]                                ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[13][19]                                ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[14][11]                                ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[15][24]                                ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[16][1]                                 ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[17][30]                                ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[18][30]                                ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[19][26]                                ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|num_lives[1]                                           ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |PROJ0|vga_controller:U2|v_count                              ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|Selector3      ;
+; 20:1               ; 32 bits   ; 416 LEs       ; 416 LEs              ; 0 LEs                  ; No         ; |PROJ0|Mux9                                                   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|Selector1      ;
 ; 8:1                ; 6 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|Selector1             ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 4 LEs                ; 24 LEs                 ; No         ; |PROJ0|hw_image_generator:U3|blue[0]                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 
 
@@ -816,6 +1863,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++----------------------------------------------------+
+; Port Connectivity Checks: "hw_image_generator:U3"  ;
++------------------+-------+----------+--------------+
+; Port             ; Type  ; Severity ; Details      ;
++------------------+-------+----------+--------------+
+; player_top[0]    ; Input ; Info     ; Stuck at GND ;
+; player_bottom[0] ; Input ; Info     ; Stuck at GND ;
++------------------+-------+----------+--------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "vga_controller:U2"                                                                     ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
@@ -833,25 +1890,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 33                          ;
-; cycloneiii_ff         ; 364                         ;
-;     ENA               ; 215                         ;
-;     SCLR              ; 32                          ;
-;     plain             ; 117                         ;
+; cycloneiii_ff         ; 1470                        ;
+;     ENA               ; 649                         ;
+;     plain             ; 821                         ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 938                         ;
-;     arith             ; 602                         ;
+; cycloneiii_lcell_comb ; 8854                        ;
+;     arith             ; 4062                        ;
 ;         1 data inputs ; 85                          ;
-;         2 data inputs ; 188                         ;
-;         3 data inputs ; 329                         ;
-;     normal            ; 336                         ;
-;         1 data inputs ; 31                          ;
-;         2 data inputs ; 61                          ;
-;         3 data inputs ; 41                          ;
-;         4 data inputs ; 203                         ;
+;         2 data inputs ; 933                         ;
+;         3 data inputs ; 3044                        ;
+;     normal            ; 4792                        ;
+;         0 data inputs ; 20                          ;
+;         1 data inputs ; 73                          ;
+;         2 data inputs ; 734                         ;
+;         3 data inputs ; 566                         ;
+;         4 data inputs ; 3399                        ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.10                        ;
-; Average LUT depth     ; 5.15                        ;
+; Max LUT depth         ; 23.20                       ;
+; Average LUT depth     ; 11.43                       ;
 +-----------------------+-----------------------------+
 
 
@@ -860,7 +1917,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:59     ;
 +----------------+--------------+
 
 
@@ -870,7 +1927,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Nov 05 21:57:42 2021
+    Info: Processing started: Mon Nov 08 17:22:54 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PROJ0 -c PROJ0
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -891,14 +1948,20 @@ Info (12021): Found 2 design units, including 1 entities, in source file compone
     Info (12022): Found design unit 1: vga_controller-behavior File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_controller.vhd Line: 52
     Info (12023): Found entity 1: vga_controller File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_controller.vhd Line: 28
 Info (12021): Found 2 design units, including 1 entities, in source file components/hw_image_generator.vhd
-    Info (12022): Found design unit 1: hw_image_generator-behavior File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 63
-    Info (12023): Found entity 1: hw_image_generator File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 33
-Info (12021): Found 2 design units, including 1 entities, in source file proj0.vhd
-    Info (12022): Found design unit 1: PROJ0-PROJ0_ARCH File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 31
-    Info (12023): Found entity 1: PROJ0 File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 4
+    Info (12022): Found design unit 1: hw_image_generator-behavior File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 68
+    Info (12023): Found entity 1: hw_image_generator File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 36
+Info (12021): Found 3 design units, including 1 entities, in source file proj0.vhd
+    Info (12022): Found design unit 1: my_types File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 6
+    Info (12022): Found design unit 2: PROJ0-PROJ0_ARCH File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 44
+    Info (12023): Found entity 1: PROJ0 File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 17
 Info (12127): Elaborating entity "PROJ0" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at PROJ0.vhd(105): object "data_z" assigned a value but never read File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 105
-Info (12128): Elaborating entity "vga_pll_25_175" for hierarchy "vga_pll_25_175:U1" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 124
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(121): used explicit default value for signal "spawnPositions" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 121
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(122): used explicit default value for signal "enemySizes" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 122
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(124): used explicit default value for signal "maxEnemyIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 124
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(125): used explicit default value for signal "maxSizeIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 125
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(126): used explicit default value for signal "maxSpawnIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 126
+Warning (10036): Verilog HDL or VHDL warning at PROJ0.vhd(130): object "data_z" assigned a value but never read File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 130
+Info (12128): Elaborating entity "vga_pll_25_175" for hierarchy "vga_pll_25_175:U1" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 149
 Info (12128): Elaborating entity "altpll" for hierarchy "vga_pll_25_175:U1|altpll:altpll_component" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
 Info (12130): Elaborated megafunction instantiation "vga_pll_25_175:U1|altpll:altpll_component" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
 Info (12133): Instantiated megafunction "vga_pll_25_175:U1|altpll:altpll_component" with the following parameter: File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
@@ -959,18 +2022,24 @@ Info (12133): Instantiated megafunction "vga_pll_25_175:U1|altpll:altpll_compone
 Info (12021): Found 1 design units, including 1 entities, in source file db/vga_pll_25_175_altpll.v
     Info (12023): Found entity 1: vga_pll_25_175_altpll File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v Line: 30
 Info (12128): Elaborating entity "vga_pll_25_175_altpll" for hierarchy "vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:U2" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 125
-Info (12128): Elaborating entity "hw_image_generator" for hierarchy "hw_image_generator:U3" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 126
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(86): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 86
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(86): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 86
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(87): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 87
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(87): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 87
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(88): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 88
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(88): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 88
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(100): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 100
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(114): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 114
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(128): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 128
-Info (12128): Elaborating entity "ADXL345_controller" for hierarchy "ADXL345_controller:U4" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 127
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:U2" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 150
+Info (12128): Elaborating entity "hw_image_generator" for hierarchy "hw_image_generator:U3" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 151
+Warning (10540): VHDL Signal Declaration warning at hw_image_generator.vhd(71): used explicit default value for signal "maxEnemyIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 71
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(92): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(92): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(93): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 93
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(93): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 93
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(94): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(94): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(106): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 106
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(120): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 120
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(134): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 134
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(148): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 148
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(149): signal "enemyPosition_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 149
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(149): signal "enemySize" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 149
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(150): signal "enemyPosition_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 150
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(150): signal "enemySize" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 150
+Info (12128): Elaborating entity "ADXL345_controller" for hierarchy "ADXL345_controller:U4" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 152
 Info (12128): Elaborating entity "gsensor" for hierarchy "ADXL345_controller:U4|gsensor:U0" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/ADXL345_controller.vhd Line: 47
 Warning (10230): Verilog HDL assignment warning at gsensor.sv(28): truncated value with size 32 to match size of target (20) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 28
 Warning (10230): Verilog HDL assignment warning at gsensor.sv(266): truncated value with size 8 to match size of target (6) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 266
@@ -982,17 +2051,17 @@ Info (12128): Elaborating entity "spi" for hierarchy "ADXL345_controller:U4|gsen
 Warning (10230): Verilog HDL assignment warning at spi.sv(47): truncated value with size 32 to match size of target (4) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 47
 Warning (10230): Verilog HDL assignment warning at spi.sv(156): truncated value with size 32 to match size of target (3) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 156
 Warning (10230): Verilog HDL assignment warning at spi.sv(204): truncated value with size 64 to match size of target (4) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 204
-Info (12128): Elaborating entity "CLK_50MHZ_to_60HZ" for hierarchy "CLK_50MHZ_to_60HZ:U5" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 128
+Info (12128): Elaborating entity "CLK_50MHZ_to_60HZ" for hierarchy "CLK_50MHZ_to_60HZ:U5" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 153
 Warning (10492): VHDL Process Statement warning at CLK_50MHZ_to_60HZ.vhd(23): signal "tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 23
 Critical Warning (127005): Memory depth (64) in the design file differs from memory depth (44) in the Memory Initialization File "C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/db/PROJ0.ram0_gsensor_889e66e.hdl.mif" -- setting initial value for remaining addresses to 0
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276013): RAM logic "ADXL345_controller:U4|gsensor:U0|spi_program" is uninferred because MIF is not supported for the selected family File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "GSENSOR_SDI" and its non-tri-state driver. File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 23
+    Warning (13035): Inserted always-enabled tri-state buffer between "GSENSOR_SDI" and its non-tri-state driver. File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 36
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 24
+    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 37
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "GSENSOR_SDI~synth" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 23
+    Warning (13010): Node "GSENSOR_SDI~synth" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 36
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 24 assignments for entity "ADXL345_Driver" -- entity does not exist in design
@@ -1123,17 +2192,19 @@ Warning (20013): Ignored 24 assignments for entity "vga_top" -- entity does not 
 Info (144001): Generated suppressed messages file C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1053 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "key0" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 39
+Info (21057): Implemented 9288 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 28 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1019 logic cells
+    Info (21061): Implemented 9254 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 153 warnings
-    Info: Peak virtual memory: 4798 megabytes
-    Info: Processing ended: Fri Nov 05 21:57:53 2021
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 166 warnings
+    Info: Peak virtual memory: 4856 megabytes
+    Info: Processing ended: Mon Nov 08 17:24:05 2021
+    Info: Elapsed time: 00:01:11
+    Info: Total CPU time (on all processors): 00:01:23
 
 
 +------------------------------------------+

@@ -30,6 +30,9 @@ USE ieee.std_logic_1164.all;
 USE ieee.numeric_STD.all;
 USE ieee.math_real.all;
 
+LIBRARY work;
+use work.my_types.all;
+
 ENTITY hw_image_generator IS
   GENERIC(
     
@@ -54,6 +57,8 @@ ENTITY hw_image_generator IS
 	 player_top 	: IN INTEGER;
 	 player_bottom	: IN INTEGER;
 	 num_lives		: IN INTEGER;
+			
+	 enemyPosition_x, enemyPosition_y, enemySize : IN array20;
 	 
     red      :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
     green    :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
@@ -63,6 +68,7 @@ END hw_image_generator;
 ARCHITECTURE behavior OF hw_image_generator IS
 signal Diagonal: INTEGER;
 signal tilt_int, red_mult : integer := 0;
+signal maxEnemyIndex : INTEGER := 19;
 
 BEGIN
   
@@ -138,6 +144,16 @@ BEGIN
 				end if;
 			end if;
 		end if;
+		
+		for I in 0 to maxEnemyIndex loop
+				if((row >= enemyPosition_y(I)) and (row <= (enemyPosition_y(I) + enemySize(I)))) then
+					if( (column >= (enemyPosition_x(I) - enemySize(I))) and (column <= enemyPosition_x(I))) then
+						red <= (OTHERS => '0');
+						blue <= (OTHERS => '0');
+						green <= (OTHERS => '1');
+					end if;
+				end if;
+		end loop;
 				
 					
 		
