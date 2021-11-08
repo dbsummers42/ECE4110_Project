@@ -1,0 +1,143 @@
+--------------------------------------------------------------------------------
+--
+--   FileName:         hw_image_generator.vhd
+--   Dependencies:     none
+--   Design Software:  Quartus II 64-bit Version 12.1 Build 177 SJ Full Version
+--
+--   HDL CODE IS PROVIDED "AS IS."  DIGI-KEY EXPRESSLY DISCLAIMS ANY
+--   WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT
+--   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+--   PARTICULAR PURPOSE, OR NON-INFRINGEMENT. IN NO EVENT SHALL DIGI-KEY
+--   BE LIABLE FOR ANY INCIDENTAL, SPECIAL, INDIRECT OR CONSEQUENTIAL
+--   DAMAGES, LOST PROFITS OR LOST DATA, HARM TO YOUR EQUIPMENT, COST OF
+--   PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGY OR SERVICES, ANY CLAIMS
+--   BY THIRD PARTIES (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF),
+--   ANY CLAIMS FOR INDEMNITY OR CONTRIBUTION, OR OTHER SIMILAR COSTS.
+--
+--   Version History
+--   Version 1.0 05/10/2013 Scott Larson
+--     Initial Public Release
+--    
+--------------------------------------------------------------------------------
+--
+-- Altered 10/13/19 - Tyler McCormick 
+-- Test pattern is now 8 equally spaced 
+-- different color vertical bars, from black (left) to white (right)
+
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_STD.all;
+USE ieee.math_real.all;
+
+ENTITY hw_image_generator IS
+  GENERIC(
+    
+	col_a : INTEGER := 80;
+	col_b : INTEGER := 160;
+	col_c : INTEGER := 240;
+	col_d : INTEGER := 320;
+	col_e : INTEGER := 400;
+	col_f : INTEGER := 480;
+	col_g : INTEGER := 560;
+	col_h : INTEGER := 640
+
+	);  
+  PORT(
+    disp_ena :  IN   STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)
+    row      :  IN   INTEGER;    --row pixel coordinate
+    column   :  IN   INTEGER;    --column pixel coordinate
+	 blue_en	 :  IN   STD_LOGIC;
+	 green_en :  IN   STD_LOGIC;
+	 red_en	 :  IN   STD_LOGIC;
+	 tilt	    :  IN   STD_LOGIC_VECTOR (3 downto 0);
+    red      :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
+    green    :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
+    blue     :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0')); --blue magnitude output to DAC
+END hw_image_generator;
+
+ARCHITECTURE behavior OF hw_image_generator IS
+signal Diagonal: INTEGER;
+signal tilt_int, red_mult : integer := 0;
+
+BEGIN
+  
+  tilt_int <= to_integer(unsigned(tilt));
+  
+  PROCESS(disp_ena, row, column, tilt_int)
+  variable red_mult : integer := 0;
+  BEGIN
+  red_mult := column + 40*tilt_int;
+  green <= STD_LOGIC_VECTOR( to_unsigned(((row + 30*tilt_int)/ 30) , 8));
+   IF(disp_ena = '1') THEN        --display time
+		IF(column <= 40) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(( (column+40*tilt_int)/40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned(((column * 2) / 5) , 8));
+		ELSIF(column <= 80) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 40)  * 2)/ 5) , 8));
+		ELSIF(column <= 120) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 80) * 2)/ 5) , 8));
+		ELSIF(column <= 160) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 120) * 2) / 5) , 8));
+		ELSIF(column <= 200) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 160) * 2) / 5) , 8));
+		ELSIF(column <= 240) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 200) * 2) / 5) , 8));
+		ELSIF(column <= 280) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 240) * 2)/ 5) , 8));
+		ELSIF(column <= 320) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 280) * 2)/5) , 8));
+		ELSIF(column <= 360) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 320) * 2)/5) , 8));
+		ELSIF(column <= 400) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 360) * 2)/5) , 8));
+		ELSIF(column <= 440) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 400) * 2)/5) , 8));
+		ELSIF(column <= 480) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 440) * 2)/5) , 8));
+		ELSIF(column <= 520) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 480) * 2)/5) , 8));
+		ELSIF(column <= 560) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 520) * 2)/5) , 8));
+		ELSIF(column <= 600) then
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 560) * 2)/5) , 8));
+		ELSE 
+			red <= STD_LOGIC_VECTOR( to_unsigned(((column + 40*tilt_int) / 40), 8));
+			blue <= STD_LOGIC_VECTOR( to_unsigned((((column - 600) * 2)/5) , 8));
+		end if;
+		
+		IF( blue_en = '0') then
+			blue <= (OTHERS => '0');
+		end if;
+		
+		IF( green_en = '0') then
+			green <= (OTHERS => '0');
+		end if;
+		
+		IF( red_en = '0') then
+			red <= (OTHERS => '0');
+		end if;
+		
+    ELSE                           --blanking time
+      red <= (OTHERS => '0');
+      green <= (OTHERS => '0');
+      blue <= (OTHERS => '0');
+    END IF;
+  
+  END PROCESS;
+		
+END behavior;

@@ -1,0 +1,95 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity hw8p3 is
+	port (max10clk     : IN STD_LOGIC;
+			data_x      : buffer STD_LOGIC_VECTOR(15 downto 0);
+			GSENSOR_CS_N : OUT	STD_LOGIC;
+			GSENSOR_SCLK : OUT	STD_LOGIC;
+			GSENSOR_SDI  : INOUT	STD_LOGIC;
+			GSENSOR_SDO  : INOUT	STD_LOGIC;
+			hex0 			: out STD_LOGIC_VECTOR (6 downto 0);
+			hex1 			: out STD_LOGIC_VECTOR (6 downto 0);
+			hex2 			: out STD_LOGIC_VECTOR (6 downto 0));
+end entity;
+
+architecture hw8p3_arch of hw8p3 is
+
+signal counter : STD_LOGIC_VECTOR (11 downto 0);
+signal data_y, data_z : STD_LOGIC_VECTOR(15 downto 0);
+signal clk1hz, clk2hz, clk4hz, clk5hz, variable_clock : STD_LOGIC;
+
+component ADXL345_controller is
+	port (reset_n     : IN STD_LOGIC;
+			clk         : IN STD_LOGIC;
+			data_valid  : OUT STD_LOGIC;
+			data_x      : OUT STD_LOGIC_VECTOR(15 downto 0);
+			data_y      : OUT STD_LOGIC_VECTOR(15 downto 0);
+			data_z      : OUT STD_LOGIC_VECTOR(15 downto 0);
+			SPI_SDI     : OUT STD_LOGIC;
+			SPI_SDO     : IN STD_LOGIC;
+			SPI_CSN     : OUT STD_LOGIC;
+			SPI_CLK     : OUT STD_LOGIC);
+end component;
+
+component bcd_7segment is
+	port ( 
+		BCDin : in STD_LOGIC_VECTOR (3 downto 0);
+		Seven_Segment : out STD_LOGIC_VECTOR (6 downto 0));
+end component;
+
+component updowncounter is
+	port (clk : in STD_LOGIC;
+			direction : in STD_LOGIC_VECTOR (3 downto 0);
+			count_out : out STD_LOGIC_VECTOR (11 downto 0));
+end component;
+
+component clock1hz is
+	port (clock50mhz : in STD_LOGIC;
+			clock1hz : out STD_LOGIC);
+end component;
+
+component clock2hz is
+	port (clock50mhz : in STD_LOGIC;
+			clock2hz : out STD_LOGIC);
+end component;
+
+component clock4hz is
+	port (clock50mhz : in STD_LOGIC;
+			clock4hz : out STD_LOGIC);
+end component;
+
+component clock5hz is
+	port (clock50mhz : in STD_LOGIC;
+			clock5hz : out STD_LOGIC);
+end component;
+
+
+begin
+
+U1 : bcd_7segment port map (BCDin => counter(3 downto 0), Seven_Segment => hex0);
+U2 : bcd_7segment port map (BCDin => counter(7 downto 4), Seven_Segment => hex1);
+U3 : bcd_7segment port map (BCDin => counter(11 downto 8), Seven_Segment => hex2);
+
+U4 : updowncounter port map (clk => variable_clock, direction => data_x(11 downto 8), count_out => counter);
+
+U5 : ADXL345_controller port map ('1', max10clk, open, data_x, data_y, data_z, GSENSOR_SDI, GSENSOR_SDO, GSENSOR_CS_N, GSENSOR_SCLK);
+											
+U6 : clock1hz port map (clock50mhz => max10clk, clock1hz => clk1hz);
+U7 : clock2hz port map (clock50mhz => max10clk, clock2hz => clk2hz);
+U8 : clock4hz port map (clock50mhz => max10clk, clock4hz => clk4hz);
+U9 : clock5hz port map (clock50mhz => max10clk, clock5hz => clk5hz);
+
+clocksel : process (data_x) begin
+	if (data_x(7 downto 5) = "000") then
+		variable_clock <= clk1hz;
+	elsif (data_x(7 downto 5) = "001") then
+		variable_clock <= clk2hz;
+	elsif (data_x(7 downto 6) = "01") then
+		variable_clock <= clk4hz;
+	elsif (data_x(7) = '1') then
+		variable_clock <= clk5hz;
+end if;
+end process;
+
+end architecture;

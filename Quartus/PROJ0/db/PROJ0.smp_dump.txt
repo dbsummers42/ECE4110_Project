@@ -1,0 +1,7 @@
+
+State Machine - |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|state
+Name state.TO_IDLE state.ACTIVE state.TO_ACTIVE state.IDLE 
+state.IDLE 0 0 0 0 
+state.TO_ACTIVE 0 0 1 1 
+state.ACTIVE 0 1 0 1 
+state.TO_IDLE 1 0 0 1 
