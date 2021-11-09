@@ -33,6 +33,7 @@ GSENSOR_SCLK <= ADXL345_controller:U4.SPI_CLK
 GSENSOR_SDI <> GSENSOR_SDI
 key0 => ~NO_FANOUT~
 key1 => HZ60_Update.IN1
+key1 => HZ60_Update.IN1
 
 
 |PROJ0|vga_pll_25_175:U1
@@ -3869,6 +3870,7 @@ num_lives[30] => LessThan17.IN34
 num_lives[31] => LessThan9.IN33
 num_lives[31] => LessThan13.IN33
 num_lives[31] => LessThan17.IN33
+player_Blink => green.DATAB
 enemyPosition_x[19][0] => Add45.IN64
 enemyPosition_x[19][0] => LessThan100.IN64
 enemyPosition_x[19][1] => Add45.IN63

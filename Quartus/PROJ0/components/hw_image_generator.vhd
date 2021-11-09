@@ -57,6 +57,7 @@ ENTITY hw_image_generator IS
 	 player_top 	: IN INTEGER;
 	 player_bottom	: IN INTEGER;
 	 num_lives		: IN INTEGER;
+	 player_Blink	: IN STD_LOGIC;
 			
 	 enemyPosition_x, enemyPosition_y, enemySize : IN array20;
 	 
@@ -92,9 +93,15 @@ BEGIN
 		if(row >= player_top and row <= player_bottom) then
 			if(column >= player_left and column <= player_right) then
 				if((row - player_top) >= (column - player_left)) then
-					red <= (OTHERS => '1');
-					blue <= (OTHERS => '0');
-					green <= (OTHERS => '0');
+					if( player_Blink = '0') then
+						red <= (OTHERS => '1');
+						blue <= (OTHERS => '0');
+						green <= (OTHERS => '0');
+					else
+						red <= (OTHERS => '1');
+						blue <= (OTHERS => '1');
+						green <= (OTHERS => '1');
+					end if;
 				else
 					red <= (OTHERS => '1');
 					blue <= (OTHERS => '1');
@@ -148,9 +155,31 @@ BEGIN
 		for I in 0 to maxEnemyIndex loop
 				if((row >= enemyPosition_y(I)) and (row <= (enemyPosition_y(I) + enemySize(I)))) then
 					if( (column >= (enemyPosition_x(I) - enemySize(I))) and (column <= enemyPosition_x(I))) then
-						red <= (OTHERS => '0');
-						blue <= (OTHERS => '0');
-						green <= (OTHERS => '1');
+						if( ((maxEnemyIndex + 1) mod (I + 1) ) = 0) then 
+							red <= (OTHERS => '0');
+							blue <= (OTHERS => '0');
+							green <= (OTHERS => '1');
+						elsif( ((maxEnemyIndex + 1) mod (I + 1) ) = 1) then 
+							red <= (OTHERS => '0');
+							blue <= (OTHERS => '1');
+							green <= (OTHERS => '0');
+						elsif( ((maxEnemyIndex + 1) mod (I + 1) ) = 2) then 
+							red <= (OTHERS => '0');
+							blue <= (OTHERS => '1');
+							green <= (OTHERS => '1');
+						elsif( ((maxEnemyIndex + 1) mod (I + 1) ) = 3) then 
+							red <= (OTHERS => '1');
+							blue <= (OTHERS => '0');
+							green <= (OTHERS => '0');
+						elsif( ((maxEnemyIndex + 1) mod (I + 1) ) = 4) then 
+							red <= (OTHERS => '1');
+							blue <= (OTHERS => '0');
+							green <= (OTHERS => '1');
+						else 
+							red <= (OTHERS => '1');
+							blue <= (OTHERS => '1');
+							green <= (OTHERS => '0');
+						end if;
 					end if;
 				end if;
 		end loop;

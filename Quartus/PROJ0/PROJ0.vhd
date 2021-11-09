@@ -84,6 +84,7 @@ architecture PROJ0_ARCH of PROJ0 is
 			player_top 		: IN INTEGER;
 			player_bottom	: IN INTEGER;
 			num_lives		: IN INTEGER;
+			player_Blink	: IN STD_LOGIC;
 			
 			enemyPosition_x, enemyPosition_y, enemySize : IN array20;
 			
@@ -122,7 +123,7 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal enemySizes : array7:= (10, 57, 20, 5, 32, 69, 40);
 	signal currentEnemyIndex, currentSpawnIndex, currentSizeIndex, spawnCounter: INTEGER := 0;
 	signal maxEnemyIndex : INTEGER := 19;
-	signal maxSizeIndex	: INTEGER := 2;
+	signal maxSizeIndex	: INTEGER := 6;
 	signal maxSpawnIndex	: INTEGER := 6;
 	
 	signal pll_OUT_to_vga_controller_IN, dispEn : STD_LOGIC;
@@ -133,6 +134,7 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal player_top 	: INTEGER := 220;
 	signal player_bottom	: INTEGER := 260;
 	signal num_lives		: INTEGER := 3;
+	signal player_Blink 	: STD_LOGIC := '0';
 	signal invincible_counter : INTEGER := 0;
 	signal tilt_x, tilt_y : STD_LOGIC_VECTOR (3 downto 0);
 	signal direction_x, direction_y : STD_LOGIC;
@@ -148,7 +150,7 @@ begin
 -- Just need 3 components for VGA system 
 	U1	:	vga_pll_25_175 port map(pixel_clk_m, pll_OUT_to_vga_controller_IN);
 	U2	:	vga_controller port map(pll_OUT_to_vga_controller_IN, '1', h_sync_m, v_sync_m, dispEn, colSignal, rowSignal, open, open);
-	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, player_left, player_right, player_top, player_bottom, num_lives, enemyPosition_x, enemyPosition_y, enemySize, red_m, green_m, blue_m);
+	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, red_m, green_m, blue_m);
 	U4 : ADXL345_controller port map ('1', pixel_clk_m, open, data_x, data_y, data_z, GSENSOR_SDI, GSENSOR_SDO, GSENSOR_CS_N, GSENSOR_SCLK);
 	U5 : CLK_50MHZ_to_60HZ port map(pixel_clk_m, clk_60HZ);
 	
@@ -159,15 +161,15 @@ begin
 			if(direction_x = '1') then
 				if(tilt_x /= "1111") then
 					if(player_right < 351) then
-						player_right <= player_right + 1;
-						player_left <= player_left + 1;
+						player_right <= player_right + 2;
+						player_left <= player_left + 2;
 					end if;
 				end if;
 			else
 				if(tilt_x /= "0000") then
 					if(player_left > 0) then
-							player_right <= player_right - 1;
-							player_left <= player_left - 1;
+							player_right <= player_right - 2;
+							player_left <= player_left - 2;
 						end if;
 					end if;
 			end if;
@@ -225,33 +227,73 @@ begin
 				elsif(enemyPosition_x(I) /= -1) then
 					enemyPosition_x(i) <= enemyPosition_x(I) - 2;
 				end if;
-			end loop;
-			
-			if( invincible_counter = 0) then 
---				if( key0 = '0') then
---					num_lives <= num_lives - 1;
---					invincible_counter <= invincible_counter + 1;
-				if( key1 = '0' and num_lives < 3) then
-					num_lives <= num_lives + 1;
-					invincible_counter <= invincible_counter + 1;
-				end if;
-				for I in 0 to maxEnemyIndex loop
-					if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and ((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I)))))) then
+				
+				if(invincible_counter = 0) then
+					player_Blink <= '0';
+					if( key1 = '0' and num_lives < 3) then
+						num_lives <= num_lives + 1;
+						invincible_counter <= invincible_counter + 1;
+					end if;
+					if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I))))) then
+						num_lives <= num_lives -1;
+						enemyPosition_x(I) <= -1;
+						invincible_counter <= 1;
+					elsif((player_Left >= (enemyPosition_x(I) - enemySize(I))) and (player_Left <= enemyPosition_x(i)) and (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I))))) then
+						num_lives <= num_lives -1;
+						enemyPosition_x(I) <= -1;
+						invincible_counter <= 1;
+					elsif((player_Top <= (enemyPosition_y(I) + enemySize(I))) and (player_Top >= enemyPosition_y(i)) and (((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I))))) then
+						num_lives <= num_lives -1;
+						enemyPosition_x(I) <= -1;
+						invincible_counter <= 1;
+					elsif((player_Bottom <= (enemyPosition_y(I) + enemySize(I))) and (player_Bottom >= enemyPosition_y(i)) and (((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I))))) then
 						num_lives <= num_lives -1;
 						enemyPosition_x(I) <= -1;
 						invincible_counter <= 1;
 					end if;
-				end loop;
-			elsif(invincible_counter = 120) then
-				invincible_counter <= 0;
-			else
-				for I in 0 to maxEnemyIndex loop
-					if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and ((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I)))))) then
+				elsif(invincible_counter = 120) then
+					player_Blink <= '0';
+					invincible_counter <= 0;
+				else
+					player_Blink <= not player_Blink;
+					invincible_counter <= invincible_counter + 1;
+					if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I))))) then
+						enemyPosition_x(I) <= -1;
+					elsif((player_Left >= (enemyPosition_x(I) - enemySize(I))) and (player_Left <= enemyPosition_x(i)) and (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I))))) then
+						enemyPosition_x(I) <= -1;
+					elsif((player_Top <= (enemyPosition_y(I) + enemySize(I))) and (player_Top >= enemyPosition_y(i)) and (((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I))))) then
+						enemyPosition_x(I) <= -1;
+					elsif((player_Bottom <= (enemyPosition_y(I) + enemySize(I))) and (player_Bottom >= enemyPosition_y(i)) and (((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I))))) then
 						enemyPosition_x(I) <= -1;
 					end if;
-				end loop;
-				invincible_counter <= invincible_counter + 1;
-			end if;
+				end if;
+			end loop;
+			
+--			if( invincible_counter = 0) then 
+----				if( key0 = '0') then
+----					num_lives <= num_lives - 1;
+----					invincible_counter <= invincible_counter + 1;
+--				if( key1 = '0' and num_lives < 3) then
+--					num_lives <= num_lives + 1;
+--					invincible_counter <= invincible_counter + 1;
+--				end if;
+--				for I in 0 to maxEnemyIndex loop
+--					if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and ((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I)))))) then
+--						num_lives <= num_lives -1;
+--						enemyPosition_x(I) <= -1;
+--						invincible_counter <= 1;
+--					end if;
+--				end loop;
+--			elsif(invincible_counter = 120) then
+--				invincible_counter <= 0;
+--			else
+--				for I in 0 to maxEnemyIndex loop
+--					if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and ((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I)))))) then
+--						enemyPosition_x(I) <= -1;
+--					end if;
+--				end loop;
+--				invincible_counter <= invincible_counter + 1;
+--			end if;
 				
 			
 		end if;
