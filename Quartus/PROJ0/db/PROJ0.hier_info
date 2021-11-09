@@ -31,7 +31,9 @@ blue_m[7] <= hw_image_generator:U3.blue[7]
 GSENSOR_CS_N <= ADXL345_controller:U4.SPI_CSN
 GSENSOR_SCLK <= ADXL345_controller:U4.SPI_CLK
 GSENSOR_SDI <> GSENSOR_SDI
-key0 => ~NO_FANOUT~
+key0 => gameStart.OUTPUTSELECT
+key1 => pause.OUTPUTSELECT
+key1 => pause.OUTPUTSELECT
 key1 => HZ60_Update.IN1
 key1 => HZ60_Update.IN1
 

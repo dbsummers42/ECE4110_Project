@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PROJ0
-Mon Nov 08 18:23:03 2021
+Mon Nov 08 19:14:03 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -57,15 +57,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 08 18:23:03 2021       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 08 19:14:02 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PROJ0                                       ;
 ; Top-level Entity Name              ; PROJ0                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 12,502                                      ;
-;     Total combinational functions  ; 12,164                                      ;
-;     Dedicated logic registers      ; 1,417                                       ;
-; Total registers                    ; 1417                                        ;
+; Total logic elements               ; 12,477                                      ;
+;     Total combinational functions  ; 12,120                                      ;
+;     Dedicated logic registers      ; 1,471                                       ;
+; Total registers                    ; 1471                                        ;
 ; Total pins                         ; 33                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -170,14 +170,14 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.00        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
-;     Processor 3            ;   0.2%      ;
-;     Processor 4            ;   0.2%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -208,20 +208,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 12,502                   ;
+; Estimated Total logic elements              ; 12,477                   ;
 ;                                             ;                          ;
-; Total combinational functions               ; 12164                    ;
+; Total combinational functions               ; 12120                    ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 3893                     ;
-;     -- 3 input functions                    ; 6219                     ;
+;     -- 4 input functions                    ; 3976                     ;
+;     -- 3 input functions                    ; 6092                     ;
 ;     -- <=2 input functions                  ; 2052                     ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 5717                     ;
-;     -- arithmetic mode                      ; 6447                     ;
+;     -- normal mode                          ; 5622                     ;
+;     -- arithmetic mode                      ; 6498                     ;
 ;                                             ;                          ;
-; Total registers                             ; 1417                     ;
-;     -- Dedicated logic registers            ; 1417                     ;
+; Total registers                             ; 1471                     ;
+;     -- Dedicated logic registers            ; 1471                     ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 33                       ;
@@ -232,9 +232,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                        ;
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; CLK_50MHZ_to_60HZ:U5|tmp ;
-; Maximum fan-out                             ; 1246                     ;
-; Total fan-out                               ; 41609                    ;
-; Average fan-out                             ; 3.05                     ;
+; Maximum fan-out                             ; 1300                     ;
+; Total fan-out                               ; 41846                    ;
+; Average fan-out                             ; 3.06                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -243,10 +243,10 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------+-----------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                   ; Entity Name           ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------+-----------------------+--------------+
-; |PROJ0                                          ; 12164 (9628)        ; 1417 (1245)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 33   ; 0            ; 0          ; |PROJ0                                                                                ; PROJ0                 ; work         ;
-;    |ADXL345_controller:U4|                      ; 143 (0)             ; 95 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4                                                          ; ADXL345_controller    ; work         ;
-;       |gsensor:U0|                              ; 143 (99)            ; 95 (57)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0                                               ; gsensor               ; work         ;
-;          |spi:u0|                               ; 44 (44)             ; 38 (38)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0                                        ; spi                   ; work         ;
+; |PROJ0                                          ; 12120 (9585)        ; 1471 (1299)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 33   ; 0            ; 0          ; |PROJ0                                                                                ; PROJ0                 ; work         ;
+;    |ADXL345_controller:U4|                      ; 142 (0)             ; 95 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4                                                          ; ADXL345_controller    ; work         ;
+;       |gsensor:U0|                              ; 142 (99)            ; 95 (57)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0                                               ; gsensor               ; work         ;
+;          |spi:u0|                               ; 43 (43)             ; 38 (38)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0                                        ; spi                   ; work         ;
 ;    |CLK_50MHZ_to_60HZ:U5|                       ; 56 (56)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|CLK_50MHZ_to_60HZ:U5                                                           ; CLK_50MHZ_to_60HZ     ; work         ;
 ;    |hw_image_generator:U3|                      ; 2281 (2281)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|hw_image_generator:U3                                                          ; hw_image_generator    ; work         ;
 ;    |vga_controller:U2|                          ; 56 (56)             ; 44 (44)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_controller:U2                                                              ; vga_controller        ; work         ;
@@ -1217,62 +1217,10 @@ Encoding Type:  One-Hot
 ; enemySize[19][7]                                ; Merged with enemyPosition_y[19][10]    ;
 ; enemySize[19][8]                                ; Merged with enemyPosition_y[19][10]    ;
 ; enemySize[19][9]                                ; Merged with enemyPosition_y[19][10]    ;
-; currentSpawnIndex[2]                            ; Merged with currentSizeIndex[2]        ;
-; currentSpawnIndex[0]                            ; Merged with currentSizeIndex[0]        ;
-; currentSpawnIndex[1]                            ; Merged with currentSizeIndex[1]        ;
-; currentSpawnIndex[31]                           ; Merged with currentSizeIndex[31]       ;
-; currentSpawnIndex[30]                           ; Merged with currentSizeIndex[30]       ;
-; currentSpawnIndex[29]                           ; Merged with currentSizeIndex[29]       ;
-; currentSpawnIndex[28]                           ; Merged with currentSizeIndex[28]       ;
-; currentSpawnIndex[27]                           ; Merged with currentSizeIndex[27]       ;
-; currentSpawnIndex[26]                           ; Merged with currentSizeIndex[26]       ;
-; currentSpawnIndex[25]                           ; Merged with currentSizeIndex[25]       ;
-; currentSpawnIndex[24]                           ; Merged with currentSizeIndex[24]       ;
-; currentSpawnIndex[23]                           ; Merged with currentSizeIndex[23]       ;
-; currentSpawnIndex[22]                           ; Merged with currentSizeIndex[22]       ;
-; currentSpawnIndex[21]                           ; Merged with currentSizeIndex[21]       ;
-; currentSpawnIndex[20]                           ; Merged with currentSizeIndex[20]       ;
-; currentSpawnIndex[19]                           ; Merged with currentSizeIndex[19]       ;
-; currentSpawnIndex[18]                           ; Merged with currentSizeIndex[18]       ;
-; currentSpawnIndex[17]                           ; Merged with currentSizeIndex[17]       ;
-; currentSpawnIndex[16]                           ; Merged with currentSizeIndex[16]       ;
-; currentSpawnIndex[15]                           ; Merged with currentSizeIndex[15]       ;
-; currentSpawnIndex[14]                           ; Merged with currentSizeIndex[14]       ;
-; currentSpawnIndex[13]                           ; Merged with currentSizeIndex[13]       ;
-; currentSpawnIndex[12]                           ; Merged with currentSizeIndex[12]       ;
-; currentSpawnIndex[11]                           ; Merged with currentSizeIndex[11]       ;
-; currentSpawnIndex[10]                           ; Merged with currentSizeIndex[10]       ;
-; currentSpawnIndex[9]                            ; Merged with currentSizeIndex[9]        ;
-; currentSpawnIndex[8]                            ; Merged with currentSizeIndex[8]        ;
-; currentSpawnIndex[7]                            ; Merged with currentSizeIndex[7]        ;
-; currentSpawnIndex[6]                            ; Merged with currentSizeIndex[6]        ;
-; currentSpawnIndex[5]                            ; Merged with currentSizeIndex[5]        ;
-; currentSpawnIndex[4]                            ; Merged with currentSizeIndex[4]        ;
-; currentSpawnIndex[3]                            ; Merged with currentSizeIndex[3]        ;
 ; vga_controller:U2|row[9]                        ; Stuck at GND due to stuck port data_in ;
-; enemySize[0][5]                                 ; Merged with enemyPosition_y[0][7]      ;
-; enemySize[1][5]                                 ; Merged with enemyPosition_y[1][7]      ;
-; enemySize[2][5]                                 ; Merged with enemyPosition_y[2][7]      ;
-; enemySize[3][5]                                 ; Merged with enemyPosition_y[3][7]      ;
-; enemySize[4][5]                                 ; Merged with enemyPosition_y[4][7]      ;
-; enemySize[5][5]                                 ; Merged with enemyPosition_y[5][7]      ;
-; enemySize[6][5]                                 ; Merged with enemyPosition_y[6][7]      ;
-; enemySize[7][5]                                 ; Merged with enemyPosition_y[7][7]      ;
-; enemySize[8][5]                                 ; Merged with enemyPosition_y[8][7]      ;
-; enemySize[9][5]                                 ; Merged with enemyPosition_y[9][7]      ;
-; enemySize[10][5]                                ; Merged with enemyPosition_y[10][7]     ;
-; enemySize[11][5]                                ; Merged with enemyPosition_y[11][7]     ;
-; enemySize[12][5]                                ; Merged with enemyPosition_y[12][7]     ;
-; enemySize[13][5]                                ; Merged with enemyPosition_y[13][7]     ;
-; enemySize[14][5]                                ; Merged with enemyPosition_y[14][7]     ;
-; enemySize[15][5]                                ; Merged with enemyPosition_y[15][7]     ;
-; enemySize[16][5]                                ; Merged with enemyPosition_y[16][7]     ;
-; enemySize[17][5]                                ; Merged with enemyPosition_y[17][7]     ;
-; enemySize[18][5]                                ; Merged with enemyPosition_y[18][7]     ;
-; enemySize[19][5]                                ; Merged with enemyPosition_y[19][7]     ;
 ; ADXL345_controller:U4|gsensor:U0|spi:u0|state~2 ; Lost fanout                            ;
 ; ADXL345_controller:U4|gsensor:U0|spi:u0|state~3 ; Lost fanout                            ;
-; Total Number of Removed Registers = 1037        ;                                        ;
+; Total Number of Removed Registers = 985         ;                                        ;
 +-------------------------------------------------+----------------------------------------+
 
 
@@ -1281,123 +1229,123 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1417  ;
+; Total registers                              ; 1471  ;
 ; Number of registers using Synchronous Clear  ; 1     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 32    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 594   ;
+; Number of registers using Clock Enable       ; 711   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------+
-; Inverted Register Statistics                        ;
-+-------------------------------------------+---------+
-; Inverted Register                         ; Fan out ;
-+-------------------------------------------+---------+
-; vga_controller:U2|row[31]                 ; 26      ;
-; enemyPosition_y[19][10]                   ; 62      ;
-; enemyPosition_y[19][8]                    ; 5       ;
-; enemyPosition_y[19][7]                    ; 7       ;
-; enemyPosition_y[19][6]                    ; 6       ;
-; enemySize[19][6]                          ; 2       ;
-; enemyPosition_y[19][5]                    ; 6       ;
-; enemyPosition_y[19][4]                    ; 6       ;
-; enemySize[19][4]                          ; 2       ;
-; enemyPosition_y[19][3]                    ; 6       ;
-; enemySize[19][3]                          ; 2       ;
-; enemyPosition_y[19][2]                    ; 5       ;
-; enemySize[19][2]                          ; 2       ;
-; enemyPosition_y[19][1]                    ; 5       ;
-; enemySize[19][1]                          ; 2       ;
-; enemyPosition_y[19][0]                    ; 4       ;
-; enemySize[19][0]                          ; 2       ;
-; vga_controller:U2|row[0]                  ; 45      ;
-; enemyPosition_x[19][31]                   ; 10      ;
-; enemyPosition_x[19][30]                   ; 9       ;
-; enemyPosition_x[19][29]                   ; 9       ;
-; enemyPosition_x[19][28]                   ; 9       ;
-; enemyPosition_x[19][27]                   ; 9       ;
-; enemyPosition_x[19][26]                   ; 9       ;
-; enemyPosition_x[19][25]                   ; 9       ;
-; enemyPosition_x[19][24]                   ; 9       ;
-; enemyPosition_x[19][23]                   ; 9       ;
-; enemyPosition_x[19][22]                   ; 9       ;
-; enemyPosition_x[19][21]                   ; 9       ;
-; enemyPosition_x[19][20]                   ; 9       ;
-; enemyPosition_x[19][19]                   ; 9       ;
-; enemyPosition_x[19][18]                   ; 9       ;
-; enemyPosition_x[19][17]                   ; 9       ;
-; enemyPosition_x[19][16]                   ; 9       ;
-; enemyPosition_x[19][15]                   ; 9       ;
-; enemyPosition_x[19][14]                   ; 9       ;
-; enemyPosition_x[19][13]                   ; 9       ;
-; enemyPosition_x[19][12]                   ; 9       ;
-; enemyPosition_x[19][11]                   ; 9       ;
-; enemyPosition_x[19][10]                   ; 9       ;
-; enemyPosition_x[19][9]                    ; 10      ;
-; enemyPosition_x[19][8]                    ; 10      ;
-; enemyPosition_x[19][7]                    ; 10      ;
-; enemyPosition_x[19][6]                    ; 10      ;
-; enemyPosition_x[19][5]                    ; 10      ;
-; enemyPosition_x[19][4]                    ; 10      ;
-; enemyPosition_x[19][3]                    ; 10      ;
-; enemyPosition_x[19][2]                    ; 10      ;
-; enemyPosition_x[19][1]                    ; 10      ;
-; enemyPosition_x[19][0]                    ; 7       ;
-; vga_controller:U2|column[0]               ; 46      ;
-; vga_controller:U2|column[31]              ; 48      ;
-; enemyPosition_y[17][10]                   ; 62      ;
-; enemyPosition_y[17][8]                    ; 6       ;
-; enemyPosition_y[17][7]                    ; 8       ;
-; enemyPosition_y[17][6]                    ; 6       ;
-; enemySize[17][6]                          ; 2       ;
-; enemyPosition_y[17][5]                    ; 6       ;
-; enemyPosition_y[17][4]                    ; 6       ;
-; enemySize[17][4]                          ; 2       ;
-; enemyPosition_y[17][3]                    ; 6       ;
-; enemySize[17][3]                          ; 2       ;
-; enemyPosition_y[17][2]                    ; 5       ;
-; enemySize[17][2]                          ; 2       ;
-; enemyPosition_y[17][1]                    ; 5       ;
-; enemySize[17][1]                          ; 2       ;
-; enemyPosition_y[17][0]                    ; 4       ;
-; enemySize[17][0]                          ; 2       ;
-; enemyPosition_x[17][31]                   ; 10      ;
-; enemyPosition_x[17][30]                   ; 9       ;
-; enemyPosition_x[17][29]                   ; 9       ;
-; enemyPosition_x[17][28]                   ; 9       ;
-; enemyPosition_x[17][27]                   ; 9       ;
-; enemyPosition_x[17][26]                   ; 9       ;
-; enemyPosition_x[17][25]                   ; 9       ;
-; enemyPosition_x[17][24]                   ; 9       ;
-; enemyPosition_x[17][23]                   ; 9       ;
-; enemyPosition_x[17][22]                   ; 9       ;
-; enemyPosition_x[17][21]                   ; 9       ;
-; enemyPosition_x[17][20]                   ; 9       ;
-; enemyPosition_x[17][19]                   ; 9       ;
-; enemyPosition_x[17][18]                   ; 9       ;
-; enemyPosition_x[17][17]                   ; 9       ;
-; enemyPosition_x[17][16]                   ; 9       ;
-; enemyPosition_x[17][15]                   ; 9       ;
-; enemyPosition_x[17][14]                   ; 9       ;
-; enemyPosition_x[17][13]                   ; 9       ;
-; enemyPosition_x[17][12]                   ; 9       ;
-; enemyPosition_x[17][11]                   ; 9       ;
-; enemyPosition_x[17][10]                   ; 9       ;
-; enemyPosition_x[17][9]                    ; 10      ;
-; enemyPosition_x[17][8]                    ; 10      ;
-; enemyPosition_x[17][7]                    ; 10      ;
-; enemyPosition_x[17][6]                    ; 10      ;
-; enemyPosition_x[17][5]                    ; 10      ;
-; enemyPosition_x[17][4]                    ; 10      ;
-; enemyPosition_x[17][3]                    ; 10      ;
-; enemyPosition_x[17][2]                    ; 10      ;
-; enemyPosition_x[17][1]                    ; 10      ;
-; enemyPosition_x[17][0]                    ; 7       ;
-; Total number of inverted registers = 981* ;         ;
-+-------------------------------------------+---------+
++------------------------------------------------------+
+; Inverted Register Statistics                         ;
++--------------------------------------------+---------+
+; Inverted Register                          ; Fan out ;
++--------------------------------------------+---------+
+; vga_controller:U2|row[31]                  ; 26      ;
+; enemyPosition_y[19][10]                    ; 66      ;
+; enemyPosition_y[19][8]                     ; 6       ;
+; enemyPosition_y[19][7]                     ; 5       ;
+; enemyPosition_y[19][6]                     ; 6       ;
+; enemySize[19][6]                           ; 2       ;
+; enemyPosition_y[19][5]                     ; 6       ;
+; enemySize[19][5]                           ; 2       ;
+; enemyPosition_y[19][4]                     ; 6       ;
+; enemySize[19][4]                           ; 2       ;
+; enemyPosition_y[19][3]                     ; 7       ;
+; enemySize[19][3]                           ; 2       ;
+; enemyPosition_y[19][2]                     ; 6       ;
+; enemySize[19][2]                           ; 2       ;
+; enemyPosition_y[19][1]                     ; 5       ;
+; enemySize[19][1]                           ; 2       ;
+; enemyPosition_y[19][0]                     ; 4       ;
+; enemySize[19][0]                           ; 2       ;
+; vga_controller:U2|row[0]                   ; 45      ;
+; enemyPosition_x[19][31]                    ; 10      ;
+; enemyPosition_x[19][30]                    ; 9       ;
+; enemyPosition_x[19][29]                    ; 9       ;
+; enemyPosition_x[19][28]                    ; 9       ;
+; enemyPosition_x[19][27]                    ; 9       ;
+; enemyPosition_x[19][26]                    ; 9       ;
+; enemyPosition_x[19][25]                    ; 9       ;
+; enemyPosition_x[19][24]                    ; 9       ;
+; enemyPosition_x[19][23]                    ; 9       ;
+; enemyPosition_x[19][22]                    ; 9       ;
+; enemyPosition_x[19][21]                    ; 9       ;
+; enemyPosition_x[19][20]                    ; 9       ;
+; enemyPosition_x[19][19]                    ; 9       ;
+; enemyPosition_x[19][18]                    ; 9       ;
+; enemyPosition_x[19][17]                    ; 9       ;
+; enemyPosition_x[19][16]                    ; 9       ;
+; enemyPosition_x[19][15]                    ; 9       ;
+; enemyPosition_x[19][14]                    ; 9       ;
+; enemyPosition_x[19][13]                    ; 9       ;
+; enemyPosition_x[19][12]                    ; 9       ;
+; enemyPosition_x[19][11]                    ; 9       ;
+; enemyPosition_x[19][10]                    ; 9       ;
+; enemyPosition_x[19][9]                     ; 10      ;
+; enemyPosition_x[19][8]                     ; 10      ;
+; enemyPosition_x[19][7]                     ; 10      ;
+; enemyPosition_x[19][6]                     ; 10      ;
+; enemyPosition_x[19][5]                     ; 10      ;
+; enemyPosition_x[19][4]                     ; 10      ;
+; enemyPosition_x[19][3]                     ; 10      ;
+; enemyPosition_x[19][2]                     ; 10      ;
+; enemyPosition_x[19][1]                     ; 10      ;
+; enemyPosition_x[19][0]                     ; 8       ;
+; vga_controller:U2|column[0]                ; 46      ;
+; vga_controller:U2|column[31]               ; 48      ;
+; enemyPosition_y[17][10]                    ; 60      ;
+; enemyPosition_y[17][8]                     ; 6       ;
+; enemyPosition_y[17][7]                     ; 6       ;
+; enemyPosition_y[17][6]                     ; 6       ;
+; enemySize[17][6]                           ; 2       ;
+; enemyPosition_y[17][5]                     ; 6       ;
+; enemySize[17][5]                           ; 2       ;
+; enemyPosition_y[17][4]                     ; 6       ;
+; enemySize[17][4]                           ; 2       ;
+; enemyPosition_y[17][3]                     ; 7       ;
+; enemySize[17][3]                           ; 2       ;
+; enemyPosition_y[17][2]                     ; 6       ;
+; enemySize[17][2]                           ; 2       ;
+; enemyPosition_y[17][1]                     ; 5       ;
+; enemySize[17][1]                           ; 2       ;
+; enemyPosition_y[17][0]                     ; 4       ;
+; enemySize[17][0]                           ; 2       ;
+; enemyPosition_x[17][31]                    ; 10      ;
+; enemyPosition_x[17][30]                    ; 9       ;
+; enemyPosition_x[17][29]                    ; 9       ;
+; enemyPosition_x[17][28]                    ; 9       ;
+; enemyPosition_x[17][27]                    ; 9       ;
+; enemyPosition_x[17][26]                    ; 9       ;
+; enemyPosition_x[17][25]                    ; 9       ;
+; enemyPosition_x[17][24]                    ; 9       ;
+; enemyPosition_x[17][23]                    ; 9       ;
+; enemyPosition_x[17][22]                    ; 9       ;
+; enemyPosition_x[17][21]                    ; 9       ;
+; enemyPosition_x[17][20]                    ; 9       ;
+; enemyPosition_x[17][19]                    ; 9       ;
+; enemyPosition_x[17][18]                    ; 9       ;
+; enemyPosition_x[17][17]                    ; 9       ;
+; enemyPosition_x[17][16]                    ; 9       ;
+; enemyPosition_x[17][15]                    ; 9       ;
+; enemyPosition_x[17][14]                    ; 9       ;
+; enemyPosition_x[17][13]                    ; 9       ;
+; enemyPosition_x[17][12]                    ; 9       ;
+; enemyPosition_x[17][11]                    ; 9       ;
+; enemyPosition_x[17][10]                    ; 9       ;
+; enemyPosition_x[17][9]                     ; 10      ;
+; enemyPosition_x[17][8]                     ; 10      ;
+; enemyPosition_x[17][7]                     ; 10      ;
+; enemyPosition_x[17][6]                     ; 10      ;
+; enemyPosition_x[17][5]                     ; 10      ;
+; enemyPosition_x[17][4]                     ; 10      ;
+; enemyPosition_x[17][3]                     ; 10      ;
+; enemyPosition_x[17][2]                     ; 10      ;
+; Total number of inverted registers = 1001* ;         ;
++--------------------------------------------+---------+
 * Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
 
 
@@ -1406,41 +1354,41 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
-; 3:1                ; 55 bits   ; 110 LEs       ; 55 LEs               ; 55 LEs                 ; Yes        ; |PROJ0|player_top[21]                                         ;
-; 3:1                ; 55 bits   ; 110 LEs       ; 55 LEs               ; 55 LEs                 ; Yes        ; |PROJ0|player_right[20]                                       ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|clk_counter[3] ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |PROJ0|currentEnemyIndex[4]                                   ;
+; 3:1                ; 55 bits   ; 110 LEs       ; 55 LEs               ; 55 LEs                 ; Yes        ; |PROJ0|player_top[22]                                         ;
+; 3:1                ; 55 bits   ; 110 LEs       ; 55 LEs               ; 55 LEs                 ; Yes        ; |PROJ0|player_left[13]                                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|clk_counter[1] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |PROJ0|currentEnemyIndex[3]                                   ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|count[2]       ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|idlecount[0]   ;
-; 60:1               ; 30 bits   ; 1200 LEs      ; 30 LEs               ; 1170 LEs               ; Yes        ; |PROJ0|num_lives[3]                                           ;
-; 103:1              ; 32 bits   ; 2176 LEs      ; 64 LEs               ; 2112 LEs               ; Yes        ; |PROJ0|invincible_counter[24]                                 ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PROJ0|player_top[7]                                          ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PROJ0|player_left[4]                                         ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[1][10]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[2][13]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[3][31]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[4][21]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[5][21]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[6][5]                                  ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[7][20]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[8][11]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[9][22]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[10][24]                                ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[11][23]                                ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[12][7]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[13][25]                                ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[14][5]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[15][14]                                ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[16][4]                                 ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[17][16]                                ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[18][28]                                ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[19][27]                                ;
-; 8:1                ; 31 bits   ; 155 LEs       ; 62 LEs               ; 93 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[0][22]                                 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|idlecount[3]   ;
+; 60:1               ; 30 bits   ; 1200 LEs      ; 30 LEs               ; 1170 LEs               ; Yes        ; |PROJ0|num_lives[18]                                          ;
+; 103:1              ; 32 bits   ; 2176 LEs      ; 64 LEs               ; 2112 LEs               ; Yes        ; |PROJ0|invincible_counter[20]                                 ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PROJ0|player_top[6]                                          ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PROJ0|player_right[6]                                        ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[1][24]                                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[2][24]                                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[3][22]                                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[4][24]                                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[5][23]                                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[6][23]                                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[7][9]                                  ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[8][22]                                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[9][2]                                  ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[10][8]                                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[11][9]                                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[12][17]                                ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[13][16]                                ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[14][8]                                 ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[15][31]                                ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[16][31]                                ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[17][31]                                ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[18][28]                                ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[19][30]                                ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[0][31]                                 ;
 ; 60:1               ; 2 bits    ; 80 LEs        ; 2 LEs                ; 78 LEs                 ; Yes        ; |PROJ0|num_lives[1]                                           ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |PROJ0|vga_controller:U2|v_count                              ;
-; 20:1               ; 32 bits   ; 416 LEs       ; 416 LEs              ; 0 LEs                  ; No         ; |PROJ0|Mux21                                                  ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|Selector3      ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|Selector2             ;
+; 20:1               ; 32 bits   ; 416 LEs       ; 416 LEs              ; 0 LEs                  ; No         ; |PROJ0|Mux15                                                  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|Selector1      ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|Selector0             ;
 ; 22:1               ; 2 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |PROJ0|hw_image_generator:U3|blue[0]                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 
@@ -1944,26 +1892,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 33                          ;
-; cycloneiii_ff         ; 1417                        ;
-;     ENA               ; 594                         ;
-;     SCLR              ; 1                           ;
-;     plain             ; 822                         ;
+; cycloneiii_ff         ; 1471                        ;
+;     ENA               ; 678                         ;
+;     ENA SCLR          ; 1                           ;
+;     ENA SLD           ; 32                          ;
+;     plain             ; 760                         ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 12164                       ;
-;     arith             ; 6447                        ;
+; cycloneiii_lcell_comb ; 12120                       ;
+;     arith             ; 6498                        ;
 ;         1 data inputs ; 85                          ;
-;         2 data inputs ; 963                         ;
+;         2 data inputs ; 1014                        ;
 ;         3 data inputs ; 5399                        ;
-;     normal            ; 5717                        ;
-;         0 data inputs ; 20                          ;
-;         1 data inputs ; 72                          ;
-;         2 data inputs ; 912                         ;
-;         3 data inputs ; 820                         ;
-;         4 data inputs ; 3893                        ;
+;     normal            ; 5622                        ;
+;         0 data inputs ; 21                          ;
+;         1 data inputs ; 73                          ;
+;         2 data inputs ; 859                         ;
+;         3 data inputs ; 693                         ;
+;         4 data inputs ; 3976                        ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 23.20                       ;
-; Average LUT depth     ; 12.76                       ;
+; Max LUT depth         ; 23.00                       ;
+; Average LUT depth     ; 12.60                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1972,7 +1921,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:45     ;
+; Top            ; 00:00:44     ;
 +----------------+--------------+
 
 
@@ -1982,7 +1931,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Nov 08 18:22:05 2021
+    Info: Processing started: Mon Nov 08 19:13:06 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PROJ0 -c PROJ0
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -2007,16 +1956,18 @@ Info (12021): Found 2 design units, including 1 entities, in source file compone
     Info (12023): Found entity 1: hw_image_generator File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 36
 Info (12021): Found 3 design units, including 1 entities, in source file proj0.vhd
     Info (12022): Found design unit 1: my_types File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 6
-    Info (12022): Found design unit 2: PROJ0-PROJ0_ARCH File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 44
-    Info (12023): Found entity 1: PROJ0 File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 17
+    Info (12022): Found design unit 2: PROJ0-PROJ0_ARCH File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 45
+    Info (12023): Found entity 1: PROJ0 File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 18
 Info (12127): Elaborating entity "PROJ0" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(122): used explicit default value for signal "spawnPositions" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 122
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(123): used explicit default value for signal "enemySizes" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 123
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(125): used explicit default value for signal "maxEnemyIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 125
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(126): used explicit default value for signal "maxSizeIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 126
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(127): used explicit default value for signal "maxSpawnIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 127
-Warning (10036): Verilog HDL or VHDL warning at PROJ0.vhd(131): object "data_z" assigned a value but never read File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 131
-Info (12128): Elaborating entity "vga_pll_25_175" for hierarchy "vga_pll_25_175:U1" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 151
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(123): used explicit default value for signal "spawnPositions" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 123
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(124): used explicit default value for signal "enemySizes" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 124
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(126): used explicit default value for signal "maxEnemyIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 126
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(127): used explicit default value for signal "maxSizeIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 127
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(128): used explicit default value for signal "maxSpawnIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 128
+Warning (10036): Verilog HDL or VHDL warning at PROJ0.vhd(132): object "data_z" assigned a value but never read File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 132
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(143): used explicit default value for signal "spawnRate" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 143
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(144): used explicit default value for signal "enemySpeed" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 144
+Info (12128): Elaborating entity "vga_pll_25_175" for hierarchy "vga_pll_25_175:U1" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 156
 Info (12128): Elaborating entity "altpll" for hierarchy "vga_pll_25_175:U1|altpll:altpll_component" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
 Info (12130): Elaborated megafunction instantiation "vga_pll_25_175:U1|altpll:altpll_component" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
 Info (12133): Instantiated megafunction "vga_pll_25_175:U1|altpll:altpll_component" with the following parameter: File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
@@ -2077,8 +2028,8 @@ Info (12133): Instantiated megafunction "vga_pll_25_175:U1|altpll:altpll_compone
 Info (12021): Found 1 design units, including 1 entities, in source file db/vga_pll_25_175_altpll.v
     Info (12023): Found entity 1: vga_pll_25_175_altpll File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v Line: 30
 Info (12128): Elaborating entity "vga_pll_25_175_altpll" for hierarchy "vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:U2" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 152
-Info (12128): Elaborating entity "hw_image_generator" for hierarchy "hw_image_generator:U3" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 153
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:U2" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 157
+Info (12128): Elaborating entity "hw_image_generator" for hierarchy "hw_image_generator:U3" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 158
 Warning (10540): VHDL Signal Declaration warning at hw_image_generator.vhd(72): used explicit default value for signal "maxEnemyIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 72
 Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(93): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 93
 Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(93): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 93
@@ -2100,7 +2051,7 @@ Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(162): 
 Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(166): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 166
 Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(170): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 170
 Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(174): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 174
-Info (12128): Elaborating entity "ADXL345_controller" for hierarchy "ADXL345_controller:U4" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 154
+Info (12128): Elaborating entity "ADXL345_controller" for hierarchy "ADXL345_controller:U4" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 159
 Info (12128): Elaborating entity "gsensor" for hierarchy "ADXL345_controller:U4|gsensor:U0" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/ADXL345_controller.vhd Line: 47
 Warning (10230): Verilog HDL assignment warning at gsensor.sv(28): truncated value with size 32 to match size of target (20) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 28
 Warning (10230): Verilog HDL assignment warning at gsensor.sv(266): truncated value with size 8 to match size of target (6) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 266
@@ -2112,17 +2063,17 @@ Info (12128): Elaborating entity "spi" for hierarchy "ADXL345_controller:U4|gsen
 Warning (10230): Verilog HDL assignment warning at spi.sv(47): truncated value with size 32 to match size of target (4) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 47
 Warning (10230): Verilog HDL assignment warning at spi.sv(156): truncated value with size 32 to match size of target (3) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 156
 Warning (10230): Verilog HDL assignment warning at spi.sv(204): truncated value with size 64 to match size of target (4) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 204
-Info (12128): Elaborating entity "CLK_50MHZ_to_60HZ" for hierarchy "CLK_50MHZ_to_60HZ:U5" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 155
+Info (12128): Elaborating entity "CLK_50MHZ_to_60HZ" for hierarchy "CLK_50MHZ_to_60HZ:U5" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 160
 Warning (10492): VHDL Process Statement warning at CLK_50MHZ_to_60HZ.vhd(23): signal "tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 23
 Critical Warning (127005): Memory depth (64) in the design file differs from memory depth (44) in the Memory Initialization File "C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/db/PROJ0.ram0_gsensor_889e66e.hdl.mif" -- setting initial value for remaining addresses to 0
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276013): RAM logic "ADXL345_controller:U4|gsensor:U0|spi_program" is uninferred because MIF is not supported for the selected family File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "GSENSOR_SDI" and its non-tri-state driver. File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 36
+    Warning (13035): Inserted always-enabled tri-state buffer between "GSENSOR_SDI" and its non-tri-state driver. File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 37
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 37
+    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 38
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "GSENSOR_SDI~synth" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 36
+    Warning (13010): Node "GSENSOR_SDI~synth" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 37
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 24 assignments for entity "ADXL345_Driver" -- entity does not exist in design
@@ -2253,19 +2204,17 @@ Warning (20013): Ignored 24 assignments for entity "vga_top" -- entity does not 
 Info (144001): Generated suppressed messages file C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "key0" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 39
-Info (21057): Implemented 12578 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 12554 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 28 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 12544 logic cells
+    Info (21061): Implemented 12520 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 172 warnings
-    Info: Peak virtual memory: 4873 megabytes
-    Info: Processing ended: Mon Nov 08 18:23:03 2021
-    Info: Elapsed time: 00:00:58
-    Info: Total CPU time (on all processors): 00:01:12
+    Info: Peak virtual memory: 4875 megabytes
+    Info: Processing ended: Mon Nov 08 19:14:03 2021
+    Info: Elapsed time: 00:00:57
+    Info: Total CPU time (on all processors): 00:01:09
 
 
 +------------------------------------------+

@@ -130,6 +130,10 @@
 				{
 					"name" : "pixel_clk_m",
 					"strict" : false
+				},
+				{
+					"name" : "key0",
+					"strict" : false
 				}
 			]
 		}
