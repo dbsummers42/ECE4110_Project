@@ -61,6 +61,9 @@ ENTITY hw_image_generator IS
 			
 	 enemyPosition_x, enemyPosition_y, enemySize : IN array20;
 	 
+	 direction_x : IN STD_LOGIC;
+	 exhaust_level, pulse_position : IN INTEGER;
+	 
     red      :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
     green    :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
     blue     :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0')); --blue magnitude output to DAC
@@ -90,6 +93,7 @@ BEGIN
 			green <= (OTHERS => '1');
 		end if;
 		
+	if (direction_x = '1') then
 		if(row >= player_top and row <= player_bottom) then
 			if(column >= player_left and column <= player_right) then
 				if((row - player_top) >= (column - player_left)) then
@@ -108,8 +112,94 @@ BEGIN
 					green <= (OTHERS => '1');
 				end if;
 			end if;
-		end if;	
-		
+		end if;
+	elsif (direction_x = '0') then	
+		if(row >= player_top and row <= player_bottom) then
+			if(column >= player_left and column <= player_right) then
+				if((row - player_top) >= (player_right - column)) then
+					if( player_Blink = '0') then
+						red <= (OTHERS => '1');
+						blue <= (OTHERS => '0');
+						green <= (OTHERS => '0');
+					else
+						red <= (OTHERS => '1');
+						blue <= (OTHERS => '1');
+						green <= (OTHERS => '1');
+					end if;
+				else
+					red <= (OTHERS => '1');
+					blue <= (OTHERS => '1');
+					green <= (OTHERS => '1');
+				end if;
+			end if;
+		end if;
+	end if;
+	
+			if (Player_Blink = '0') then
+				if (row >= player_top + 10 and row <= player_bottom - 10) then
+					if (direction_x = '1') then
+						if (exhaust_level = 1) then
+							if (column >= player_left - 15 and column <= Player_left - 2) then
+								red <= "00001111";
+								blue <= (others => '1');
+								green <= (others => '0');
+							end if;
+						elsif (exhaust_level = 2) then
+							if (column >= player_left - 25 and column <= Player_left - 2) then
+								red <= "00001111";
+								blue <= (others => '1');
+								green <= (others => '0');
+							end if;
+						elsif (exhaust_level = 3) then
+							if (column >= player_left - 35 and column <= Player_left - 2) then
+								red <= "00001111";
+								blue <= (others => '1');
+								green <= (others => '0');
+							end if;
+						end if;
+					else
+						if (exhaust_level = 1) then
+							if (column <= player_right + 15 and column >= Player_Right + 2) then
+								red <= "00001111";
+								blue <= (others => '1');
+								green <= (others => '0');
+								end if;
+							elsif (exhaust_level = 2) then
+								if (column <= player_right + 25 and column >= Player_Right + 2) then
+									red <= "00001111";
+									blue <= (others => '1');
+									green <= (others => '0');
+								end if;
+							elsif (exhaust_level = 3) then
+								if (column <= player_right + 35 and column >= Player_Right + 2) then
+									red <= "00001111";
+									blue <= (others => '1');
+									green <= (others => '0');
+								end if;
+						end if;
+					end if;
+				end if;
+			end if;
+			
+		if (direction_x = '1') then
+			if (row >= player_top + 10 and row <= player_bottom - 10) then
+				if (column <= pulse_position and column >= pulse_position - 3) then
+					red <= (others => '1');
+					blue <= (others => '1');
+					green <= (others => '1');
+				end if;
+			end if;
+		else
+			if (row >= player_top + 10 and row <= player_bottom - 10) then
+				if (column >= pulse_position and column <= pulse_position + 3) then
+					red <= (others => '1');
+					blue <= (others => '1');
+					green <= (others => '1');
+				end if;
+			end if;
+		end if;
+						
+				
 		if(row >= 15 and row <= 35 and num_lives >= 1) then 
 			if (column > 25 and column < 50) then
 				if( (row - 15) > (column - 25 ) ) then 

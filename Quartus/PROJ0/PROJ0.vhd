@@ -1,5 +1,6 @@
 library   ieee;
 use       ieee.std_logic_1164.all;
+use 		 ieee.numeric_std.all; 
 library work;
 use 		 work.my_types.all;
 
@@ -12,6 +13,7 @@ end package;
 
 library   ieee;
 use       ieee.std_logic_1164.all;
+use 		 ieee.numeric_std.all; 
 library work;
 use 		 work.my_types.all;
 
@@ -89,6 +91,9 @@ architecture PROJ0_ARCH of PROJ0 is
 			
 			enemyPosition_x, enemyPosition_y, enemySize : IN array20;
 			
+			direction_x : IN STD_LOGIC;
+			exhaust_level, pulse_position : IN INTEGER;
+			
 			red      :  OUT STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
 			green    :  OUT STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
 			blue     :  OUT STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0')   --blue magnitude output to DAC
@@ -143,6 +148,7 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal spawnRate : INTEGER := 60;
 	signal enemySpeed : INTEGER := 1;
 	signal pause, gameStart: STD_LOGIC := '0';
+	signal exhaust_level, tilt_level, pulse_position : integer := 0;
 	
 	
 begin
@@ -151,11 +157,12 @@ begin
 	tilt_x <= data_x(7 downto 4);
 	direction_y <= data_y(11);
 	tilt_y <= data_y(7 downto 4);
+	tilt_level <= to_integer(unsigned(tilt_x));
 	
 -- Just need 3 components for VGA system 
 	U1	:	vga_pll_25_175 port map(pixel_clk_m, pll_OUT_to_vga_controller_IN);
 	U2	:	vga_controller port map(pll_OUT_to_vga_controller_IN, '1', h_sync_m, v_sync_m, dispEn, colSignal, rowSignal, open, open);
-	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, red_m, green_m, blue_m);
+	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, direction_x, exhaust_level, pulse_position, red_m, green_m, blue_m);
 	U4 : ADXL345_controller port map ('1', pixel_clk_m, open, data_x, data_y, data_z, GSENSOR_SDI, GSENSOR_SDO, GSENSOR_CS_N, GSENSOR_SCLK);
 	U5 : CLK_50MHZ_to_60HZ port map(pixel_clk_m, clk_60HZ);
 	
@@ -197,6 +204,58 @@ begin
 								player_bottom <= player_bottom - 2;
 							end if;
 						end if;
+				end if;
+				
+				if (clk_60hz'event and clk_60hz = '1') then
+						if (direction_x = '1') then
+							if (tilt_level >= 0 and tilt_level <= 4) then
+								exhaust_level <= 3;
+							elsif (tilt_level >= 5 and tilt_level <= 9) then
+								exhaust_level <= 2;
+							elsif (tilt_level >= 10 and tilt_level <= 14) then
+								exhaust_level <= 1;
+							else
+								exhaust_level <= 0;
+							end if;
+						else
+							if (tilt_level >= 1 and tilt_level <= 5) then
+								exhaust_level <= 1;
+							elsif (tilt_level >= 6 and tilt_level <= 10) then
+								exhaust_level <= 2;
+							elsif (tilt_level >= 11 and tilt_level <= 15) then
+								exhaust_level <= 3;
+							else
+								exhaust_level <= 0;
+							end if;
+						end if;
+				end if;
+				
+				if (clk_60hz'event and clk_60hz = '1') then
+					if (direction_x = '1') then
+						if (exhaust_level = 0) then
+							pulse_position <= Player_Left - 2;
+						elsif (exhaust_level = 1 and pulse_position >= Player_Left - 15) then
+							pulse_position <= pulse_position - 1;
+						elsif (exhaust_level = 2 and pulse_position >= Player_Left - 25) then
+							pulse_position <= pulse_position - 3;
+						elsif (exhaust_level = 3 and pulse_position >= Player_Left - 35) then
+							pulse_position <= pulse_position - 5;
+						else 
+							pulse_position <= Player_Left - 1;
+						end if;
+					else
+						if (exhaust_level = 0) then
+							pulse_position <= Player_Right + 2;
+						elsif (exhaust_level = 1 and pulse_position <= Player_Right + 15) then
+							pulse_position <= pulse_position + 1;
+						elsif (exhaust_level = 2 and pulse_position <= Player_Right + 25) then
+							pulse_position <= pulse_position + 3;
+						elsif (exhaust_level = 3 and pulse_position <= Player_Right + 35) then
+							pulse_position <= pulse_position + 5;
+						else 
+							pulse_position <= Player_Right + 1;
+						end if;
+					end if;
 				end if;
 				
 				if(spawnCounter = 0) then
