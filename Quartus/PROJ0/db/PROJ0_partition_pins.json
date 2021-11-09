@@ -124,7 +124,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "key1",
+					"name" : "key0",
 					"strict" : false
 				},
 				{
@@ -132,7 +132,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "key0",
+					"name" : "key1",
 					"strict" : false
 				}
 			]

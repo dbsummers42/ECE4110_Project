@@ -34,35 +34,25 @@ LIBRARY work;
 use work.my_types.all;
 
 ENTITY hw_image_generator IS
-  GENERIC(
-    
-	col_a : INTEGER := 80;
-	col_b : INTEGER := 160;
-	col_c : INTEGER := 240;
-	col_d : INTEGER := 320;
-	col_e : INTEGER := 400;
-	col_f : INTEGER := 480;
-	col_g : INTEGER := 560;
-	col_h : INTEGER := 640
-
-	);  
+ 
   PORT(
 	
 	 disp_ena :  IN  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)
-    row      :  IN   INTEGER;    --row pixel coordinate
-    column   :  IN   INTEGER;    --column pixel coordinate
+    row      :  IN   INTEGER range -100 to 1000;    --row pixel coordinate
+    column   :  IN   INTEGER range -100 to 1000;    --column pixel coordinate
 	 
-	 player_left 	: IN INTEGER;
-	 player_right 	: IN INTEGER;
-	 player_top 	: IN INTEGER;
-	 player_bottom	: IN INTEGER;
-	 num_lives		: IN INTEGER;
+	 player_left 	: IN INTEGER range -100 to 1000;
+	 player_right 	: IN INTEGER range -100 to 1000;
+	 player_top 	: IN INTEGER range -100 to 1000;
+	 player_bottom	: IN INTEGER range -100 to 1000;
+	 num_lives		: IN INTEGER range -100 to 1000;
 	 player_Blink	: IN STD_LOGIC;
 			
 	 enemyPosition_x, enemyPosition_y, enemySize : IN array20;
+	 shotPosition_x, shotPosition_y: IN array13;
 	 
 	 direction_x : IN STD_LOGIC;
-	 exhaust_level, pulse_position : IN INTEGER;
+	 exhaust_level, pulse_position : IN INTEGER range -100 to 1000;
 	 
     red      :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
     green    :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
@@ -70,9 +60,10 @@ ENTITY hw_image_generator IS
 END hw_image_generator;
 
 ARCHITECTURE behavior OF hw_image_generator IS
-signal Diagonal: INTEGER;
-signal tilt_int, red_mult : integer := 0;
-signal maxEnemyIndex : INTEGER := 19;
+signal Diagonal: INTEGER range -100 to 1000;
+signal tilt_int, red_mult : integer range -100 to 1000 := 0;
+signal maxEnemyIndex : INTEGER range -100 to 1000 := 19;
+signal maxShotIndex : INTEGER range -100 to 1000 := 12;
 
 BEGIN
   
@@ -270,6 +261,16 @@ BEGIN
 							blue <= (OTHERS => '1');
 							green <= (OTHERS => '0');
 						end if;
+					end if;
+				end if;
+		end loop;
+		
+		for J in 0 to maxShotIndex loop
+				if((row >= shotPosition_y(J)) and (row <= (shotPosition_y(J) + 3))) then
+					if( (column >= (shotPosition_x(J) - 5)) and (column <= shotPosition_x(J))) then
+						red <= (OTHERS => '0');
+						blue <= (OTHERS => '0');
+						green <= (OTHERS => '0');
 					end if;
 				end if;
 		end loop;

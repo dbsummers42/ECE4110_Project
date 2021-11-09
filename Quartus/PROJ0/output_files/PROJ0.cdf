@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/output_files/") File("PROJ0.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/output_files/") File("PROJ0.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

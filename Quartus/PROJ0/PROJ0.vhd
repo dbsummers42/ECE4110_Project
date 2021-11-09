@@ -5,10 +5,10 @@ library work;
 use 		 work.my_types.all;
 
 package my_types is 
-	type array3 is array (0 to 2) of integer;
-	type array7 is array (0 to 6) of integer;
-	type array13 is array (0 to 12) of integer;
-	type array20 is array (0 to 19) of integer;
+	type array3 is array (0 to 2) of integer range -100 to 1000;
+	type array7 is array (0 to 6) of integer range -100 to 1000;
+	type array13 is array (0 to 12) of integer range -100 to 1000;
+	type array20 is array (0 to 19) of integer range -100 to 1000;
 end package;
 
 library   ieee;
@@ -79,20 +79,21 @@ architecture PROJ0_ARCH of PROJ0 is
 	
 		port(
 			disp_ena :  IN  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)
-			row      :  IN  INTEGER;    --row pixel coordinate
-			column   :  IN  INTEGER;    --column pixel coordinate
+			row      :  IN  INTEGER range -100 to 1000;    --row pixel coordinate
+			column   :  IN  INTEGER range -100 to 1000;    --column pixel coordinate
 			
-			player_left 	: IN INTEGER;
-			player_right 	: IN INTEGER;
-			player_top 		: IN INTEGER;
-			player_bottom	: IN INTEGER;
-			num_lives		: IN INTEGER;
+			player_left 	: IN INTEGER range -100 to 1000;
+			player_right 	: IN INTEGER range -100 to 1000;
+			player_top 		: IN INTEGER range -100 to 1000;
+			player_bottom	: IN INTEGER range -100 to 1000;
+			num_lives		: IN INTEGER range -100 to 1000;
 			player_Blink	: IN STD_LOGIC;
 			
 			enemyPosition_x, enemyPosition_y, enemySize : IN array20;
+			shotPosition_x, shotPosition_y: IN array13;
 			
 			direction_x : IN STD_LOGIC;
-			exhaust_level, pulse_position : IN INTEGER;
+			exhaust_level, pulse_position : IN INTEGER range -100 to 1000;
 			
 			red      :  OUT STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
 			green    :  OUT STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
@@ -126,29 +127,33 @@ architecture PROJ0_ARCH of PROJ0 is
 	
 	signal enemyPosition_x, enemyPosition_y, enemySize : array20 := (-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1);
 	signal spawnPositions : array13 := (50, 150, 360, 75, 250, 315, 190, 60, 220, 125, 280, 100, 300);
+	signal shotPosition_x, shotPosition_y	: array13 := (-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99);
+	signal shotDirection : STD_LOGIC_VECTOR (0 to 12) := "0000000000000";
 	signal enemySizes : array7:= (10, 57, 20, 5, 32, 69, 40);
-	signal currentEnemyIndex, currentSpawnIndex, currentSizeIndex, spawnCounter: INTEGER := 0;
-	signal maxEnemyIndex : INTEGER := 19;
-	signal maxSizeIndex	: INTEGER := 6;
-	signal maxSpawnIndex	: INTEGER := 12;
+	signal currentEnemyIndex, currentSpawnIndex, currentSizeIndex, spawnCounter, currentShotIndex, shotCounter: INTEGER range -100 to 1000 := 0;
+	signal maxEnemyIndex : INTEGER range -100 to 1000 := 19;
+	signal maxSizeIndex	: INTEGER range -100 to 1000 := 6;
+	signal maxSpawnIndex	: INTEGER range -100 to 1000 := 12;
+	signal maxShotIndex	: INTEGER range -100 to 1000 := 12;
+	signal maxShotCounter	: INTEGER range -100 to 1000 := 30;
 	
 	signal pll_OUT_to_vga_controller_IN, dispEn : STD_LOGIC;
-	signal rowSignal, colSignal : INTEGER;
+	signal rowSignal, colSignal : INTEGER range -100 to 1000;
 	signal data_x, data_y, data_z : STD_LOGIC_VECTOR (15 downto 0);
-	signal player_left 	: INTEGER := 30;
-	signal player_right 	: INTEGER := 70;
-	signal player_top 	: INTEGER := 220;
-	signal player_bottom	: INTEGER := 260;
-	signal num_lives		: INTEGER := 3;
+	signal player_left 	: INTEGER range -100 to 1000 := 30;
+	signal player_right 	: INTEGER range -100 to 1000 := 70;
+	signal player_top 	: INTEGER range -100 to 1000 := 220;
+	signal player_bottom	: INTEGER range -100 to 1000 := 260;
+	signal num_lives		: INTEGER range -100 to 1000 := 3;
 	signal player_Blink 	: STD_LOGIC := '0';
-	signal invincible_counter : INTEGER := 0;
+	signal invincible_counter, pauseCounter : INTEGER range -100 to 1000 := 0;
 	signal tilt_x, tilt_y : STD_LOGIC_VECTOR (3 downto 0);
-	signal direction_x, direction_y : STD_LOGIC;
+	signal direction_x, direction_y, facingDirection : STD_LOGIC:= '1';
 	signal clk_60HZ : STD_LOGIC;
-	signal spawnRate : INTEGER := 60;
-	signal enemySpeed : INTEGER := 1;
+	signal spawnRate : INTEGER range -100 to 1000 := 60;
+	signal enemySpeed : INTEGER range -100 to 1000 := 1;
 	signal pause, gameStart: STD_LOGIC := '0';
-	signal exhaust_level, tilt_level, pulse_position : integer := 0;
+	signal exhaust_level, tilt_level, pulse_position : integer range -100 to 1000 := 0;
 	
 	
 begin
@@ -162,7 +167,7 @@ begin
 -- Just need 3 components for VGA system 
 	U1	:	vga_pll_25_175 port map(pixel_clk_m, pll_OUT_to_vga_controller_IN);
 	U2	:	vga_controller port map(pll_OUT_to_vga_controller_IN, '1', h_sync_m, v_sync_m, dispEn, colSignal, rowSignal, open, open);
-	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, direction_x, exhaust_level, pulse_position, red_m, green_m, blue_m);
+	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, shotPosition_x, shotPosition_y, facingDirection, exhaust_level, pulse_position, red_m, green_m, blue_m);
 	U4 : ADXL345_controller port map ('1', pixel_clk_m, open, data_x, data_y, data_z, GSENSOR_SDI, GSENSOR_SDO, GSENSOR_CS_N, GSENSOR_SCLK);
 	U5 : CLK_50MHZ_to_60HZ port map(pixel_clk_m, clk_60HZ);
 	
@@ -171,8 +176,18 @@ begin
 	begin
 		if(clk_60HZ'event and clk_60HZ = '1') then
 			if(gameStart = '1' and pause = '0') then
-				if(key1 = '0') then
-					pause <= '1';
+			
+				facingDirection <= direction_x;
+				
+				if(pauseCounter = 0) then
+					if(key1 = '0') then
+						pause <= '1';
+						pauseCounter <= 1;
+					end if;
+				elsif(pauseCounter = 60) then
+					pauseCounter <= 0;
+				else 
+					pauseCounter <= pauseCounter + 1;
 				end if;
 				if(direction_x = '1') then
 					if(tilt_x /= "1111") then
@@ -289,6 +304,53 @@ begin
 					spawnCounter <= spawnCounter + 1;
 				end if;
 				
+				for J in 0 to maxShotIndex loop
+					if(shotPosition_x(J) /= -99) then
+						if(shotDirection(J) = '0') then
+							if(shotPosition_x(J) <= 0) then
+								shotPosition_x(J) <= -99;
+							else
+								shotPosition_x(J) <= shotPosition_x(J) - 3;
+							end if;
+						else
+							if(shotPosition_x(J) >= 650) then
+								shotPosition_x(J) <= -99;
+							else
+								shotPosition_x(J) <= shotPosition_x(J) + 3;
+							end if;
+						end if;
+					end if;
+				end loop;
+				
+				if(shotCounter = 0) then
+					if( key0 = '0') then
+						if( shotPosition_x(currentShotIndex) = -99) then
+							if(direction_x = '1') then
+								shotPosition_x(currentShotIndex) <= player_Right + 5;
+								shotPosition_y(currentShotIndex) <= player_Bottom;
+								shotDirection(currentShotIndex) <= '1';
+							else
+								shotPosition_x(currentShotIndex) <= player_Left;
+								shotPosition_y(currentShotIndex) <= player_Bottom;
+								shotDirection(currentShotIndex) <= '0';
+							end if; 
+							
+							if(currentShotIndex = maxShotIndex) then
+								currentShotIndex <= 0;
+							else
+								currentShotIndex <= currentShotIndex + 1;
+							end if;
+							shotCounter <= 1;
+							
+						end if;
+					end if;
+				elsif(shotCounter = maxShotCounter) then
+					shotCounter <= 0;
+				else
+					shotCounter <= shotCounter + 1;
+				end if;
+				
+				
 				for I in 0 to maxEnemyIndex loop
 					if(enemyPosition_x(I) = 0) then
 						enemyPosition_x(I) <= -1;
@@ -296,12 +358,30 @@ begin
 						enemyPosition_x(i) <= enemyPosition_x(I) - enemySpeed;
 					end if;
 					
+					for J in 0 to maxShotIndex loop
+						if(shotPosition_x(J) /= -99) then
+							if(shotDirection(J) = '0') then
+								if((((shotPosition_x(J) - 5) <= enemyPosition_x(i)) and ((shotPosition_x(J) - 5) >= (enemyPosition_x(i) - enemySize(I)))) and ((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I))))) then
+									enemyPosition_x(I) <= -1;
+									shotPosition_x(J) <= -99;
+									-- Add score here 
+								end if;
+							else
+								if((((shotPosition_x(J) >= (enemyPosition_x(i) - enemySize(I))) and (shotPosition_x(J) <= enemyPosition_x(I)))) and ((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I))))) then
+									enemyPosition_x(I) <= -1;
+									shotPosition_x(J) <= -99;
+									-- Add score here
+								end if;
+							end if;
+						end if;
+					end loop;
+					
 					if(invincible_counter = 0) then
 						player_Blink <= '0';
-						if( key1 = '0' and num_lives < 3) then
-							num_lives <= num_lives + 1;
-							invincible_counter <= invincible_counter + 1;
-						end if;
+--						if( key1 = '0' and num_lives < 3) then
+--							num_lives <= num_lives + 1;
+--							invincible_counter <= invincible_counter + 1;
+--						end if;
 						if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I))))) then
 							num_lives <= num_lives -1;
 							enemyPosition_x(I) <= -1;
@@ -363,8 +443,15 @@ begin
 	--				invincible_counter <= invincible_counter + 1;
 	--			end if;
 			else
-				if(key1 = '0') then
-					pause <= '0';
+				if(pauseCounter = 0) then
+					if(key1 = '0') then
+						pause <= '0';
+						pauseCounter <= 1;
+					end if;
+				elsif(pauseCounter = 60) then
+					pauseCounter <= 0;
+				else 
+					pauseCounter <= pauseCounter + 1;
 				end if;
 				
 				if(key0 = '0') then
