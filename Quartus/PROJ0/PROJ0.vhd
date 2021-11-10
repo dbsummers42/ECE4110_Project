@@ -361,13 +361,13 @@ begin
 					for J in 0 to maxShotIndex loop
 						if(shotPosition_x(J) /= -99) then
 							if(shotDirection(J) = '0') then
-								if((((shotPosition_x(J) - 5) <= enemyPosition_x(i)) and ((shotPosition_x(J) - 5) >= (enemyPosition_x(i) - enemySize(I)))) and ((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I))))) then
+								if((((shotPosition_x(J) - 5) <= enemyPosition_x(i)) and ((shotPosition_x(J) - 5) >= (enemyPosition_x(i) - enemySize(I)))) and (((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 3) >= (enemyPosition_y(I) + enemySize(I)))))) then
 									enemyPosition_x(I) <= -1;
 									shotPosition_x(J) <= -99;
 									-- Add score here 
 								end if;
 							else
-								if((((shotPosition_x(J) >= (enemyPosition_x(i) - enemySize(I))) and (shotPosition_x(J) <= enemyPosition_x(I)))) and ((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I))))) then
+								if(((shotPosition_x(J) >= (enemyPosition_x(i) - enemySize(I))) and ((shotPosition_x(J) <= enemyPosition_x(I)))) and (((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 3) >= (enemyPosition_y(I) + enemySize(I)))))) then
 									enemyPosition_x(I) <= -1;
 									shotPosition_x(J) <= -99;
 									-- Add score here

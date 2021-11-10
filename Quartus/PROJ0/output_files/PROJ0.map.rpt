@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PROJ0
-Tue Nov 09 17:05:12 2021
+Wed Nov 10 12:51:26 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -56,13 +56,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Nov 09 17:05:11 2021       ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 10 12:51:26 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PROJ0                                       ;
 ; Top-level Entity Name              ; PROJ0                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 29,378                                      ;
-;     Total combinational functions  ; 28,945                                      ;
+; Total logic elements               ; 41,744                                      ;
+;     Total combinational functions  ; 41,311                                      ;
 ;     Dedicated logic registers      ; 1,185                                       ;
 ; Total registers                    ; 1185                                        ;
 ; Total pins                         ; 33                                          ;
@@ -207,16 +207,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 29,378                   ;
+; Estimated Total logic elements              ; 41,744                   ;
 ;                                             ;                          ;
-; Total combinational functions               ; 28945                    ;
+; Total combinational functions               ; 41311                    ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 10453                    ;
-;     -- 3 input functions                    ; 15579                    ;
-;     -- <=2 input functions                  ; 2913                     ;
+;     -- 4 input functions                    ; 20484                    ;
+;     -- 3 input functions                    ; 17210                    ;
+;     -- <=2 input functions                  ; 3617                     ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 19994                    ;
+;     -- normal mode                          ; 32360                    ;
 ;     -- arithmetic mode                      ; 8951                     ;
 ;                                             ;                          ;
 ; Total registers                             ; 1185                     ;
@@ -232,8 +232,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; CLK_50MHZ_to_60HZ:U5|tmp ;
 ; Maximum fan-out                             ; 1016                     ;
-; Total fan-out                               ; 97407                    ;
-; Average fan-out                             ; 3.23                     ;
+; Total fan-out                               ; 143832                   ;
+; Average fan-out                             ; 3.38                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -242,13 +242,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------+-----------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                   ; Entity Name           ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------+-----------------------+--------------+
-; |PROJ0                                          ; 28945 (26040)       ; 1185 (1015)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 33   ; 0            ; 0          ; |PROJ0                                                                                ; PROJ0                 ; work         ;
-;    |ADXL345_controller:U4|                      ; 142 (0)             ; 95 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4                                                          ; ADXL345_controller    ; work         ;
-;       |gsensor:U0|                              ; 142 (99)            ; 95 (57)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0                                               ; gsensor               ; work         ;
-;          |spi:u0|                               ; 43 (43)             ; 38 (38)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0                                        ; spi                   ; work         ;
+; |PROJ0                                          ; 41311 (38404)       ; 1185 (1015)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 33   ; 0            ; 0          ; |PROJ0                                                                                ; PROJ0                 ; work         ;
+;    |ADXL345_controller:U4|                      ; 143 (0)             ; 95 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4                                                          ; ADXL345_controller    ; work         ;
+;       |gsensor:U0|                              ; 143 (99)            ; 95 (57)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0                                               ; gsensor               ; work         ;
+;          |spi:u0|                               ; 44 (44)             ; 38 (38)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0                                        ; spi                   ; work         ;
 ;    |CLK_50MHZ_to_60HZ:U5|                       ; 56 (56)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|CLK_50MHZ_to_60HZ:U5                                                           ; CLK_50MHZ_to_60HZ     ; work         ;
 ;    |hw_image_generator:U3|                      ; 2651 (2651)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|hw_image_generator:U3                                                          ; hw_image_generator    ; work         ;
-;    |vga_controller:U2|                          ; 56 (56)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_controller:U2                                                              ; vga_controller        ; work         ;
+;    |vga_controller:U2|                          ; 57 (57)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_controller:U2                                                              ; vga_controller        ; work         ;
 ;    |vga_pll_25_175:U1|                          ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_pll_25_175:U1                                                              ; vga_pll_25_175        ; work         ;
 ;       |altpll:altpll_component|                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_pll_25_175:U1|altpll:altpll_component                                      ; altpll                ; work         ;
 ;          |vga_pll_25_175_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated ; vga_pll_25_175_altpll ; work         ;
@@ -404,106 +404,106 @@ Encoding Type:  One-Hot
 +-------------------------------------------+---------+
 ; Inverted Register                         ; Fan out ;
 +-------------------------------------------+---------+
-; shotPosition_y[11][10]                    ; 43      ;
-; shotPosition_y[11][8]                     ; 42      ;
-; shotPosition_y[11][7]                     ; 22      ;
-; shotPosition_y[11][4]                     ; 22      ;
-; shotPosition_y[11][3]                     ; 22      ;
-; shotPosition_y[11][2]                     ; 22      ;
+; shotPosition_y[11][10]                    ; 116     ;
+; shotPosition_y[11][8]                     ; 100     ;
+; shotPosition_y[11][7]                     ; 82      ;
+; shotPosition_y[11][4]                     ; 82      ;
+; shotPosition_y[11][3]                     ; 82      ;
+; shotPosition_y[11][2]                     ; 62      ;
 ; vga_controller:U2|row[0]                  ; 73      ;
-; shotPosition_y[11][0]                     ; 22      ;
-; shotPosition_y[11][9]                     ; 42      ;
-; shotPosition_x[11][10]                    ; 85      ;
-; shotPosition_x[11][9]                     ; 80      ;
-; shotPosition_x[11][8]                     ; 68      ;
+; shotPosition_y[11][0]                     ; 62      ;
+; shotPosition_y[11][9]                     ; 110     ;
+; shotPosition_x[11][10]                    ; 91      ;
+; shotPosition_x[11][9]                     ; 88      ;
+; shotPosition_x[11][8]                     ; 69      ;
 ; shotPosition_x[11][7]                     ; 49      ;
 ; shotPosition_x[11][4]                     ; 49      ;
 ; shotPosition_x[11][3]                     ; 49      ;
 ; shotPosition_x[11][2]                     ; 49      ;
 ; shotPosition_x[11][0]                     ; 48      ;
 ; vga_controller:U2|column[0]               ; 82      ;
-; shotPosition_y[12][10]                    ; 44      ;
-; shotPosition_y[12][8]                     ; 42      ;
-; shotPosition_y[12][7]                     ; 22      ;
-; shotPosition_y[12][4]                     ; 22      ;
-; shotPosition_y[12][3]                     ; 22      ;
-; shotPosition_y[12][2]                     ; 22      ;
-; shotPosition_y[12][0]                     ; 22      ;
-; shotPosition_y[12][9]                     ; 42      ;
-; shotPosition_x[12][10]                    ; 87      ;
-; shotPosition_x[12][9]                     ; 81      ;
-; shotPosition_x[12][8]                     ; 68      ;
+; shotPosition_y[12][10]                    ; 116     ;
+; shotPosition_y[12][8]                     ; 98      ;
+; shotPosition_y[12][7]                     ; 82      ;
+; shotPosition_y[12][4]                     ; 84      ;
+; shotPosition_y[12][3]                     ; 83      ;
+; shotPosition_y[12][2]                     ; 62      ;
+; shotPosition_y[12][0]                     ; 62      ;
+; shotPosition_y[12][9]                     ; 107     ;
+; shotPosition_x[12][10]                    ; 89      ;
+; shotPosition_x[12][9]                     ; 87      ;
+; shotPosition_x[12][8]                     ; 69      ;
 ; shotPosition_x[12][7]                     ; 49      ;
 ; shotPosition_x[12][4]                     ; 49      ;
 ; shotPosition_x[12][3]                     ; 49      ;
 ; shotPosition_x[12][2]                     ; 49      ;
 ; shotPosition_x[12][0]                     ; 48      ;
-; shotPosition_y[0][10]                     ; 41      ;
-; shotPosition_y[0][8]                      ; 42      ;
-; shotPosition_y[0][7]                      ; 22      ;
-; shotPosition_y[0][4]                      ; 22      ;
-; shotPosition_y[0][3]                      ; 22      ;
-; shotPosition_y[0][2]                      ; 22      ;
-; shotPosition_y[0][0]                      ; 22      ;
-; shotPosition_y[0][9]                      ; 42      ;
-; shotPosition_x[0][10]                     ; 85      ;
-; shotPosition_x[0][9]                      ; 80      ;
-; shotPosition_x[0][8]                      ; 66      ;
+; shotPosition_y[0][10]                     ; 103     ;
+; shotPosition_y[0][8]                      ; 92      ;
+; shotPosition_y[0][7]                      ; 82      ;
+; shotPosition_y[0][4]                      ; 82      ;
+; shotPosition_y[0][3]                      ; 82      ;
+; shotPosition_y[0][2]                      ; 62      ;
+; shotPosition_y[0][0]                      ; 62      ;
+; shotPosition_y[0][9]                      ; 95      ;
+; shotPosition_x[0][10]                     ; 90      ;
+; shotPosition_x[0][9]                      ; 88      ;
+; shotPosition_x[0][8]                      ; 69      ;
 ; shotPosition_x[0][7]                      ; 49      ;
 ; shotPosition_x[0][4]                      ; 49      ;
 ; shotPosition_x[0][3]                      ; 49      ;
 ; shotPosition_x[0][2]                      ; 49      ;
 ; shotPosition_x[0][0]                      ; 48      ;
-; shotPosition_y[1][10]                     ; 41      ;
-; shotPosition_y[1][8]                      ; 42      ;
-; shotPosition_y[1][7]                      ; 22      ;
-; shotPosition_y[1][4]                      ; 22      ;
-; shotPosition_y[1][3]                      ; 22      ;
-; shotPosition_y[1][2]                      ; 22      ;
-; shotPosition_y[1][0]                      ; 22      ;
-; shotPosition_y[1][9]                      ; 42      ;
-; shotPosition_x[1][9]                      ; 83      ;
-; shotPosition_x[1][8]                      ; 68      ;
+; shotPosition_y[1][10]                     ; 114     ;
+; shotPosition_y[1][8]                      ; 92      ;
+; shotPosition_y[1][7]                      ; 82      ;
+; shotPosition_y[1][4]                      ; 84      ;
+; shotPosition_y[1][3]                      ; 84      ;
+; shotPosition_y[1][2]                      ; 62      ;
+; shotPosition_y[1][0]                      ; 62      ;
+; shotPosition_y[1][9]                      ; 103     ;
+; shotPosition_x[1][10]                     ; 91      ;
+; shotPosition_x[1][9]                      ; 88      ;
+; shotPosition_x[1][8]                      ; 69      ;
 ; shotPosition_x[1][7]                      ; 49      ;
 ; shotPosition_x[1][4]                      ; 49      ;
 ; shotPosition_x[1][3]                      ; 49      ;
 ; shotPosition_x[1][2]                      ; 49      ;
 ; shotPosition_x[1][0]                      ; 48      ;
-; shotPosition_x[1][10]                     ; 89      ;
-; shotPosition_y[2][10]                     ; 40      ;
-; shotPosition_y[2][8]                      ; 42      ;
-; shotPosition_y[2][7]                      ; 22      ;
-; shotPosition_y[2][4]                      ; 22      ;
-; shotPosition_y[2][3]                      ; 22      ;
-; shotPosition_y[2][2]                      ; 22      ;
-; shotPosition_y[2][0]                      ; 22      ;
-; shotPosition_y[2][9]                      ; 42      ;
-; shotPosition_x[2][10]                     ; 86      ;
-; shotPosition_x[2][9]                      ; 81      ;
+; shotPosition_y[2][10]                     ; 106     ;
+; shotPosition_y[2][8]                      ; 97      ;
+; shotPosition_y[2][7]                      ; 82      ;
+; shotPosition_y[2][4]                      ; 82      ;
+; shotPosition_y[2][3]                      ; 82      ;
+; shotPosition_y[2][2]                      ; 62      ;
+; shotPosition_y[2][0]                      ; 62      ;
+; shotPosition_y[2][9]                      ; 91      ;
+; shotPosition_x[2][10]                     ; 91      ;
+; shotPosition_x[2][9]                      ; 88      ;
 ; shotPosition_x[2][8]                      ; 68      ;
-; shotPosition_x[2][7]                      ; 50      ;
-; shotPosition_x[2][4]                      ; 50      ;
+; shotPosition_x[2][7]                      ; 49      ;
+; shotPosition_x[2][4]                      ; 49      ;
 ; shotPosition_x[2][3]                      ; 49      ;
 ; shotPosition_x[2][2]                      ; 49      ;
 ; shotPosition_x[2][0]                      ; 48      ;
-; shotPosition_y[3][10]                     ; 41      ;
-; shotPosition_y[3][8]                      ; 42      ;
-; shotPosition_y[3][7]                      ; 22      ;
-; shotPosition_y[3][4]                      ; 22      ;
-; shotPosition_y[3][3]                      ; 22      ;
-; shotPosition_y[3][2]                      ; 22      ;
-; shotPosition_y[3][0]                      ; 22      ;
-; shotPosition_y[3][9]                      ; 42      ;
-; shotPosition_x[3][10]                     ; 85      ;
-; shotPosition_x[3][9]                      ; 81      ;
-; shotPosition_x[3][8]                      ; 70      ;
-; shotPosition_x[3][7]                      ; 50      ;
-; shotPosition_x[3][4]                      ; 50      ;
+; shotPosition_y[3][10]                     ; 104     ;
+; shotPosition_y[3][8]                      ; 90      ;
+; shotPosition_y[3][7]                      ; 82      ;
+; shotPosition_y[3][4]                      ; 82      ;
+; shotPosition_y[3][3]                      ; 82      ;
+; shotPosition_y[3][2]                      ; 62      ;
+; shotPosition_y[3][0]                      ; 62      ;
+; shotPosition_y[3][9]                      ; 94      ;
+; shotPosition_x[3][10]                     ; 89      ;
+; shotPosition_x[3][9]                      ; 87      ;
+; shotPosition_x[3][8]                      ; 68      ;
+; shotPosition_x[3][7]                      ; 49      ;
+; shotPosition_x[3][4]                      ; 49      ;
 ; shotPosition_x[3][3]                      ; 49      ;
 ; shotPosition_x[3][2]                      ; 49      ;
 ; shotPosition_x[3][0]                      ; 48      ;
-; shotPosition_y[4][10]                     ; 44      ;
-; shotPosition_y[4][8]                      ; 42      ;
+; shotPosition_y[4][10]                     ; 107     ;
+; shotPosition_y[4][8]                      ; 94      ;
 ; Total number of inverted registers = 788* ;         ;
 +-------------------------------------------+---------+
 * Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
@@ -1072,21 +1072,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SLD           ; 10                          ;
 ;     plain             ; 309                         ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 28945                       ;
+; cycloneiii_lcell_comb ; 41311                       ;
 ;     arith             ; 8951                        ;
 ;         1 data inputs ; 4                           ;
 ;         2 data inputs ; 1195                        ;
 ;         3 data inputs ; 7752                        ;
-;     normal            ; 19994                       ;
+;     normal            ; 32360                       ;
 ;         0 data inputs ; 24                          ;
 ;         1 data inputs ; 215                         ;
-;         2 data inputs ; 1475                        ;
-;         3 data inputs ; 7827                        ;
-;         4 data inputs ; 10453                       ;
+;         2 data inputs ; 2179                        ;
+;         3 data inputs ; 9458                        ;
+;         4 data inputs ; 20484                       ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 18.10                       ;
-; Average LUT depth     ; 11.38                       ;
+; Max LUT depth         ; 19.10                       ;
+; Average LUT depth     ; 11.54                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1095,7 +1095,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:02:44     ;
+; Top            ; 00:03:36     ;
 +----------------+--------------+
 
 
@@ -1105,7 +1105,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Nov 09 17:02:13 2021
+    Info: Processing started: Wed Nov 10 12:47:34 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PROJ0 -c PROJ0
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1416,17 +1416,17 @@ Warning (20013): Ignored 24 assignments for entity "vga_top" -- entity does not 
 Info (144001): Generated suppressed messages file C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 29455 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 41821 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 28 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 29421 logic cells
+    Info (21061): Implemented 41787 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 210 warnings
-    Info: Peak virtual memory: 5004 megabytes
-    Info: Processing ended: Tue Nov 09 17:05:12 2021
-    Info: Elapsed time: 00:02:59
-    Info: Total CPU time (on all processors): 00:03:12
+    Info: Peak virtual memory: 5139 megabytes
+    Info: Processing ended: Wed Nov 10 12:51:26 2021
+    Info: Elapsed time: 00:03:52
+    Info: Total CPU time (on all processors): 00:04:05
 
 
 +------------------------------------------+
