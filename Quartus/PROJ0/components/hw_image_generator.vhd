@@ -41,18 +41,18 @@ ENTITY hw_image_generator IS
     row      :  IN   INTEGER range -100 to 1000;    --row pixel coordinate
     column   :  IN   INTEGER range -100 to 1000;    --column pixel coordinate
 	 
-	 player_left 	: IN INTEGER range -100 to 1000;
-	 player_right 	: IN INTEGER range -100 to 1000;
-	 player_top 	: IN INTEGER range -100 to 1000;
-	 player_bottom	: IN INTEGER range -100 to 1000;
-	 num_lives		: IN INTEGER range -100 to 1000;
+	 player_left 	: IN INTEGER range 0 to 700;
+	 player_right 	: IN INTEGER range 0 to 700;
+	 player_top 	: IN INTEGER range 0 to 700;
+	 player_bottom	: IN INTEGER range 0 to 700;
+	 num_lives		: IN INTEGER range 0 to 5;
 	 player_Blink	: IN STD_LOGIC;
 			
 	 enemyPosition_x, enemyPosition_y, enemySize : IN array20;
 	 shotPosition_x, shotPosition_y: IN array13;
 	 
-	 direction_x : IN STD_LOGIC;
-	 exhaust_level, pulse_position : IN INTEGER range -100 to 1000;
+	 player_face_right : IN STD_LOGIC;
+	 exhaust_level, pulse_position : IN INTEGER range 0 to 700;
 	 
     red      :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
     green    :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
@@ -84,7 +84,7 @@ BEGIN
 			green <= (OTHERS => '1');
 		end if;
 		
-	if (direction_x = '1') then
+	if (player_face_right = '1') then
 		if(row >= player_top and row <= player_bottom) then
 			if(column >= player_left and column <= player_right) then
 				if((row - player_top) >= (column - player_left)) then
@@ -104,7 +104,7 @@ BEGIN
 				end if;
 			end if;
 		end if;
-	elsif (direction_x = '0') then	
+	elsif (player_face_right = '0') then	
 		if(row >= player_top and row <= player_bottom) then
 			if(column >= player_left and column <= player_right) then
 				if((row - player_top) >= (player_right - column)) then
@@ -128,7 +128,7 @@ BEGIN
 	
 			if (Player_Blink = '0') then
 				if (row >= player_top + 10 and row <= player_bottom - 10) then
-					if (direction_x = '1') then
+					if (player_face_right = '1') then
 						if (exhaust_level = 1) then
 							if (column >= player_left - 15 and column <= Player_left - 2) then
 								red <= "00001111";
@@ -172,7 +172,7 @@ BEGIN
 				end if;
 			end if;
 			
-		if (direction_x = '1') then
+		if (player_face_right = '1') then
 			if (row >= player_top + 10 and row <= player_bottom - 10) then
 				if (column <= pulse_position and column >= pulse_position - 3) then
 					red <= (others => '1');

@@ -39,7 +39,8 @@ entity PROJ0 is
 		GSENSOR_SDI  : INOUT	STD_LOGIC;
 		GSENSOR_SDO  : INOUT	STD_LOGIC;
 		
-		key0, key1 : in STD_LOGIC
+		key0, key1 : in STD_LOGIC;
+		sound_out : out STD_LOGIC
 	);
 	
 end PROJ0;
@@ -82,18 +83,18 @@ architecture PROJ0_ARCH of PROJ0 is
 			row      :  IN  INTEGER range -100 to 1000;    --row pixel coordinate
 			column   :  IN  INTEGER range -100 to 1000;    --column pixel coordinate
 			
-			player_left 	: IN INTEGER range -100 to 1000;
-			player_right 	: IN INTEGER range -100 to 1000;
-			player_top 		: IN INTEGER range -100 to 1000;
-			player_bottom	: IN INTEGER range -100 to 1000;
-			num_lives		: IN INTEGER range -100 to 1000;
+			player_left 	: IN INTEGER range 0 to 700;
+			player_right 	: IN INTEGER range 0 to 700;
+			player_top 		: IN INTEGER range 0 to 700;
+			player_bottom	: IN INTEGER range 0 to 700;
+			num_lives		: IN INTEGER range 0 to 5;
 			player_Blink	: IN STD_LOGIC;
 			
 			enemyPosition_x, enemyPosition_y, enemySize : IN array20;
 			shotPosition_x, shotPosition_y: IN array13;
 			
-			direction_x : IN STD_LOGIC;
-			exhaust_level, pulse_position : IN INTEGER range -100 to 1000;
+			player_face_right : IN STD_LOGIC;
+			exhaust_level, pulse_position : IN INTEGER range 0 to 700;
 			
 			red      :  OUT STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --red magnitude output to DAC
 			green    :  OUT STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');  --green magnitude output to DAC
@@ -123,6 +124,12 @@ architecture PROJ0_ARCH of PROJ0 is
 			CLK60HZ: OUT STD_LOGIC);
 	end component;
 	
+	component sounds is
+	port (sound_effect : inout integer range 0 to 10 := 0;
+			max10_clk : IN STD_LOGIC;
+			sound_pin : OUT STD_LOGIC);
+	end component;
+	
 	
 	
 	signal enemyPosition_x, enemyPosition_y, enemySize : array20 := (-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1);
@@ -132,7 +139,7 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal enemySizes : array7:= (10, 57, 20, 5, 32, 69, 40);
 	signal currentEnemyIndex, currentSpawnIndex, currentSizeIndex, spawnCounter, currentShotIndex, shotCounter: INTEGER range -100 to 1000 := 0;
 	signal maxEnemyIndex : INTEGER range -100 to 1000 := 19;
-	signal maxSizeIndex	: INTEGER range -100 to 1000 := 6;
+	signal maxSizeIndex	: INTEGER range 0 to 700 := 6;
 	signal maxSpawnIndex	: INTEGER range -100 to 1000 := 12;
 	signal maxShotIndex	: INTEGER range -100 to 1000 := 12;
 	signal maxShotCounter	: INTEGER range -100 to 1000 := 30;
@@ -140,11 +147,11 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal pll_OUT_to_vga_controller_IN, dispEn : STD_LOGIC;
 	signal rowSignal, colSignal : INTEGER range -100 to 1000;
 	signal data_x, data_y, data_z : STD_LOGIC_VECTOR (15 downto 0);
-	signal player_left 	: INTEGER range -100 to 1000 := 30;
-	signal player_right 	: INTEGER range -100 to 1000 := 70;
-	signal player_top 	: INTEGER range -100 to 1000 := 220;
-	signal player_bottom	: INTEGER range -100 to 1000 := 260;
-	signal num_lives		: INTEGER range -100 to 1000 := 3;
+	signal player_left 	: INTEGER range 0 to 700 := 30;
+	signal player_right 	: INTEGER range 0 to 700 := 70;
+	signal player_top 	: INTEGER range 0 to 700 := 220;
+	signal player_bottom	: INTEGER range 0 to 700 := 260;
+	signal num_lives		: INTEGER range 0 to 700 := 3;
 	signal player_Blink 	: STD_LOGIC := '0';
 	signal invincible_counter, pauseCounter : INTEGER range -100 to 1000 := 0;
 	signal tilt_x, tilt_y : STD_LOGIC_VECTOR (3 downto 0);
@@ -153,7 +160,9 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal spawnRate : INTEGER range -100 to 1000 := 60;
 	signal enemySpeed : INTEGER range -100 to 1000 := 1;
 	signal pause, gameStart: STD_LOGIC := '0';
-	signal exhaust_level, tilt_level, pulse_position : integer range -100 to 1000 := 0;
+	signal player_face_right : STD_LOGIC := '1';
+	signal exhaust_level, tilt_level, pulse_position : integer range 0 to 1000 := 0;
+	signal sound_effect : integer range 0 to 10 := 0;
 	
 	
 begin
@@ -170,6 +179,7 @@ begin
 	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, shotPosition_x, shotPosition_y, facingDirection, exhaust_level, pulse_position, red_m, green_m, blue_m);
 	U4 : ADXL345_controller port map ('1', pixel_clk_m, open, data_x, data_y, data_z, GSENSOR_SDI, GSENSOR_SDO, GSENSOR_CS_N, GSENSOR_SCLK);
 	U5 : CLK_50MHZ_to_60HZ port map(pixel_clk_m, clk_60HZ);
+	U6	: sounds port map (sound_effect, pixel_clk_m, sound_out);
 	
 	
 	HZ60_Update: Process(clk_60HZ)
@@ -196,13 +206,15 @@ begin
 							player_left <= player_left + 2;
 						end if;
 					end if;
+				player_face_right <= '1';
 				else
 					if(tilt_x /= "0000") then
 						if(player_left > 0) then
 								player_right <= player_right - 2;
 								player_left <= player_left - 2;
 							end if;
-						end if;
+						player_face_right <= '0';
+					end if;
 				end if;
 				
 				if(direction_y = '0') then
@@ -341,7 +353,7 @@ begin
 								currentShotIndex <= currentShotIndex + 1;
 							end if;
 							shotCounter <= 1;
-							
+							sound_effect <= 1;	
 						end if;
 					end if;
 				elsif(shotCounter = maxShotCounter) then
@@ -461,7 +473,9 @@ begin
 					
 			
 		end if;
+		
+		
 	end Process;
-
+	
 	
 end architecture;
