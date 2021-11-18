@@ -137,12 +137,12 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal shotPosition_x, shotPosition_y	: array13 := (-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99);
 	signal shotDirection : STD_LOGIC_VECTOR (0 to 12) := "0000000000000";
 	signal enemySizes : array7:= (10, 57, 20, 5, 32, 69, 40);
-	signal currentEnemyIndex, currentSpawnIndex, currentSizeIndex, spawnCounter, currentShotIndex, shotCounter: INTEGER range -100 to 1000 := 0;
-	signal maxEnemyIndex : INTEGER range -100 to 1000 := 19;
-	signal maxSizeIndex	: INTEGER range 0 to 700 := 6;
-	signal maxSpawnIndex	: INTEGER range -100 to 1000 := 12;
-	signal maxShotIndex	: INTEGER range -100 to 1000 := 12;
-	signal maxShotCounter	: INTEGER range -100 to 1000 := 30;
+	signal currentEnemyIndex, currentSpawnIndex, currentSizeIndex, spawnCounter, currentShotIndex, shotCounter: INTEGER range -1 to 31 := 0;
+	signal maxEnemyIndex : INTEGER range 10 to 10 := 10;--19 to 19 := 19;
+	signal maxSizeIndex	: INTEGER range 6 to 6 := 6;
+	signal maxSpawnIndex	: INTEGER range 12 to 12 := 12;
+	signal maxShotIndex	: INTEGER range 6 to 6 := 6;--12 to 12 := 12;
+	signal maxShotCounter	: INTEGER range 30 to 30 := 30;
 	
 	signal pll_OUT_to_vga_controller_IN, dispEn : STD_LOGIC;
 	signal rowSignal, colSignal : INTEGER range -100 to 1000;
@@ -153,15 +153,15 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal player_bottom	: INTEGER range 0 to 700 := 260;
 	signal num_lives		: INTEGER range 0 to 700 := 3;
 	signal player_Blink 	: STD_LOGIC := '0';
-	signal invincible_counter, pauseCounter : INTEGER range -100 to 1000 := 0;
+	signal invincible_counter, pauseCounter : INTEGER range -1 to 121 := 0;
 	signal tilt_x, tilt_y : STD_LOGIC_VECTOR (3 downto 0);
 	signal direction_x, direction_y, facingDirection : STD_LOGIC:= '1';
 	signal clk_60HZ : STD_LOGIC;
-	signal spawnRate : INTEGER range -100 to 1000 := 60;
-	signal enemySpeed : INTEGER range -100 to 1000 := 1;
+	signal spawnRate : INTEGER range 0 to 100 := 60;
+	signal enemySpeed : INTEGER range 0 to 10 := 1;
 	signal pause, gameStart: STD_LOGIC := '0';
 	signal player_face_right : STD_LOGIC := '1';
-	signal exhaust_level, tilt_level, pulse_position : integer range 0 to 1000 := 0;
+	signal exhaust_level, tilt_level_x, tilt_level_y, pulse_position : integer range 0 to 1000 := 0;
 	signal sound_effect : integer range 0 to 10 := 0;
 	
 	
@@ -171,7 +171,9 @@ begin
 	tilt_x <= data_x(7 downto 4);
 	direction_y <= data_y(11);
 	tilt_y <= data_y(7 downto 4);
-	tilt_level <= to_integer(unsigned(tilt_x));
+	tilt_level_x <= to_integer(unsigned(tilt_x));
+	tilt_level_y <= to_integer(unsigned(tilt_y));
+	
 	
 -- Just need 3 components for VGA system 
 	U1	:	vga_pll_25_175 port map(pixel_clk_m, pll_OUT_to_vga_controller_IN);
@@ -200,88 +202,112 @@ begin
 					pauseCounter <= pauseCounter + 1;
 				end if;
 				if(direction_x = '1') then
-					if(tilt_x /= "1111") then
-						if(player_right < 351) then
+					player_face_right <= '1';
+					if (tilt_level_x >= 0 and tilt_level_x <= 4) then
+						exhaust_level <= 3;
+						if(player_right < 320) then
+							player_right <= player_right + 3;
+							player_left <= player_left + 3;
+						end if;
+					elsif (tilt_level_x >= 5 and tilt_level_x <= 9) then
+						exhaust_level <= 2;
+						if(player_right < 320) then
 							player_right <= player_right + 2;
 							player_left <= player_left + 2;
 						end if;
+					elsif (tilt_level_x >= 10 and tilt_level_x <= 14) then
+						exhaust_level <= 1;
+						if(player_right < 320) then
+							player_right <= player_right + 1;
+							player_left <= player_left + 1;
+						end if;
+					else
+						exhaust_level <= 0;
 					end if;
-				player_face_right <= '1';
 				else
-					if(tilt_x /= "0000") then
-						if(player_left > 0) then
-								player_right <= player_right - 2;
-								player_left <= player_left - 2;
-							end if;
-						player_face_right <= '0';
+					player_face_right <= '0';
+					if (tilt_level_x >= 1 and tilt_level_x <= 5) then
+						exhaust_level <= 1;
+						if(player_left >= 1) then
+							player_right <= player_right - 1;
+							player_left <= player_left - 1;
+						end if;
+					elsif (tilt_level_x >= 6 and tilt_level_x <= 10) then
+						exhaust_level <= 2;
+						if(player_left >= 2) then
+							player_right <= player_right - 2;
+							player_left <= player_left - 2;
+						end if;
+					elsif (tilt_level_x >= 11 and tilt_level_x <= 15) then
+						exhaust_level <= 3;
+						if(player_left >= 3) then
+							player_right <= player_right - 3;
+							player_left <= player_left - 3;
+						end if;
+					else
+						exhaust_level <= 0;
 					end if;
 				end if;
 				
 				if(direction_y = '0') then
-					if(tilt_y /= "0000") then
-						if(player_bottom < 439) then
+					if (tilt_level_y >= 1 and tilt_level_y <= 5) then
+						if(player_bottom + 1 < 439) then
+							player_bottom <= player_bottom + 1;
+							player_top <= player_top + 1;
+						end if;
+					elsif (tilt_level_y >= 6 and tilt_level_y <= 10) then
+						if(player_bottom + 2 < 439) then
 							player_bottom <= player_bottom + 2;
 							player_top <= player_top + 2;
 						end if;
+					elsif (tilt_level_y >= 11 and tilt_level_y <= 15) then
+						if(player_bottom + 3 < 439) then
+							player_bottom <= player_bottom + 3;
+							player_top <= player_top + 3;
+						end if;
 					end if;
 				else
-					if(tilt_y /= "1111") then
-						if(player_top > 41) then
-								player_top <= player_top - 2;
-								player_bottom <= player_bottom - 2;
-							end if;
+					if (tilt_level_y >= 0 and tilt_level_y <= 4) then
+						if(player_top - 3 > 41) then
+							player_top <= player_top - 3;
+							player_bottom <= player_bottom - 3;
 						end if;
+					elsif (tilt_level_y >= 5 and tilt_level_y <= 9) then
+						if(player_top - 2 > 41) then
+							player_top <= player_top - 2;
+							player_bottom <= player_bottom - 2;
+						end if;
+					elsif (tilt_level_y >= 10 and tilt_level_y <= 14) then
+						if(player_top - 1 > 41) then
+							player_top <= player_top - 1;
+							player_bottom <= player_bottom - 1;
+						end if;
+					end if;
 				end if;
 				
-				if (clk_60hz'event and clk_60hz = '1') then
-						if (direction_x = '1') then
-							if (tilt_level >= 0 and tilt_level <= 4) then
-								exhaust_level <= 3;
-							elsif (tilt_level >= 5 and tilt_level <= 9) then
-								exhaust_level <= 2;
-							elsif (tilt_level >= 10 and tilt_level <= 14) then
-								exhaust_level <= 1;
-							else
-								exhaust_level <= 0;
-							end if;
-						else
-							if (tilt_level >= 1 and tilt_level <= 5) then
-								exhaust_level <= 1;
-							elsif (tilt_level >= 6 and tilt_level <= 10) then
-								exhaust_level <= 2;
-							elsif (tilt_level >= 11 and tilt_level <= 15) then
-								exhaust_level <= 3;
-							else
-								exhaust_level <= 0;
-							end if;
-						end if;
-				end if;
-				
-				if (clk_60hz'event and clk_60hz = '1') then
-					if (direction_x = '1') then
-						if (exhaust_level = 0) then
-							pulse_position <= Player_Left - 2;
-						elsif (exhaust_level = 1 and pulse_position >= Player_Left - 15) then
-							pulse_position <= pulse_position - 1;
-						elsif (exhaust_level = 2 and pulse_position >= Player_Left - 25) then
-							pulse_position <= pulse_position - 3;
-						elsif (exhaust_level = 3 and pulse_position >= Player_Left - 35) then
-							pulse_position <= pulse_position - 5;
-						else 
-							pulse_position <= Player_Left - 1;
-						end if;
-					else
-						if (exhaust_level = 0) then
-							pulse_position <= Player_Right + 2;
-						elsif (exhaust_level = 1 and pulse_position <= Player_Right + 15) then
-							pulse_position <= pulse_position + 1;
-						elsif (exhaust_level = 2 and pulse_position <= Player_Right + 25) then
-							pulse_position <= pulse_position + 3;
-						elsif (exhaust_level = 3 and pulse_position <= Player_Right + 35) then
-							pulse_position <= pulse_position + 5;
-						else 
-							pulse_position <= Player_Right + 1;
-						end if;
+				if (direction_x = '1') then
+					if (exhaust_level = 0) then
+						pulse_position <= Player_Left - 2;
+					elsif (exhaust_level = 1 and pulse_position >= Player_Left - 15) then
+						pulse_position <= pulse_position - 1;
+					elsif (exhaust_level = 2 and pulse_position >= Player_Left - 25) then
+						pulse_position <= pulse_position - 3;
+					elsif (exhaust_level = 3 and pulse_position >= Player_Left - 35) then
+						pulse_position <= pulse_position - 5;
+					else 
+						pulse_position <= Player_Left - 1;
+					end if;
+				else
+					if (exhaust_level = 0) then
+						pulse_position <= Player_Right + 2;
+					elsif (exhaust_level = 1 and pulse_position <= Player_Right + 15) then
+						pulse_position <= pulse_position + 1;
+					elsif (exhaust_level = 2 and pulse_position <= Player_Right + 25) then
+						pulse_position <= pulse_position + 3;
+					elsif (exhaust_level = 3 and pulse_position <= Player_Right + 35) then
+						pulse_position <= pulse_position + 5;
+					else 
+						pulse_position <= Player_Right + 1;
 					end if;
 				end if;
 				
@@ -373,16 +399,20 @@ begin
 					for J in 0 to maxShotIndex loop
 						if(shotPosition_x(J) /= -99) then
 							if(shotDirection(J) = '0') then
-								if((((shotPosition_x(J) - 5) <= enemyPosition_x(i)) and ((shotPosition_x(J) - 5) >= (enemyPosition_x(i) - enemySize(I)))) and (((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 3) >= (enemyPosition_y(I) + enemySize(I)))))) then
-									enemyPosition_x(I) <= -1;
-									shotPosition_x(J) <= -99;
-									-- Add score here 
+								if((((shotPosition_x(J) - 5) <= enemyPosition_x(i)) and ((shotPosition_x(J) - 5) >= (enemyPosition_x(i) - enemySize(I))))) then
+									if(((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 3) >= (enemyPosition_y(I) + enemySize(I))))) then
+										enemyPosition_x(I) <= -1;
+										shotPosition_x(J) <= -99;
+										-- Add score here 
+									end if;
 								end if;
 							else
-								if(((shotPosition_x(J) >= (enemyPosition_x(i) - enemySize(I))) and ((shotPosition_x(J) <= enemyPosition_x(I)))) and (((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 3) >= (enemyPosition_y(I) + enemySize(I)))))) then
-									enemyPosition_x(I) <= -1;
-									shotPosition_x(J) <= -99;
-									-- Add score here
+								if(((shotPosition_x(J) >= (enemyPosition_x(i) - enemySize(I))) and ((shotPosition_x(J) <= enemyPosition_x(I))))) then
+									if(((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 3) >= (enemyPosition_y(I) + enemySize(I))))) then
+										enemyPosition_x(I) <= -1;
+										shotPosition_x(J) <= -99;
+										-- Add score here
+									end if;
 								end if;
 							end if;
 						end if;
@@ -393,23 +423,43 @@ begin
 --						if( key1 = '0' and num_lives < 3) then
 --							num_lives <= num_lives + 1;
 --							invincible_counter <= invincible_counter + 1;
---						end if;
-						if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I))))) then
-							num_lives <= num_lives -1;
-							enemyPosition_x(I) <= -1;
-							invincible_counter <= 1;
-						elsif((player_Left >= (enemyPosition_x(I) - enemySize(I))) and (player_Left <= enemyPosition_x(i)) and (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I))))) then
-							num_lives <= num_lives -1;
-							enemyPosition_x(I) <= -1;
-							invincible_counter <= 1;
-						elsif((player_Top <= (enemyPosition_y(I) + enemySize(I))) and (player_Top >= enemyPosition_y(i)) and (((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I))))) then
-							num_lives <= num_lives -1;
-							enemyPosition_x(I) <= -1;
-							invincible_counter <= 1;
-						elsif((player_Bottom <= (enemyPosition_y(I) + enemySize(I))) and (player_Bottom >= enemyPosition_y(i)) and (((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I))))) then
-							num_lives <= num_lives -1;
-							enemyPosition_x(I) <= -1;
-							invincible_counter <= 1;
+--						end if;)
+						if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i))) then
+							if (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I)))) then
+								num_lives <= num_lives -1;
+								enemyPosition_x(I) <= -1;
+								invincible_counter <= 1;
+								if(num_lives = 1) then
+									gamestart <= '0';
+								end if;
+							end if;
+						elsif((player_Left >= (enemyPosition_x(I) - enemySize(I))) and (player_Left <= enemyPosition_x(i))) then
+							if(((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I)))) then
+								num_lives <= num_lives -1;
+								enemyPosition_x(I) <= -1;
+								invincible_counter <= 1;
+								if(num_lives = 1) then
+									gamestart <= '0';
+								end if;
+							end if;
+						elsif((player_Top <= (enemyPosition_y(I) + enemySize(I))) and (player_Top >= enemyPosition_y(i))) then 
+							if(((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I)))) then
+								num_lives <= num_lives -1;
+								enemyPosition_x(I) <= -1;
+								invincible_counter <= 1;
+								if(num_lives = 1) then
+									gamestart <= '0';
+								end if;
+							end if;
+						elsif((player_Bottom <= (enemyPosition_y(I) + enemySize(I))) and (player_Bottom >= enemyPosition_y(i))) then
+							if(((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I)))) then
+								num_lives <= num_lives -1;
+								enemyPosition_x(I) <= -1;
+								invincible_counter <= 1;
+								if(num_lives = 1) then
+									gamestart <= '0';
+								end if;
+							end if;
 						end if;
 					elsif(invincible_counter = 120) then
 						player_Blink <= '0';
@@ -417,43 +467,39 @@ begin
 					else
 						player_Blink <= not player_Blink;
 						invincible_counter <= invincible_counter + 1;
-						if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I))))) then
-							enemyPosition_x(I) <= -1;
-						elsif((player_Left >= (enemyPosition_x(I) - enemySize(I))) and (player_Left <= enemyPosition_x(i)) and (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I))))) then
-							enemyPosition_x(I) <= -1;
-						elsif((player_Top <= (enemyPosition_y(I) + enemySize(I))) and (player_Top >= enemyPosition_y(i)) and (((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I))))) then
-							enemyPosition_x(I) <= -1;
-						elsif((player_Bottom <= (enemyPosition_y(I) + enemySize(I))) and (player_Bottom >= enemyPosition_y(i)) and (((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I))))) then
-							enemyPosition_x(I) <= -1;
-						end if;
+--						if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i))) then 
+--							if(((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I)))) then
+--								enemyPosition_x(I) <= -1;
+--							end if;
+--						elsif((player_Left >= (enemyPosition_x(I) - enemySize(I))) and (player_Left <= enemyPosition_x(i))) then 
+--							if(((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I)))) then
+--								enemyPosition_x(I) <= -1;
+--							end if;
+--						elsif((player_Top <= (enemyPosition_y(I) + enemySize(I))) and (player_Top >= enemyPosition_y(i))) then
+--							if(((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I)))) then
+--								enemyPosition_x(I) <= -1;
+--							end if;
+--						elsif((player_Bottom <= (enemyPosition_y(I) + enemySize(I))) and (player_Bottom >= enemyPosition_y(i))) then
+--							if(((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I)))) then
+--								enemyPosition_x(I) <= -1;
+--							end if;
+--						end if;
 					end if;
 				end loop;
 				
-	--			if( invincible_counter = 0) then 
-	----				if( key0 = '0') then
-	----					num_lives <= num_lives - 1;
-	----					invincible_counter <= invincible_counter + 1;
-	--				if( key1 = '0' and num_lives < 3) then
-	--					num_lives <= num_lives + 1;
-	--					invincible_counter <= invincible_counter + 1;
-	--				end if;
-	--				for I in 0 to maxEnemyIndex loop
-	--					if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and ((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I)))))) then
-	--						num_lives <= num_lives -1;
-	--						enemyPosition_x(I) <= -1;
-	--						invincible_counter <= 1;
-	--					end if;
-	--				end loop;
-	--			elsif(invincible_counter = 120) then
-	--				invincible_counter <= 0;
-	--			else
-	--				for I in 0 to maxEnemyIndex loop
-	--					if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i)) and ((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I)))))) then
-	--						enemyPosition_x(I) <= -1;
-	--					end if;
-	--				end loop;
-	--				invincible_counter <= invincible_counter + 1;
-	--			end if;
+			elsif(gamestart = '0') then
+				if(key0 = '0') then
+					gamestart <= '1';
+					enemyPosition_x<= (-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1); 
+					enemyPosition_y<= (-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1); 
+					enemySize <= (-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1);
+					player_left <= 30;
+					player_right <= 70;
+					player_top 	<= 220;
+					player_bottom	<= 260;
+					num_lives <= 3;
+					
+				end if;
 			else
 				if(pauseCounter = 0) then
 					if(key1 = '0') then
@@ -464,10 +510,6 @@ begin
 					pauseCounter <= 0;
 				else 
 					pauseCounter <= pauseCounter + 1;
-				end if;
-				
-				if(key0 = '0') then
-					gamestart <= '1';
 				end if;
 			end if;
 					

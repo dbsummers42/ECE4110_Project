@@ -60,11 +60,10 @@ ENTITY hw_image_generator IS
 END hw_image_generator;
 
 ARCHITECTURE behavior OF hw_image_generator IS
-signal Diagonal: INTEGER range -100 to 1000;
+--signal Diagonal: INTEGER range -100 to 1000;
 signal tilt_int, red_mult : integer range -100 to 1000 := 0;
-signal maxEnemyIndex : INTEGER range -100 to 1000 := 19;
-signal maxShotIndex : INTEGER range -100 to 1000 := 12;
-
+signal maxEnemyIndex : INTEGER range 10 to 10 := 10;--19 to 19 := 19;
+signal maxShotIndex : INTEGER range 6 to 6 := 6;--12 to 12 := 12;
 BEGIN
   
   PROCESS(disp_ena, row, column)
