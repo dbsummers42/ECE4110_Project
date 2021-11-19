@@ -116,6 +116,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "sound_out",
+					"strict" : false
+				},
+				{
 					"name" : "GSENSOR_SDI",
 					"strict" : false
 				},

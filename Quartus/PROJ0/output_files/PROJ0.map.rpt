@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PROJ0
-Thu Nov 18 16:27:24 2021
+Fri Nov 19 16:21:04 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -15,20 +15,21 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|state
   9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: vga_pll_25_175:U1|altpll:altpll_component
- 14. Parameter Settings for User Entity Instance: vga_controller:U2
- 15. Parameter Settings for User Entity Instance: ADXL345_controller:U4|gsensor:U0
- 16. Parameter Settings for User Entity Instance: ADXL345_controller:U4|gsensor:U0|spi:u0
- 17. altpll Parameter Settings by Entity Instance
- 18. Port Connectivity Checks: "ADXL345_controller:U4"
- 19. Port Connectivity Checks: "vga_controller:U2"
- 20. Post-Synthesis Netlist Statistics for Top Partition
- 21. Elapsed Time Per Partition
- 22. Analysis & Synthesis Messages
- 23. Analysis & Synthesis Suppressed Messages
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: vga_pll_25_175:U1|altpll:altpll_component
+ 15. Parameter Settings for User Entity Instance: vga_controller:U2
+ 16. Parameter Settings for User Entity Instance: ADXL345_controller:U4|gsensor:U0
+ 17. Parameter Settings for User Entity Instance: ADXL345_controller:U4|gsensor:U0|spi:u0
+ 18. altpll Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "ADXL345_controller:U4"
+ 20. Port Connectivity Checks: "vga_controller:U2"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+ 24. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -55,15 +56,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 18 16:27:24 2021       ;
+; Analysis & Synthesis Status        ; Successful - Fri Nov 19 16:21:04 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PROJ0                                       ;
 ; Top-level Entity Name              ; PROJ0                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 15,762                                      ;
-;     Total combinational functions  ; 15,445                                      ;
-;     Dedicated logic registers      ; 832                                         ;
-; Total registers                    ; 832                                         ;
+; Total logic elements               ; 15,871                                      ;
+;     Total combinational functions  ; 15,553                                      ;
+;     Dedicated logic registers      ; 886                                         ;
+; Total registers                    ; 886                                         ;
 ; Total pins                         ; 34                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -165,41 +166,46 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-16        ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                            ;
-+------------------------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path               ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                          ; Library ;
-+------------------------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
-; components/CLK_50MHZ_to_60HZ.vhd               ; yes             ; User VHDL File               ; C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd               ;         ;
-; components/Tilt_Control/spi.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv                 ;         ;
-; components/Tilt_Control/gsensor.sv             ; yes             ; User SystemVerilog HDL File  ; C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv             ;         ;
-; components/Tilt_Control/ADXL345_controller.vhd ; yes             ; User VHDL File               ; C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/ADXL345_controller.vhd ;         ;
-; components/vga_pll_25_175.vhd                  ; yes             ; User Wizard-Generated File   ; C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd                  ;         ;
-; components/vga_controller.vhd                  ; yes             ; User VHDL File               ; C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_controller.vhd                  ;         ;
-; components/hw_image_generator.vhd              ; yes             ; User VHDL File               ; C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd              ;         ;
-; PROJ0.vhd                                      ; yes             ; User VHDL File               ; C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd                                      ;         ;
-; components/sounds.vhd                          ; yes             ; User VHDL File               ; C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd                          ;         ;
-; altpll.tdf                                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf                                                     ;         ;
-; aglobal201.inc                                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                 ;         ;
-; stratix_pll.inc                                ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_pll.inc                                                ;         ;
-; stratixii_pll.inc                              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratixii_pll.inc                                              ;         ;
-; cycloneii_pll.inc                              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/cycloneii_pll.inc                                              ;         ;
-; db/vga_pll_25_175_altpll.v                     ; yes             ; Auto-Generated Megafunction  ; C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v                     ;         ;
-+------------------------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                   ;
++------------------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path               ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                 ; Library ;
++------------------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
+; components/CLK_50MHZ_to_60HZ.vhd               ; yes             ; User VHDL File               ; C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd               ;         ;
+; components/Tilt_Control/spi.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv                 ;         ;
+; components/Tilt_Control/gsensor.sv             ; yes             ; User SystemVerilog HDL File  ; C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv             ;         ;
+; components/Tilt_Control/ADXL345_controller.vhd ; yes             ; User VHDL File               ; C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/ADXL345_controller.vhd ;         ;
+; components/vga_pll_25_175.vhd                  ; yes             ; User Wizard-Generated File   ; C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd                  ;         ;
+; components/vga_controller.vhd                  ; yes             ; User VHDL File               ; C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/vga_controller.vhd                  ;         ;
+; components/hw_image_generator.vhd              ; yes             ; User VHDL File               ; C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd              ;         ;
+; PROJ0.vhd                                      ; yes             ; User VHDL File               ; C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd                                      ;         ;
+; components/sounds.vhd                          ; yes             ; User VHDL File               ; C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd                          ;         ;
+; altpll.tdf                                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf                                            ;         ;
+; aglobal201.inc                                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                        ;         ;
+; stratix_pll.inc                                ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_pll.inc                                       ;         ;
+; stratixii_pll.inc                              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratixii_pll.inc                                     ;         ;
+; cycloneii_pll.inc                              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/cycloneii_pll.inc                                     ;         ;
+; db/vga_pll_25_175_altpll.v                     ; yes             ; Auto-Generated Megafunction  ; C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v                     ;         ;
++------------------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------+
@@ -207,20 +213,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 15,762                   ;
+; Estimated Total logic elements              ; 15,871                   ;
 ;                                             ;                          ;
-; Total combinational functions               ; 15445                    ;
+; Total combinational functions               ; 15553                    ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 6799                     ;
-;     -- 3 input functions                    ; 6792                     ;
-;     -- <=2 input functions                  ; 1854                     ;
+;     -- 4 input functions                    ; 6822                     ;
+;     -- 3 input functions                    ; 6858                     ;
+;     -- <=2 input functions                  ; 1873                     ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 10615                    ;
-;     -- arithmetic mode                      ; 4830                     ;
+;     -- normal mode                          ; 10677                    ;
+;     -- arithmetic mode                      ; 4876                     ;
 ;                                             ;                          ;
-; Total registers                             ; 832                      ;
-;     -- Dedicated logic registers            ; 832                      ;
+; Total registers                             ; 886                      ;
+;     -- Dedicated logic registers            ; 886                      ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 34                       ;
@@ -231,8 +237,8 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                        ;
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; CLK_50MHZ_to_60HZ:U5|tmp ;
-; Maximum fan-out                             ; 663                      ;
-; Total fan-out                               ; 53337                    ;
+; Maximum fan-out                             ; 665                      ;
+; Total fan-out                               ; 53775                    ;
 ; Average fan-out                             ; 3.26                     ;
 +---------------------------------------------+--------------------------+
 
@@ -242,12 +248,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------+-----------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                   ; Entity Name           ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------+-----------------------+--------------+
-; |PROJ0                                          ; 15445 (13514)       ; 832 (662)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 34   ; 0            ; 0          ; |PROJ0                                                                                ; PROJ0                 ; work         ;
+; |PROJ0                                          ; 15553 (13507)       ; 886 (664)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 34   ; 0            ; 0          ; |PROJ0                                                                                ; PROJ0                 ; work         ;
 ;    |ADXL345_controller:U4|                      ; 143 (0)             ; 95 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4                                                          ; ADXL345_controller    ; work         ;
 ;       |gsensor:U0|                              ; 143 (99)            ; 95 (57)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0                                               ; gsensor               ; work         ;
 ;          |spi:u0|                               ; 44 (44)             ; 38 (38)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0                                        ; spi                   ; work         ;
 ;    |CLK_50MHZ_to_60HZ:U5|                       ; 56 (56)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|CLK_50MHZ_to_60HZ:U5                                                           ; CLK_50MHZ_to_60HZ     ; work         ;
 ;    |hw_image_generator:U3|                      ; 1676 (1676)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|hw_image_generator:U3                                                          ; hw_image_generator    ; work         ;
+;    |sounds_controller:U6|                       ; 115 (115)           ; 52 (52)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|sounds_controller:U6                                                           ; sounds_controller     ; work         ;
 ;    |vga_controller:U2|                          ; 56 (56)             ; 42 (42)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_controller:U2                                                              ; vga_controller        ; work         ;
 ;    |vga_pll_25_175:U1|                          ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_pll_25_175:U1                                                              ; vga_pll_25_175        ; work         ;
 ;       |altpll:altpll_component|                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |PROJ0|vga_pll_25_175:U1|altpll:altpll_component                                      ; altpll                ; work         ;
@@ -269,164 +276,178 @@ Encoding Type:  One-Hot
 +-----------------+---------------+--------------+-----------------+------------+
 
 
-+------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                       ;
-+-------------------------------------------------+----------------------------------------+
-; Register name                                   ; Reason for Removal                     ;
-+-------------------------------------------------+----------------------------------------+
-; exhaust_level[2..9]                             ; Stuck at GND due to stuck port data_in ;
-; vga_controller:U2|column[10]                    ; Stuck at GND due to stuck port data_in ;
-; vga_controller:U2|row[10]                       ; Stuck at GND due to stuck port data_in ;
-; enemyPosition_y[0][9]                           ; Merged with enemyPosition_y[0][10]     ;
-; enemySize[0][10]                                ; Merged with enemyPosition_y[0][10]     ;
-; enemySize[0][7]                                 ; Merged with enemyPosition_y[0][10]     ;
-; enemySize[0][8]                                 ; Merged with enemyPosition_y[0][10]     ;
-; enemySize[0][9]                                 ; Merged with enemyPosition_y[0][10]     ;
-; enemyPosition_y[1][9]                           ; Merged with enemyPosition_y[1][10]     ;
-; enemySize[1][10]                                ; Merged with enemyPosition_y[1][10]     ;
-; enemySize[1][7]                                 ; Merged with enemyPosition_y[1][10]     ;
-; enemySize[1][8]                                 ; Merged with enemyPosition_y[1][10]     ;
-; enemySize[1][9]                                 ; Merged with enemyPosition_y[1][10]     ;
-; enemyPosition_y[2][9]                           ; Merged with enemyPosition_y[2][10]     ;
-; enemySize[2][10]                                ; Merged with enemyPosition_y[2][10]     ;
-; enemySize[2][7]                                 ; Merged with enemyPosition_y[2][10]     ;
-; enemySize[2][8]                                 ; Merged with enemyPosition_y[2][10]     ;
-; enemySize[2][9]                                 ; Merged with enemyPosition_y[2][10]     ;
-; enemyPosition_y[3][9]                           ; Merged with enemyPosition_y[3][10]     ;
-; enemySize[3][10]                                ; Merged with enemyPosition_y[3][10]     ;
-; enemySize[3][7]                                 ; Merged with enemyPosition_y[3][10]     ;
-; enemySize[3][8]                                 ; Merged with enemyPosition_y[3][10]     ;
-; enemySize[3][9]                                 ; Merged with enemyPosition_y[3][10]     ;
-; enemyPosition_y[4][9]                           ; Merged with enemyPosition_y[4][10]     ;
-; enemySize[4][10]                                ; Merged with enemyPosition_y[4][10]     ;
-; enemySize[4][7]                                 ; Merged with enemyPosition_y[4][10]     ;
-; enemySize[4][8]                                 ; Merged with enemyPosition_y[4][10]     ;
-; enemySize[4][9]                                 ; Merged with enemyPosition_y[4][10]     ;
-; enemyPosition_y[5][9]                           ; Merged with enemyPosition_y[5][10]     ;
-; enemySize[5][10]                                ; Merged with enemyPosition_y[5][10]     ;
-; enemySize[5][7]                                 ; Merged with enemyPosition_y[5][10]     ;
-; enemySize[5][8]                                 ; Merged with enemyPosition_y[5][10]     ;
-; enemySize[5][9]                                 ; Merged with enemyPosition_y[5][10]     ;
-; enemyPosition_y[6][9]                           ; Merged with enemyPosition_y[6][10]     ;
-; enemySize[6][10]                                ; Merged with enemyPosition_y[6][10]     ;
-; enemySize[6][7]                                 ; Merged with enemyPosition_y[6][10]     ;
-; enemySize[6][8]                                 ; Merged with enemyPosition_y[6][10]     ;
-; enemySize[6][9]                                 ; Merged with enemyPosition_y[6][10]     ;
-; enemyPosition_y[7][9]                           ; Merged with enemyPosition_y[7][10]     ;
-; enemySize[7][10]                                ; Merged with enemyPosition_y[7][10]     ;
-; enemySize[7][7]                                 ; Merged with enemyPosition_y[7][10]     ;
-; enemySize[7][8]                                 ; Merged with enemyPosition_y[7][10]     ;
-; enemySize[7][9]                                 ; Merged with enemyPosition_y[7][10]     ;
-; enemyPosition_y[8][9]                           ; Merged with enemyPosition_y[8][10]     ;
-; enemySize[8][10]                                ; Merged with enemyPosition_y[8][10]     ;
-; enemySize[8][7]                                 ; Merged with enemyPosition_y[8][10]     ;
-; enemySize[8][8]                                 ; Merged with enemyPosition_y[8][10]     ;
-; enemySize[8][9]                                 ; Merged with enemyPosition_y[8][10]     ;
-; enemyPosition_y[9][9]                           ; Merged with enemyPosition_y[9][10]     ;
-; enemySize[9][10]                                ; Merged with enemyPosition_y[9][10]     ;
-; enemySize[9][7]                                 ; Merged with enemyPosition_y[9][10]     ;
-; enemySize[9][8]                                 ; Merged with enemyPosition_y[9][10]     ;
-; enemySize[9][9]                                 ; Merged with enemyPosition_y[9][10]     ;
-; enemyPosition_y[10][9]                          ; Merged with enemyPosition_y[10][10]    ;
-; enemySize[10][10]                               ; Merged with enemyPosition_y[10][10]    ;
-; enemySize[10][7]                                ; Merged with enemyPosition_y[10][10]    ;
-; enemySize[10][8]                                ; Merged with enemyPosition_y[10][10]    ;
-; enemySize[10][9]                                ; Merged with enemyPosition_y[10][10]    ;
-; enemyPosition_x[11][10]                         ; Merged with enemyPosition_x[11][0]     ;
-; enemyPosition_x[11][1]                          ; Merged with enemyPosition_x[11][0]     ;
-; enemyPosition_x[11][6]                          ; Merged with enemyPosition_x[11][0]     ;
-; enemyPosition_x[11][8]                          ; Merged with enemyPosition_x[11][0]     ;
-; enemyPosition_x[12][10]                         ; Merged with enemyPosition_x[12][0]     ;
-; enemyPosition_x[12][1]                          ; Merged with enemyPosition_x[12][0]     ;
-; enemyPosition_x[12][6]                          ; Merged with enemyPosition_x[12][0]     ;
-; enemyPosition_x[12][8]                          ; Merged with enemyPosition_x[12][0]     ;
-; enemyPosition_x[13][10]                         ; Merged with enemyPosition_x[13][0]     ;
-; enemyPosition_x[13][1]                          ; Merged with enemyPosition_x[13][0]     ;
-; enemyPosition_x[13][6]                          ; Merged with enemyPosition_x[13][0]     ;
-; enemyPosition_x[13][8]                          ; Merged with enemyPosition_x[13][0]     ;
-; enemyPosition_x[14][10]                         ; Merged with enemyPosition_x[14][0]     ;
-; enemyPosition_x[14][1]                          ; Merged with enemyPosition_x[14][0]     ;
-; enemyPosition_x[14][6]                          ; Merged with enemyPosition_x[14][0]     ;
-; enemyPosition_x[14][8]                          ; Merged with enemyPosition_x[14][0]     ;
-; enemyPosition_x[15][10]                         ; Merged with enemyPosition_x[15][0]     ;
-; enemyPosition_x[15][1]                          ; Merged with enemyPosition_x[15][0]     ;
-; enemyPosition_x[15][6]                          ; Merged with enemyPosition_x[15][0]     ;
-; enemyPosition_x[15][8]                          ; Merged with enemyPosition_x[15][0]     ;
-; enemyPosition_x[16][10]                         ; Merged with enemyPosition_x[16][0]     ;
-; enemyPosition_x[16][1]                          ; Merged with enemyPosition_x[16][0]     ;
-; enemyPosition_x[16][6]                          ; Merged with enemyPosition_x[16][0]     ;
-; enemyPosition_x[16][8]                          ; Merged with enemyPosition_x[16][0]     ;
-; enemyPosition_x[17][10]                         ; Merged with enemyPosition_x[17][0]     ;
-; enemyPosition_x[17][1]                          ; Merged with enemyPosition_x[17][0]     ;
-; enemyPosition_x[17][6]                          ; Merged with enemyPosition_x[17][0]     ;
-; enemyPosition_x[17][8]                          ; Merged with enemyPosition_x[17][0]     ;
-; enemyPosition_x[18][10]                         ; Merged with enemyPosition_x[18][0]     ;
-; enemyPosition_x[18][1]                          ; Merged with enemyPosition_x[18][0]     ;
-; enemyPosition_x[18][6]                          ; Merged with enemyPosition_x[18][0]     ;
-; enemyPosition_x[18][8]                          ; Merged with enemyPosition_x[18][0]     ;
-; enemyPosition_x[19][10]                         ; Merged with enemyPosition_x[19][0]     ;
-; enemyPosition_x[19][1]                          ; Merged with enemyPosition_x[19][0]     ;
-; enemyPosition_x[19][6]                          ; Merged with enemyPosition_x[19][0]     ;
-; enemyPosition_x[19][8]                          ; Merged with enemyPosition_x[19][0]     ;
-; enemyPosition_x[11][3]                          ; Merged with enemyPosition_x[11][2]     ;
-; enemyPosition_x[11][4]                          ; Merged with enemyPosition_x[11][2]     ;
-; enemyPosition_x[11][5]                          ; Merged with enemyPosition_x[11][2]     ;
-; enemyPosition_x[11][7]                          ; Merged with enemyPosition_x[11][2]     ;
-; enemyPosition_x[11][9]                          ; Merged with enemyPosition_x[11][2]     ;
-; enemyPosition_x[12][3]                          ; Merged with enemyPosition_x[12][2]     ;
-; enemyPosition_x[12][4]                          ; Merged with enemyPosition_x[12][2]     ;
-; enemyPosition_x[12][5]                          ; Merged with enemyPosition_x[12][2]     ;
-; enemyPosition_x[12][7]                          ; Merged with enemyPosition_x[12][2]     ;
-; enemyPosition_x[12][9]                          ; Merged with enemyPosition_x[12][2]     ;
-; enemyPosition_x[13][3]                          ; Merged with enemyPosition_x[13][2]     ;
-; enemyPosition_x[13][4]                          ; Merged with enemyPosition_x[13][2]     ;
-; enemyPosition_x[13][5]                          ; Merged with enemyPosition_x[13][2]     ;
-; enemyPosition_x[13][7]                          ; Merged with enemyPosition_x[13][2]     ;
-; enemyPosition_x[13][9]                          ; Merged with enemyPosition_x[13][2]     ;
-; enemyPosition_x[14][3]                          ; Merged with enemyPosition_x[14][2]     ;
-; enemyPosition_x[14][4]                          ; Merged with enemyPosition_x[14][2]     ;
-; enemyPosition_x[14][5]                          ; Merged with enemyPosition_x[14][2]     ;
-; enemyPosition_x[14][7]                          ; Merged with enemyPosition_x[14][2]     ;
-; enemyPosition_x[14][9]                          ; Merged with enemyPosition_x[14][2]     ;
-; enemyPosition_x[15][3]                          ; Merged with enemyPosition_x[15][2]     ;
-; enemyPosition_x[15][4]                          ; Merged with enemyPosition_x[15][2]     ;
-; enemyPosition_x[15][5]                          ; Merged with enemyPosition_x[15][2]     ;
-; enemyPosition_x[15][7]                          ; Merged with enemyPosition_x[15][2]     ;
-; enemyPosition_x[15][9]                          ; Merged with enemyPosition_x[15][2]     ;
-; enemyPosition_x[16][3]                          ; Merged with enemyPosition_x[16][2]     ;
-; enemyPosition_x[16][4]                          ; Merged with enemyPosition_x[16][2]     ;
-; enemyPosition_x[16][5]                          ; Merged with enemyPosition_x[16][2]     ;
-; enemyPosition_x[16][7]                          ; Merged with enemyPosition_x[16][2]     ;
-; enemyPosition_x[16][9]                          ; Merged with enemyPosition_x[16][2]     ;
-; enemyPosition_x[17][3]                          ; Merged with enemyPosition_x[17][2]     ;
-; enemyPosition_x[17][4]                          ; Merged with enemyPosition_x[17][2]     ;
-; enemyPosition_x[17][5]                          ; Merged with enemyPosition_x[17][2]     ;
-; enemyPosition_x[17][7]                          ; Merged with enemyPosition_x[17][2]     ;
-; enemyPosition_x[17][9]                          ; Merged with enemyPosition_x[17][2]     ;
-; enemyPosition_x[18][3]                          ; Merged with enemyPosition_x[18][2]     ;
-; enemyPosition_x[18][4]                          ; Merged with enemyPosition_x[18][2]     ;
-; enemyPosition_x[18][5]                          ; Merged with enemyPosition_x[18][2]     ;
-; enemyPosition_x[18][7]                          ; Merged with enemyPosition_x[18][2]     ;
-; enemyPosition_x[18][9]                          ; Merged with enemyPosition_x[18][2]     ;
-; enemyPosition_x[19][3]                          ; Merged with enemyPosition_x[19][2]     ;
-; enemyPosition_x[19][4]                          ; Merged with enemyPosition_x[19][2]     ;
-; enemyPosition_x[19][5]                          ; Merged with enemyPosition_x[19][2]     ;
-; enemyPosition_x[19][7]                          ; Merged with enemyPosition_x[19][2]     ;
-; enemyPosition_x[19][9]                          ; Merged with enemyPosition_x[19][2]     ;
-; enemyPosition_x[19][2]                          ; Stuck at VCC due to stuck port data_in ;
-; enemyPosition_x[18][2]                          ; Stuck at VCC due to stuck port data_in ;
-; enemyPosition_x[17][2]                          ; Stuck at VCC due to stuck port data_in ;
-; enemyPosition_x[16][2]                          ; Stuck at VCC due to stuck port data_in ;
-; enemyPosition_x[15][2]                          ; Stuck at VCC due to stuck port data_in ;
-; enemyPosition_x[14][2]                          ; Stuck at VCC due to stuck port data_in ;
-; enemyPosition_x[13][2]                          ; Stuck at VCC due to stuck port data_in ;
-; enemyPosition_x[12][2]                          ; Stuck at VCC due to stuck port data_in ;
-; enemyPosition_x[11][2]                          ; Stuck at VCC due to stuck port data_in ;
-; vga_controller:U2|row[9]                        ; Stuck at GND due to stuck port data_in ;
-; ADXL345_controller:U4|gsensor:U0|spi:u0|state~2 ; Lost fanout                            ;
-; ADXL345_controller:U4|gsensor:U0|spi:u0|state~3 ; Lost fanout                            ;
-; Total Number of Removed Registers = 158         ;                                        ;
-+-------------------------------------------------+----------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                ;
++---------------------------------------------------------------------+-------------------------------------------------------------+
+; Register name                                                       ; Reason for Removal                                          ;
++---------------------------------------------------------------------+-------------------------------------------------------------+
+; exhaust_level[2..9]                                                 ; Stuck at GND due to stuck port data_in                      ;
+; vga_controller:U2|column[10]                                        ; Stuck at GND due to stuck port data_in                      ;
+; vga_controller:U2|row[10]                                           ; Stuck at GND due to stuck port data_in                      ;
+; sound_effect[1..3]                                                  ; Stuck at GND due to stuck port data_in                      ;
+; enemyPosition_y[0][9]                                               ; Merged with enemyPosition_y[0][10]                          ;
+; enemySize[0][10]                                                    ; Merged with enemyPosition_y[0][10]                          ;
+; enemySize[0][7]                                                     ; Merged with enemyPosition_y[0][10]                          ;
+; enemySize[0][8]                                                     ; Merged with enemyPosition_y[0][10]                          ;
+; enemySize[0][9]                                                     ; Merged with enemyPosition_y[0][10]                          ;
+; enemyPosition_y[1][9]                                               ; Merged with enemyPosition_y[1][10]                          ;
+; enemySize[1][10]                                                    ; Merged with enemyPosition_y[1][10]                          ;
+; enemySize[1][7]                                                     ; Merged with enemyPosition_y[1][10]                          ;
+; enemySize[1][8]                                                     ; Merged with enemyPosition_y[1][10]                          ;
+; enemySize[1][9]                                                     ; Merged with enemyPosition_y[1][10]                          ;
+; enemyPosition_y[2][9]                                               ; Merged with enemyPosition_y[2][10]                          ;
+; enemySize[2][10]                                                    ; Merged with enemyPosition_y[2][10]                          ;
+; enemySize[2][7]                                                     ; Merged with enemyPosition_y[2][10]                          ;
+; enemySize[2][8]                                                     ; Merged with enemyPosition_y[2][10]                          ;
+; enemySize[2][9]                                                     ; Merged with enemyPosition_y[2][10]                          ;
+; enemyPosition_y[3][9]                                               ; Merged with enemyPosition_y[3][10]                          ;
+; enemySize[3][10]                                                    ; Merged with enemyPosition_y[3][10]                          ;
+; enemySize[3][7]                                                     ; Merged with enemyPosition_y[3][10]                          ;
+; enemySize[3][8]                                                     ; Merged with enemyPosition_y[3][10]                          ;
+; enemySize[3][9]                                                     ; Merged with enemyPosition_y[3][10]                          ;
+; enemyPosition_y[4][9]                                               ; Merged with enemyPosition_y[4][10]                          ;
+; enemySize[4][10]                                                    ; Merged with enemyPosition_y[4][10]                          ;
+; enemySize[4][7]                                                     ; Merged with enemyPosition_y[4][10]                          ;
+; enemySize[4][8]                                                     ; Merged with enemyPosition_y[4][10]                          ;
+; enemySize[4][9]                                                     ; Merged with enemyPosition_y[4][10]                          ;
+; enemyPosition_y[5][9]                                               ; Merged with enemyPosition_y[5][10]                          ;
+; enemySize[5][10]                                                    ; Merged with enemyPosition_y[5][10]                          ;
+; enemySize[5][7]                                                     ; Merged with enemyPosition_y[5][10]                          ;
+; enemySize[5][8]                                                     ; Merged with enemyPosition_y[5][10]                          ;
+; enemySize[5][9]                                                     ; Merged with enemyPosition_y[5][10]                          ;
+; enemyPosition_y[6][9]                                               ; Merged with enemyPosition_y[6][10]                          ;
+; enemySize[6][10]                                                    ; Merged with enemyPosition_y[6][10]                          ;
+; enemySize[6][7]                                                     ; Merged with enemyPosition_y[6][10]                          ;
+; enemySize[6][8]                                                     ; Merged with enemyPosition_y[6][10]                          ;
+; enemySize[6][9]                                                     ; Merged with enemyPosition_y[6][10]                          ;
+; enemyPosition_y[7][9]                                               ; Merged with enemyPosition_y[7][10]                          ;
+; enemySize[7][10]                                                    ; Merged with enemyPosition_y[7][10]                          ;
+; enemySize[7][7]                                                     ; Merged with enemyPosition_y[7][10]                          ;
+; enemySize[7][8]                                                     ; Merged with enemyPosition_y[7][10]                          ;
+; enemySize[7][9]                                                     ; Merged with enemyPosition_y[7][10]                          ;
+; enemyPosition_y[8][9]                                               ; Merged with enemyPosition_y[8][10]                          ;
+; enemySize[8][10]                                                    ; Merged with enemyPosition_y[8][10]                          ;
+; enemySize[8][7]                                                     ; Merged with enemyPosition_y[8][10]                          ;
+; enemySize[8][8]                                                     ; Merged with enemyPosition_y[8][10]                          ;
+; enemySize[8][9]                                                     ; Merged with enemyPosition_y[8][10]                          ;
+; enemyPosition_y[9][9]                                               ; Merged with enemyPosition_y[9][10]                          ;
+; enemySize[9][10]                                                    ; Merged with enemyPosition_y[9][10]                          ;
+; enemySize[9][7]                                                     ; Merged with enemyPosition_y[9][10]                          ;
+; enemySize[9][8]                                                     ; Merged with enemyPosition_y[9][10]                          ;
+; enemySize[9][9]                                                     ; Merged with enemyPosition_y[9][10]                          ;
+; enemyPosition_y[10][9]                                              ; Merged with enemyPosition_y[10][10]                         ;
+; enemySize[10][10]                                                   ; Merged with enemyPosition_y[10][10]                         ;
+; enemySize[10][7]                                                    ; Merged with enemyPosition_y[10][10]                         ;
+; enemySize[10][8]                                                    ; Merged with enemyPosition_y[10][10]                         ;
+; enemySize[10][9]                                                    ; Merged with enemyPosition_y[10][10]                         ;
+; enemyPosition_x[11][10]                                             ; Merged with enemyPosition_x[11][0]                          ;
+; enemyPosition_x[11][1]                                              ; Merged with enemyPosition_x[11][0]                          ;
+; enemyPosition_x[11][6]                                              ; Merged with enemyPosition_x[11][0]                          ;
+; enemyPosition_x[11][8]                                              ; Merged with enemyPosition_x[11][0]                          ;
+; enemyPosition_x[12][10]                                             ; Merged with enemyPosition_x[12][0]                          ;
+; enemyPosition_x[12][1]                                              ; Merged with enemyPosition_x[12][0]                          ;
+; enemyPosition_x[12][6]                                              ; Merged with enemyPosition_x[12][0]                          ;
+; enemyPosition_x[12][8]                                              ; Merged with enemyPosition_x[12][0]                          ;
+; enemyPosition_x[13][10]                                             ; Merged with enemyPosition_x[13][0]                          ;
+; enemyPosition_x[13][1]                                              ; Merged with enemyPosition_x[13][0]                          ;
+; enemyPosition_x[13][6]                                              ; Merged with enemyPosition_x[13][0]                          ;
+; enemyPosition_x[13][8]                                              ; Merged with enemyPosition_x[13][0]                          ;
+; enemyPosition_x[14][10]                                             ; Merged with enemyPosition_x[14][0]                          ;
+; enemyPosition_x[14][1]                                              ; Merged with enemyPosition_x[14][0]                          ;
+; enemyPosition_x[14][6]                                              ; Merged with enemyPosition_x[14][0]                          ;
+; enemyPosition_x[14][8]                                              ; Merged with enemyPosition_x[14][0]                          ;
+; enemyPosition_x[15][10]                                             ; Merged with enemyPosition_x[15][0]                          ;
+; enemyPosition_x[15][1]                                              ; Merged with enemyPosition_x[15][0]                          ;
+; enemyPosition_x[15][6]                                              ; Merged with enemyPosition_x[15][0]                          ;
+; enemyPosition_x[15][8]                                              ; Merged with enemyPosition_x[15][0]                          ;
+; enemyPosition_x[16][10]                                             ; Merged with enemyPosition_x[16][0]                          ;
+; enemyPosition_x[16][1]                                              ; Merged with enemyPosition_x[16][0]                          ;
+; enemyPosition_x[16][6]                                              ; Merged with enemyPosition_x[16][0]                          ;
+; enemyPosition_x[16][8]                                              ; Merged with enemyPosition_x[16][0]                          ;
+; enemyPosition_x[17][10]                                             ; Merged with enemyPosition_x[17][0]                          ;
+; enemyPosition_x[17][1]                                              ; Merged with enemyPosition_x[17][0]                          ;
+; enemyPosition_x[17][6]                                              ; Merged with enemyPosition_x[17][0]                          ;
+; enemyPosition_x[17][8]                                              ; Merged with enemyPosition_x[17][0]                          ;
+; enemyPosition_x[18][10]                                             ; Merged with enemyPosition_x[18][0]                          ;
+; enemyPosition_x[18][1]                                              ; Merged with enemyPosition_x[18][0]                          ;
+; enemyPosition_x[18][6]                                              ; Merged with enemyPosition_x[18][0]                          ;
+; enemyPosition_x[18][8]                                              ; Merged with enemyPosition_x[18][0]                          ;
+; enemyPosition_x[19][10]                                             ; Merged with enemyPosition_x[19][0]                          ;
+; enemyPosition_x[19][1]                                              ; Merged with enemyPosition_x[19][0]                          ;
+; enemyPosition_x[19][6]                                              ; Merged with enemyPosition_x[19][0]                          ;
+; enemyPosition_x[19][8]                                              ; Merged with enemyPosition_x[19][0]                          ;
+; enemyPosition_x[11][3]                                              ; Merged with enemyPosition_x[11][2]                          ;
+; enemyPosition_x[11][4]                                              ; Merged with enemyPosition_x[11][2]                          ;
+; enemyPosition_x[11][5]                                              ; Merged with enemyPosition_x[11][2]                          ;
+; enemyPosition_x[11][7]                                              ; Merged with enemyPosition_x[11][2]                          ;
+; enemyPosition_x[11][9]                                              ; Merged with enemyPosition_x[11][2]                          ;
+; enemyPosition_x[12][3]                                              ; Merged with enemyPosition_x[12][2]                          ;
+; enemyPosition_x[12][4]                                              ; Merged with enemyPosition_x[12][2]                          ;
+; enemyPosition_x[12][5]                                              ; Merged with enemyPosition_x[12][2]                          ;
+; enemyPosition_x[12][7]                                              ; Merged with enemyPosition_x[12][2]                          ;
+; enemyPosition_x[12][9]                                              ; Merged with enemyPosition_x[12][2]                          ;
+; enemyPosition_x[13][3]                                              ; Merged with enemyPosition_x[13][2]                          ;
+; enemyPosition_x[13][4]                                              ; Merged with enemyPosition_x[13][2]                          ;
+; enemyPosition_x[13][5]                                              ; Merged with enemyPosition_x[13][2]                          ;
+; enemyPosition_x[13][7]                                              ; Merged with enemyPosition_x[13][2]                          ;
+; enemyPosition_x[13][9]                                              ; Merged with enemyPosition_x[13][2]                          ;
+; enemyPosition_x[14][3]                                              ; Merged with enemyPosition_x[14][2]                          ;
+; enemyPosition_x[14][4]                                              ; Merged with enemyPosition_x[14][2]                          ;
+; enemyPosition_x[14][5]                                              ; Merged with enemyPosition_x[14][2]                          ;
+; enemyPosition_x[14][7]                                              ; Merged with enemyPosition_x[14][2]                          ;
+; enemyPosition_x[14][9]                                              ; Merged with enemyPosition_x[14][2]                          ;
+; enemyPosition_x[15][3]                                              ; Merged with enemyPosition_x[15][2]                          ;
+; enemyPosition_x[15][4]                                              ; Merged with enemyPosition_x[15][2]                          ;
+; enemyPosition_x[15][5]                                              ; Merged with enemyPosition_x[15][2]                          ;
+; enemyPosition_x[15][7]                                              ; Merged with enemyPosition_x[15][2]                          ;
+; enemyPosition_x[15][9]                                              ; Merged with enemyPosition_x[15][2]                          ;
+; enemyPosition_x[16][3]                                              ; Merged with enemyPosition_x[16][2]                          ;
+; enemyPosition_x[16][4]                                              ; Merged with enemyPosition_x[16][2]                          ;
+; enemyPosition_x[16][5]                                              ; Merged with enemyPosition_x[16][2]                          ;
+; enemyPosition_x[16][7]                                              ; Merged with enemyPosition_x[16][2]                          ;
+; enemyPosition_x[16][9]                                              ; Merged with enemyPosition_x[16][2]                          ;
+; enemyPosition_x[17][3]                                              ; Merged with enemyPosition_x[17][2]                          ;
+; enemyPosition_x[17][4]                                              ; Merged with enemyPosition_x[17][2]                          ;
+; enemyPosition_x[17][5]                                              ; Merged with enemyPosition_x[17][2]                          ;
+; enemyPosition_x[17][7]                                              ; Merged with enemyPosition_x[17][2]                          ;
+; enemyPosition_x[17][9]                                              ; Merged with enemyPosition_x[17][2]                          ;
+; enemyPosition_x[18][3]                                              ; Merged with enemyPosition_x[18][2]                          ;
+; enemyPosition_x[18][4]                                              ; Merged with enemyPosition_x[18][2]                          ;
+; enemyPosition_x[18][5]                                              ; Merged with enemyPosition_x[18][2]                          ;
+; enemyPosition_x[18][7]                                              ; Merged with enemyPosition_x[18][2]                          ;
+; enemyPosition_x[18][9]                                              ; Merged with enemyPosition_x[18][2]                          ;
+; enemyPosition_x[19][3]                                              ; Merged with enemyPosition_x[19][2]                          ;
+; enemyPosition_x[19][4]                                              ; Merged with enemyPosition_x[19][2]                          ;
+; enemyPosition_x[19][5]                                              ; Merged with enemyPosition_x[19][2]                          ;
+; enemyPosition_x[19][7]                                              ; Merged with enemyPosition_x[19][2]                          ;
+; enemyPosition_x[19][9]                                              ; Merged with enemyPosition_x[19][2]                          ;
+; sounds_controller:U6|\sound:sound_frequency[1..3,5,7,10..13,16..31] ; Merged with sounds_controller:U6|\sound:sound_frequency[0]  ;
+; sounds_controller:U6|\sound:sound_frequency[4,6,8,9,15]             ; Merged with sounds_controller:U6|\sound:sound_frequency[14] ;
+; sounds_controller:U6|\sound:sound_frequency[0]                      ; Stuck at GND due to stuck port data_in                      ;
+; enemyPosition_x[19][2]                                              ; Stuck at VCC due to stuck port data_in                      ;
+; enemyPosition_x[18][2]                                              ; Stuck at VCC due to stuck port data_in                      ;
+; enemyPosition_x[17][2]                                              ; Stuck at VCC due to stuck port data_in                      ;
+; enemyPosition_x[16][2]                                              ; Stuck at VCC due to stuck port data_in                      ;
+; enemyPosition_x[15][2]                                              ; Stuck at VCC due to stuck port data_in                      ;
+; enemyPosition_x[14][2]                                              ; Stuck at VCC due to stuck port data_in                      ;
+; enemyPosition_x[13][2]                                              ; Stuck at VCC due to stuck port data_in                      ;
+; enemyPosition_x[12][2]                                              ; Stuck at VCC due to stuck port data_in                      ;
+; enemyPosition_x[11][2]                                              ; Stuck at VCC due to stuck port data_in                      ;
+; vga_controller:U2|row[9]                                            ; Stuck at GND due to stuck port data_in                      ;
+; ADXL345_controller:U4|gsensor:U0|spi:u0|state~2                     ; Lost fanout                                                 ;
+; ADXL345_controller:U4|gsensor:U0|spi:u0|state~3                     ; Lost fanout                                                 ;
+; Total Number of Removed Registers = 192                             ;                                                             ;
++---------------------------------------------------------------------+-------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                  ;
++-----------------+---------------------------+------------------------------------------------+
+; Register name   ; Reason for Removal        ; Registers Removed due to This Register         ;
++-----------------+---------------------------+------------------------------------------------+
+; sound_effect[1] ; Stuck at GND              ; sounds_controller:U6|\sound:sound_frequency[0] ;
+;                 ; due to stuck port data_in ;                                                ;
++-----------------+---------------------------+------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -434,12 +455,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 832   ;
-; Number of registers using Synchronous Clear  ; 27    ;
+; Total registers                              ; 886   ;
+; Number of registers using Synchronous Clear  ; 28    ;
 ; Number of registers using Synchronous Load   ; 10    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 477   ;
+; Number of registers using Clock Enable       ; 480   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -449,83 +470,83 @@ Encoding Type:  One-Hot
 +-------------------------------------------+---------+
 ; Inverted Register                         ; Fan out ;
 +-------------------------------------------+---------+
-; shotPosition_y[4][10]                     ; 80      ;
-; shotPosition_y[4][8]                      ; 57      ;
+; shotPosition_y[4][10]                     ; 78      ;
+; shotPosition_y[4][8]                      ; 56      ;
 ; shotPosition_y[4][7]                      ; 46      ;
-; shotPosition_y[4][4]                      ; 47      ;
+; shotPosition_y[4][4]                      ; 46      ;
 ; shotPosition_y[4][3]                      ; 46      ;
 ; shotPosition_y[4][2]                      ; 35      ;
 ; vga_controller:U2|row[0]                  ; 44      ;
 ; shotPosition_y[4][0]                      ; 35      ;
 ; shotPosition_y[4][9]                      ; 58      ;
-; shotPosition_x[4][10]                     ; 53      ;
-; shotPosition_x[4][9]                      ; 51      ;
-; shotPosition_x[4][8]                      ; 33      ;
+; shotPosition_x[4][10]                     ; 52      ;
+; shotPosition_x[4][9]                      ; 50      ;
+; shotPosition_x[4][8]                      ; 35      ;
 ; shotPosition_x[4][7]                      ; 31      ;
 ; shotPosition_x[4][4]                      ; 31      ;
 ; shotPosition_x[4][3]                      ; 31      ;
 ; shotPosition_x[4][2]                      ; 31      ;
 ; shotPosition_x[4][0]                      ; 30      ;
 ; vga_controller:U2|column[0]               ; 56      ;
-; shotPosition_y[0][10]                     ; 80      ;
-; shotPosition_y[0][8]                      ; 58      ;
+; shotPosition_y[0][10]                     ; 78      ;
+; shotPosition_y[0][8]                      ; 54      ;
 ; shotPosition_y[0][7]                      ; 46      ;
 ; shotPosition_y[0][4]                      ; 46      ;
 ; shotPosition_y[0][3]                      ; 46      ;
 ; shotPosition_y[0][2]                      ; 35      ;
 ; shotPosition_y[0][0]                      ; 35      ;
-; shotPosition_y[0][9]                      ; 59      ;
-; shotPosition_x[0][10]                     ; 53      ;
-; shotPosition_x[0][9]                      ; 50      ;
-; shotPosition_x[0][8]                      ; 37      ;
-; shotPosition_x[0][7]                      ; 31      ;
-; shotPosition_x[0][4]                      ; 31      ;
+; shotPosition_y[0][9]                      ; 56      ;
+; shotPosition_x[0][10]                     ; 54      ;
+; shotPosition_x[0][9]                      ; 51      ;
+; shotPosition_x[0][8]                      ; 34      ;
+; shotPosition_x[0][7]                      ; 32      ;
+; shotPosition_x[0][4]                      ; 32      ;
 ; shotPosition_x[0][3]                      ; 31      ;
 ; shotPosition_x[0][2]                      ; 31      ;
 ; shotPosition_x[0][0]                      ; 30      ;
-; shotPosition_y[1][10]                     ; 68      ;
-; shotPosition_y[1][8]                      ; 58      ;
+; shotPosition_y[1][10]                     ; 67      ;
+; shotPosition_y[1][8]                      ; 56      ;
 ; shotPosition_y[1][7]                      ; 46      ;
 ; shotPosition_y[1][4]                      ; 46      ;
 ; shotPosition_y[1][3]                      ; 46      ;
 ; shotPosition_y[1][2]                      ; 35      ;
 ; shotPosition_y[1][0]                      ; 35      ;
-; shotPosition_y[1][9]                      ; 57      ;
-; shotPosition_x[1][10]                     ; 53      ;
-; shotPosition_x[1][9]                      ; 52      ;
-; shotPosition_x[1][8]                      ; 35      ;
+; shotPosition_y[1][9]                      ; 58      ;
+; shotPosition_x[1][10]                     ; 57      ;
+; shotPosition_x[1][9]                      ; 51      ;
+; shotPosition_x[1][8]                      ; 36      ;
 ; shotPosition_x[1][7]                      ; 31      ;
 ; shotPosition_x[1][4]                      ; 31      ;
 ; shotPosition_x[1][3]                      ; 31      ;
 ; shotPosition_x[1][2]                      ; 31      ;
 ; shotPosition_x[1][0]                      ; 30      ;
-; shotPosition_y[2][10]                     ; 69      ;
-; shotPosition_y[2][8]                      ; 58      ;
+; shotPosition_y[2][10]                     ; 68      ;
+; shotPosition_y[2][8]                      ; 56      ;
 ; shotPosition_y[2][7]                      ; 46      ;
-; shotPosition_y[2][4]                      ; 46      ;
+; shotPosition_y[2][4]                      ; 47      ;
 ; shotPosition_y[2][3]                      ; 46      ;
 ; shotPosition_y[2][2]                      ; 35      ;
 ; shotPosition_y[2][0]                      ; 35      ;
 ; shotPosition_y[2][9]                      ; 58      ;
 ; shotPosition_x[2][10]                     ; 54      ;
 ; shotPosition_x[2][9]                      ; 51      ;
-; shotPosition_x[2][8]                      ; 33      ;
+; shotPosition_x[2][8]                      ; 35      ;
 ; shotPosition_x[2][7]                      ; 31      ;
 ; shotPosition_x[2][4]                      ; 31      ;
 ; shotPosition_x[2][3]                      ; 31      ;
 ; shotPosition_x[2][2]                      ; 31      ;
 ; shotPosition_x[2][0]                      ; 30      ;
-; shotPosition_y[3][10]                     ; 68      ;
-; shotPosition_y[3][8]                      ; 58      ;
+; shotPosition_y[3][10]                     ; 63      ;
+; shotPosition_y[3][8]                      ; 57      ;
 ; shotPosition_y[3][7]                      ; 46      ;
-; shotPosition_y[3][4]                      ; 46      ;
+; shotPosition_y[3][4]                      ; 47      ;
 ; shotPosition_y[3][3]                      ; 46      ;
 ; shotPosition_y[3][2]                      ; 35      ;
 ; shotPosition_y[3][0]                      ; 35      ;
-; shotPosition_y[3][9]                      ; 57      ;
-; shotPosition_x[3][10]                     ; 53      ;
-; shotPosition_x[3][9]                      ; 50      ;
-; shotPosition_x[3][8]                      ; 34      ;
+; shotPosition_y[3][9]                      ; 58      ;
+; shotPosition_x[3][10]                     ; 54      ;
+; shotPosition_x[3][9]                      ; 53      ;
+; shotPosition_x[3][8]                      ; 32      ;
 ; shotPosition_x[3][7]                      ; 31      ;
 ; shotPosition_x[3][4]                      ; 31      ;
 ; shotPosition_x[3][3]                      ; 31      ;
@@ -548,8 +569,8 @@ Encoding Type:  One-Hot
 ; enemySize[8][1]                           ; 2       ;
 ; enemyPosition_y[8][0]                     ; 26      ;
 ; enemySize[8][0]                           ; 2       ;
-; enemyPosition_x[8][10]                    ; 52      ;
-; Total number of inverted registers = 497* ;         ;
+; enemyPosition_x[8][10]                    ; 50      ;
+; Total number of inverted registers = 498* ;         ;
 +-------------------------------------------+---------+
 * Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
 
@@ -559,69 +580,71 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|clk_counter[2] ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |PROJ0|currentEnemyIndex[2]                                   ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PROJ0|currentShotIndex[0]                                    ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |PROJ0|shotPosition_x[12][6]                                  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|clk_counter[1] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |PROJ0|currentEnemyIndex[4]                                   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PROJ0|currentShotIndex[3]                                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |PROJ0|sounds_controller:U6|\sound:duration[28]               ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |PROJ0|shotPosition_x[12][5]                                  ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |PROJ0|shotPosition_x[11][5]                                  ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |PROJ0|shotPosition_x[10][6]                                  ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |PROJ0|shotPosition_x[9][6]                                   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |PROJ0|shotPosition_x[10][5]                                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |PROJ0|shotPosition_x[9][5]                                   ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |PROJ0|shotPosition_x[8][6]                                   ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |PROJ0|shotPosition_x[7][6]                                   ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PROJ0|shotCounter[4]                                         ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|count[2]       ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PROJ0|shotCounter[3]                                         ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |PROJ0|sounds_controller:U6|\sound:frequency_count[2]         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|count[0]       ;
 ; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |PROJ0|pauseCounter[0]                                        ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|idlecount[3]   ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |PROJ0|player_top[0]                                          ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |PROJ0|player_right[0]                                        ;
-; 8:1                ; 10 bits   ; 50 LEs        ; 30 LEs               ; 20 LEs                 ; Yes        ; |PROJ0|pulse_position[9]                                      ;
-; 8:1                ; 11 bits   ; 55 LEs        ; 44 LEs               ; 11 LEs                 ; Yes        ; |PROJ0|player_top[9]                                          ;
-; 8:1                ; 11 bits   ; 55 LEs        ; 44 LEs               ; 11 LEs                 ; Yes        ; |PROJ0|player_left[5]                                         ;
-; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[0][5]                                   ;
-; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[1][6]                                   ;
-; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[2][1]                                   ;
-; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[3][1]                                   ;
-; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[4][1]                                   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |PROJ0|player_bottom[0]                                       ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |PROJ0|player_left[0]                                         ;
+; 8:1                ; 10 bits   ; 50 LEs        ; 30 LEs               ; 20 LEs                 ; Yes        ; |PROJ0|pulse_position[8]                                      ;
+; 8:1                ; 11 bits   ; 55 LEs        ; 44 LEs               ; 11 LEs                 ; Yes        ; |PROJ0|player_bottom[5]                                       ;
+; 8:1                ; 11 bits   ; 55 LEs        ; 44 LEs               ; 11 LEs                 ; Yes        ; |PROJ0|player_right[9]                                        ;
+; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[0][6]                                   ;
+; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[1][5]                                   ;
+; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[2][5]                                   ;
+; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[3][6]                                   ;
+; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[4][5]                                   ;
 ; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[5][6]                                   ;
-; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[6][6]                                   ;
+; 17:1               ; 3 bits    ; 33 LEs        ; 12 LEs               ; 21 LEs                 ; Yes        ; |PROJ0|shotPosition_x[6][5]                                   ;
 ; 27:1               ; 8 bits    ; 144 LEs       ; 16 LEs               ; 128 LEs                ; Yes        ; |PROJ0|invincible_counter[0]                                  ;
-; 37:1               ; 8 bits    ; 192 LEs       ; 8 LEs                ; 184 LEs                ; Yes        ; |PROJ0|num_lives[2]                                           ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[12][2]                                  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[11][2]                                  ;
+; 37:1               ; 8 bits    ; 192 LEs       ; 8 LEs                ; 184 LEs                ; Yes        ; |PROJ0|num_lives[5]                                           ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[12][10]                                 ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[11][4]                                  ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[10][4]                                  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[9][8]                                   ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[8][3]                                   ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[7][9]                                   ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; Yes        ; |PROJ0|player_top[6]                                          ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; Yes        ; |PROJ0|player_left[4]                                         ;
-; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[0][8]                                  ;
-; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[1][9]                                  ;
-; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[2][1]                                  ;
-; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[3][8]                                  ;
-; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[4][5]                                  ;
-; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[5][3]                                  ;
-; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[6][9]                                  ;
-; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[7][2]                                  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[9][7]                                   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[8][10]                                  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |PROJ0|shotPosition_x[7][4]                                   ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; Yes        ; |PROJ0|player_top[4]                                          ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 28 LEs               ; 7 LEs                  ; Yes        ; |PROJ0|player_left[2]                                         ;
+; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[0][1]                                  ;
+; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[1][10]                                 ;
+; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[2][2]                                  ;
+; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[3][6]                                  ;
+; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[4][2]                                  ;
+; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[5][5]                                  ;
+; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[6][7]                                  ;
+; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[7][6]                                  ;
 ; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[8][7]                                  ;
 ; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[9][3]                                  ;
-; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[10][5]                                 ;
+; 15:1               ; 11 bits   ; 110 LEs       ; 33 LEs               ; 77 LEs                 ; Yes        ; |PROJ0|enemyPosition_x[10][4]                                 ;
 ; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[0][2]                                   ;
-; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[1][9]                                   ;
-; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[2][2]                                   ;
-; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[3][4]                                   ;
-; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[4][8]                                   ;
-; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[5][9]                                   ;
-; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[6][0]                                   ;
-; 37:1               ; 2 bits    ; 48 LEs        ; 2 LEs                ; 46 LEs                 ; Yes        ; |PROJ0|num_lives[1]                                           ;
+; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[1][7]                                   ;
+; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[2][7]                                   ;
+; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[3][9]                                   ;
+; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[4][2]                                   ;
+; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[5][7]                                   ;
+; 17:1               ; 8 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; Yes        ; |PROJ0|shotPosition_x[6][3]                                   ;
+; 37:1               ; 2 bits    ; 48 LEs        ; 2 LEs                ; 46 LEs                 ; Yes        ; |PROJ0|num_lives[0]                                           ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |PROJ0|vga_controller:U2|v_count                              ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |PROJ0|Add30                                                  ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |PROJ0|Mux0                                                   ;
-; 13:1               ; 11 bits   ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; No         ; |PROJ0|Mux35                                                  ;
-; 20:1               ; 6 bits    ; 78 LEs        ; 48 LEs               ; 30 LEs                 ; No         ; |PROJ0|Mux7                                                   ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|Selector1      ;
-; 8:1                ; 6 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|Selector1             ;
-; 14:1               ; 5 bits    ; 45 LEs        ; 45 LEs               ; 0 LEs                  ; No         ; |PROJ0|Mux10                                                  ;
-; 25:1               ; 2 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |PROJ0|hw_image_generator:U3|blue[0]                          ;
+; 13:1               ; 11 bits   ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; No         ; |PROJ0|Mux31                                                  ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 48 LEs               ; 30 LEs                 ; No         ; |PROJ0|Mux5                                                   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0|Selector3      ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |PROJ0|ADXL345_controller:U4|gsensor:U0|Selector4             ;
+; 14:1               ; 5 bits    ; 45 LEs        ; 45 LEs               ; 0 LEs                  ; No         ; |PROJ0|Mux9                                                   ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |PROJ0|hw_image_generator:U3|green[0]                         ;
 ; 25:1               ; 2 bits    ; 32 LEs        ; 30 LEs               ; 2 LEs                  ; No         ; |PROJ0|hw_image_generator:U3|red[0]                           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 
@@ -1098,27 +1121,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 34                          ;
-; cycloneiii_ff         ; 832                         ;
-;     ENA               ; 440                         ;
+; cycloneiii_ff         ; 886                         ;
+;     ENA               ; 443                         ;
 ;     ENA SCLR          ; 27                          ;
 ;     ENA SLD           ; 10                          ;
-;     plain             ; 355                         ;
+;     SCLR              ; 1                           ;
+;     plain             ; 405                         ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 15446                       ;
-;     arith             ; 4830                        ;
+; cycloneiii_lcell_comb ; 15553                       ;
+;     arith             ; 4876                        ;
 ;         1 data inputs ; 7                           ;
 ;         2 data inputs ; 907                         ;
-;         3 data inputs ; 3916                        ;
-;     normal            ; 10616                       ;
-;         0 data inputs ; 38                          ;
-;         1 data inputs ; 110                         ;
-;         2 data inputs ; 793                         ;
-;         3 data inputs ; 2876                        ;
-;         4 data inputs ; 6799                        ;
+;         3 data inputs ; 3962                        ;
+;     normal            ; 10677                       ;
+;         0 data inputs ; 37                          ;
+;         1 data inputs ; 112                         ;
+;         2 data inputs ; 810                         ;
+;         3 data inputs ; 2896                        ;
+;         4 data inputs ; 6822                        ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 19.10                       ;
-; Average LUT depth     ; 11.05                       ;
+; Max LUT depth         ; 18.10                       ;
+; Average LUT depth     ; 11.06                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1127,7 +1151,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:56     ;
+; Top            ; 00:00:50     ;
 +----------------+--------------+
 
 
@@ -1137,52 +1161,52 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Nov 18 16:26:16 2021
+    Info: Processing started: Fri Nov 19 16:20:04 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PROJ0 -c PROJ0
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file components/clk_50mhz_to_60hz.vhd
-    Info (12022): Found design unit 1: CLK_50MHZ_to_60HZ-CLK_50MHZ_to_60HZ_ARCH File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 9
-    Info (12023): Found entity 1: CLK_50MHZ_to_60HZ File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 4
+    Info (12022): Found design unit 1: CLK_50MHZ_to_60HZ-CLK_50MHZ_to_60HZ_ARCH File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 9
+    Info (12023): Found entity 1: CLK_50MHZ_to_60HZ File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file components/tilt_control/spi.sv
-    Info (12023): Found entity 1: spi File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 1
+    Info (12023): Found entity 1: spi File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file components/tilt_control/gsensor.sv
-    Info (12023): Found entity 1: gsensor File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 1
+    Info (12023): Found entity 1: gsensor File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 1
 Info (12021): Found 2 design units, including 1 entities, in source file components/tilt_control/adxl345_controller.vhd
-    Info (12022): Found design unit 1: ADXL345_controller-ADXL345_controller_structural File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/ADXL345_controller.vhd Line: 26
-    Info (12023): Found entity 1: ADXL345_controller File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/ADXL345_controller.vhd Line: 7
+    Info (12022): Found design unit 1: ADXL345_controller-ADXL345_controller_structural File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/ADXL345_controller.vhd Line: 26
+    Info (12023): Found entity 1: ADXL345_controller File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/ADXL345_controller.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file components/vga_pll_25_175.vhd
-    Info (12022): Found design unit 1: vga_pll_25_175-SYN File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 51
-    Info (12023): Found entity 1: vga_pll_25_175 File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 42
+    Info (12022): Found design unit 1: vga_pll_25_175-SYN File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 51
+    Info (12023): Found entity 1: vga_pll_25_175 File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 42
 Info (12021): Found 2 design units, including 1 entities, in source file components/vga_controller.vhd
-    Info (12022): Found design unit 1: vga_controller-behavior File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_controller.vhd Line: 52
-    Info (12023): Found entity 1: vga_controller File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_controller.vhd Line: 28
+    Info (12022): Found design unit 1: vga_controller-behavior File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/vga_controller.vhd Line: 52
+    Info (12023): Found entity 1: vga_controller File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/vga_controller.vhd Line: 28
 Info (12021): Found 2 design units, including 1 entities, in source file components/hw_image_generator.vhd
-    Info (12022): Found design unit 1: hw_image_generator-behavior File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 62
-    Info (12023): Found entity 1: hw_image_generator File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 36
+    Info (12022): Found design unit 1: hw_image_generator-behavior File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 62
+    Info (12023): Found entity 1: hw_image_generator File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 36
 Info (12021): Found 3 design units, including 1 entities, in source file proj0.vhd
-    Info (12022): Found design unit 1: my_types File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 7
-    Info (12022): Found design unit 2: PROJ0-PROJ0_ARCH File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 48
-    Info (12023): Found entity 1: PROJ0 File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 20
+    Info (12022): Found design unit 1: my_types File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 7
+    Info (12022): Found design unit 2: PROJ0-PROJ0_ARCH File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 48
+    Info (12023): Found entity 1: PROJ0 File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 20
 Info (12021): Found 2 design units, including 1 entities, in source file components/sounds.vhd
-    Info (12022): Found design unit 1: sounds-sounds_arch File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 10
-    Info (12023): Found entity 1: sounds File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 4
+    Info (12022): Found design unit 1: sounds_controller-sounds_controller_arch File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 11
+    Info (12023): Found entity 1: sounds_controller File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 4
 Info (12127): Elaborating entity "PROJ0" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(136): used explicit default value for signal "spawnPositions" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 136
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(139): used explicit default value for signal "enemySizes" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 139
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(141): used explicit default value for signal "maxEnemyIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 141
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(142): used explicit default value for signal "maxSizeIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 142
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(143): used explicit default value for signal "maxSpawnIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 143
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(144): used explicit default value for signal "maxShotIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 144
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(145): used explicit default value for signal "maxShotCounter" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 145
-Warning (10036): Verilog HDL or VHDL warning at PROJ0.vhd(149): object "data_z" assigned a value but never read File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 149
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(160): used explicit default value for signal "spawnRate" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 160
-Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(161): used explicit default value for signal "enemySpeed" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 161
-Warning (10036): Verilog HDL or VHDL warning at PROJ0.vhd(163): object "player_face_right" assigned a value but never read File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 163
-Info (12128): Elaborating entity "vga_pll_25_175" for hierarchy "vga_pll_25_175:U1" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 179
-Info (12128): Elaborating entity "altpll" for hierarchy "vga_pll_25_175:U1|altpll:altpll_component" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
-Info (12130): Elaborated megafunction instantiation "vga_pll_25_175:U1|altpll:altpll_component" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
-Info (12133): Instantiated megafunction "vga_pll_25_175:U1|altpll:altpll_component" with the following parameter: File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(137): used explicit default value for signal "spawnPositions" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 137
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(140): used explicit default value for signal "enemySizes" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 140
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(142): used explicit default value for signal "maxEnemyIndex" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 142
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(143): used explicit default value for signal "maxSizeIndex" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 143
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(144): used explicit default value for signal "maxSpawnIndex" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 144
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(145): used explicit default value for signal "maxShotIndex" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 145
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(146): used explicit default value for signal "maxShotCounter" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 146
+Warning (10036): Verilog HDL or VHDL warning at PROJ0.vhd(150): object "data_z" assigned a value but never read File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 150
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(161): used explicit default value for signal "spawnRate" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 161
+Warning (10540): VHDL Signal Declaration warning at PROJ0.vhd(162): used explicit default value for signal "enemySpeed" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 162
+Warning (10036): Verilog HDL or VHDL warning at PROJ0.vhd(164): object "player_face_right" assigned a value but never read File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 164
+Info (12128): Elaborating entity "vga_pll_25_175" for hierarchy "vga_pll_25_175:U1" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 181
+Info (12128): Elaborating entity "altpll" for hierarchy "vga_pll_25_175:U1|altpll:altpll_component" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
+Info (12130): Elaborated megafunction instantiation "vga_pll_25_175:U1|altpll:altpll_component" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
+Info (12133): Instantiated megafunction "vga_pll_25_175:U1|altpll:altpll_component" with the following parameter: File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/vga_pll_25_175.vhd Line: 133
     Info (12134): Parameter "bandwidth_type" = "AUTO"
     Info (12134): Parameter "clk0_divide_by" = "147"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
@@ -1238,179 +1262,92 @@ Info (12133): Instantiated megafunction "vga_pll_25_175:U1|altpll:altpll_compone
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
     Info (12134): Parameter "width_clock" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/vga_pll_25_175_altpll.v
-    Info (12023): Found entity 1: vga_pll_25_175_altpll File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v Line: 30
+    Info (12023): Found entity 1: vga_pll_25_175_altpll File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v Line: 30
 Info (12128): Elaborating entity "vga_pll_25_175_altpll" for hierarchy "vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:U2" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 180
-Info (12128): Elaborating entity "hw_image_generator" for hierarchy "hw_image_generator:U3" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 181
-Warning (10540): VHDL Signal Declaration warning at hw_image_generator.vhd(65): used explicit default value for signal "maxEnemyIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 65
-Warning (10540): VHDL Signal Declaration warning at hw_image_generator.vhd(66): used explicit default value for signal "maxShotIndex" because signal was never assigned a value File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 66
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(86): signal "player_face_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 86
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(87): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 87
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(87): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 87
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(88): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 88
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(88): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 88
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(89): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 89
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(89): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 89
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(90): signal "player_Blink" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 90
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(106): signal "player_face_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 106
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(107): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 107
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(107): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 107
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(108): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 108
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(108): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 108
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(109): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 109
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(109): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 109
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(110): signal "player_Blink" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 110
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(128): signal "player_Blink" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 128
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(129): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 129
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(129): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 129
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(130): signal "player_face_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 130
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(131): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 131
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(132): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 132
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(137): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 137
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(138): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 138
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(143): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 143
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(144): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 144
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(151): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(152): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 152
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(157): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 157
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(158): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 158
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(163): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 163
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(164): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 164
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(174): signal "player_face_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 174
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(175): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 175
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(175): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 175
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(176): signal "pulse_position" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 176
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(183): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 183
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(183): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 183
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(184): signal "pulse_position" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 184
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(193): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 193
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(207): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 207
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(221): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 221
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(235): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 235
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(236): signal "enemyPosition_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 236
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(236): signal "enemySize" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 236
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(237): signal "enemyPosition_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 237
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(237): signal "enemySize" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 237
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(238): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 238
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(242): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 242
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(246): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 246
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(250): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 250
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(254): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 254
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(267): signal "maxShotIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 267
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(268): signal "shotPosition_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 268
-Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(269): signal "shotPosition_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 269
-Info (12128): Elaborating entity "ADXL345_controller" for hierarchy "ADXL345_controller:U4" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 182
-Info (12128): Elaborating entity "gsensor" for hierarchy "ADXL345_controller:U4|gsensor:U0" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/ADXL345_controller.vhd Line: 47
-Warning (10230): Verilog HDL assignment warning at gsensor.sv(28): truncated value with size 32 to match size of target (20) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 28
-Warning (10230): Verilog HDL assignment warning at gsensor.sv(266): truncated value with size 8 to match size of target (6) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 266
-Warning (10030): Net "spi_program.data_a.opcode" at gsensor.sv(84) has no driver or initial value, using a default initial value '0' File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
-Warning (10030): Net "spi_program.data_a.immediate" at gsensor.sv(84) has no driver or initial value, using a default initial value '0' File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
-Warning (10030): Net "spi_program.waddr_a" at gsensor.sv(84) has no driver or initial value, using a default initial value '0' File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
-Warning (10030): Net "spi_program.we_a" at gsensor.sv(84) has no driver or initial value, using a default initial value '0' File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
-Info (12128): Elaborating entity "spi" for hierarchy "ADXL345_controller:U4|gsensor:U0|spi:u0" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 180
-Warning (10230): Verilog HDL assignment warning at spi.sv(47): truncated value with size 32 to match size of target (4) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 47
-Warning (10230): Verilog HDL assignment warning at spi.sv(156): truncated value with size 32 to match size of target (3) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 156
-Warning (10230): Verilog HDL assignment warning at spi.sv(204): truncated value with size 64 to match size of target (4) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 204
-Info (12128): Elaborating entity "CLK_50MHZ_to_60HZ" for hierarchy "CLK_50MHZ_to_60HZ:U5" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 183
-Warning (10492): VHDL Process Statement warning at CLK_50MHZ_to_60HZ.vhd(23): signal "tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 23
-Info (12128): Elaborating entity "sounds" for hierarchy "sounds:U6" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 184
-Warning (10036): Verilog HDL or VHDL warning at sounds.vhd(15): object "play" assigned a value but never read File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 15
-Warning (10492): VHDL Process Statement warning at sounds.vhd(21): signal "sound_effect" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 21
-Warning (10492): VHDL Process Statement warning at sounds.vhd(22): signal "sound_effect" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 22
-Warning (10492): VHDL Process Statement warning at sounds.vhd(23): signal "sound_duration" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 23
-Warning (10492): VHDL Process Statement warning at sounds.vhd(24): signal "sound_effect_temp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 24
-Warning (10492): VHDL Process Statement warning at sounds.vhd(25): signal "frequency" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at sounds.vhd(26): signal "frequency" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 26
-Warning (10492): VHDL Process Statement warning at sounds.vhd(29): signal "sound_pin_tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 29
-Warning (10492): VHDL Process Statement warning at sounds.vhd(30): signal "sound_pin_tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 30
-Warning (10492): VHDL Process Statement warning at sounds.vhd(32): signal "sound_duration" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 32
-Warning (10631): VHDL Process Statement warning at sounds.vhd(19): inferring latch(es) for signal or variable "frequency", which holds its previous value in one or more paths through the process File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Warning (10631): VHDL Process Statement warning at sounds.vhd(19): inferring latch(es) for signal or variable "sound_pin_tmp", which holds its previous value in one or more paths through the process File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Warning (10631): VHDL Process Statement warning at sounds.vhd(19): inferring latch(es) for signal or variable "sound_pin", which holds its previous value in one or more paths through the process File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Warning (10631): VHDL Process Statement warning at sounds.vhd(19): inferring latch(es) for signal or variable "sound_duration", which holds its previous value in one or more paths through the process File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Warning (10631): VHDL Process Statement warning at sounds.vhd(19): inferring latch(es) for signal or variable "sound_effect_temp", which holds its previous value in one or more paths through the process File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Warning (10631): VHDL Process Statement warning at sounds.vhd(19): inferring latch(es) for signal or variable "sound_effect", which holds its previous value in one or more paths through the process File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect[0]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect[1]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect[2]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect[3]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[0]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[1]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[2]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[3]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[4]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[5]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[6]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[7]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[8]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[9]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[10]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[11]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[12]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[13]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[14]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_effect_temp[15]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[0]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[1]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[2]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[3]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[4]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[5]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[6]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[7]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[8]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[9]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[10]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[11]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[12]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[13]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[14]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[15]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[16]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[17]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[18]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[19]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[20]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[21]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[22]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[23]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[24]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[25]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[26]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[27]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[28]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[29]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[30]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_duration[31]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_pin" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "sound_pin_tmp" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[0]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[1]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[2]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[3]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[4]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[5]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[6]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[7]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[8]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[9]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[10]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[11]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[12]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[13]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[14]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Info (10041): Inferred latch for "frequency[15]" at sounds.vhd(19) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 19
-Critical Warning (127005): Memory depth (64) in the design file differs from memory depth (44) in the Memory Initialization File "C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/db/PROJ0.ram0_gsensor_889e66e.hdl.mif" -- setting initial value for remaining addresses to 0
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:U2" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 182
+Info (12128): Elaborating entity "hw_image_generator" for hierarchy "hw_image_generator:U3" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 183
+Warning (10540): VHDL Signal Declaration warning at hw_image_generator.vhd(65): used explicit default value for signal "maxEnemyIndex" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 65
+Warning (10540): VHDL Signal Declaration warning at hw_image_generator.vhd(66): used explicit default value for signal "maxShotIndex" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 66
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(86): signal "player_face_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(87): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 87
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(87): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 87
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(88): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 88
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(88): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 88
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(89): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 89
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(89): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 89
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(90): signal "player_Blink" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 90
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(106): signal "player_face_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 106
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(107): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 107
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(107): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 107
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(108): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 108
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(108): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 108
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(109): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 109
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(109): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 109
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(110): signal "player_Blink" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 110
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(128): signal "player_Blink" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 128
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(129): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 129
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(129): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 129
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(130): signal "player_face_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 130
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(131): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 131
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(132): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 132
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(137): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 137
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(138): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 138
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(143): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 143
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(144): signal "player_left" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 144
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(151): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(152): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 152
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(157): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 157
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(158): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 158
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(163): signal "exhaust_level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 163
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(164): signal "player_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 164
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(174): signal "player_face_right" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 174
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(175): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 175
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(175): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 175
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(176): signal "pulse_position" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 176
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(183): signal "player_top" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 183
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(183): signal "player_bottom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 183
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(184): signal "pulse_position" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 184
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(193): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 193
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(207): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 207
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(221): signal "num_lives" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 221
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(235): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 235
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(236): signal "enemyPosition_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 236
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(236): signal "enemySize" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 236
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(237): signal "enemyPosition_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 237
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(237): signal "enemySize" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 237
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(238): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 238
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(242): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 242
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(246): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 246
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(250): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 250
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(254): signal "maxEnemyIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 254
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(267): signal "maxShotIndex" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 267
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(268): signal "shotPosition_y" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 268
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(269): signal "shotPosition_x" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/hw_image_generator.vhd Line: 269
+Info (12128): Elaborating entity "ADXL345_controller" for hierarchy "ADXL345_controller:U4" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 184
+Info (12128): Elaborating entity "gsensor" for hierarchy "ADXL345_controller:U4|gsensor:U0" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/ADXL345_controller.vhd Line: 47
+Warning (10230): Verilog HDL assignment warning at gsensor.sv(28): truncated value with size 32 to match size of target (20) File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 28
+Warning (10230): Verilog HDL assignment warning at gsensor.sv(266): truncated value with size 8 to match size of target (6) File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 266
+Warning (10030): Net "spi_program.data_a.opcode" at gsensor.sv(84) has no driver or initial value, using a default initial value '0' File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
+Warning (10030): Net "spi_program.data_a.immediate" at gsensor.sv(84) has no driver or initial value, using a default initial value '0' File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
+Warning (10030): Net "spi_program.waddr_a" at gsensor.sv(84) has no driver or initial value, using a default initial value '0' File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
+Warning (10030): Net "spi_program.we_a" at gsensor.sv(84) has no driver or initial value, using a default initial value '0' File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
+Info (12128): Elaborating entity "spi" for hierarchy "ADXL345_controller:U4|gsensor:U0|spi:u0" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 180
+Warning (10230): Verilog HDL assignment warning at spi.sv(47): truncated value with size 32 to match size of target (4) File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 47
+Warning (10230): Verilog HDL assignment warning at spi.sv(156): truncated value with size 32 to match size of target (3) File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 156
+Warning (10230): Verilog HDL assignment warning at spi.sv(204): truncated value with size 64 to match size of target (4) File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/spi.sv Line: 204
+Info (12128): Elaborating entity "CLK_50MHZ_to_60HZ" for hierarchy "CLK_50MHZ_to_60HZ:U5" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 185
+Warning (10492): VHDL Process Statement warning at CLK_50MHZ_to_60HZ.vhd(23): signal "tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 23
+Info (12128): Elaborating entity "sounds_controller" for hierarchy "sounds_controller:U6" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 186
+Warning (10540): VHDL Signal Declaration warning at sounds.vhd(13): used explicit default value for signal "sound1_frequency" because signal was never assigned a value File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/sounds.vhd Line: 13
+Critical Warning (127005): Memory depth (64) in the design file differs from memory depth (44) in the Memory Initialization File "C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/db/PROJ0.ram0_gsensor_889e66e.hdl.mif" -- setting initial value for remaining addresses to 0
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276013): RAM logic "ADXL345_controller:U4|gsensor:U0|spi_program" is uninferred because MIF is not supported for the selected family File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
+    Info (276013): RAM logic "ADXL345_controller:U4|gsensor:U0|spi_program" is uninferred because MIF is not supported for the selected family File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/Tilt_Control/gsensor.sv Line: 84
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "GSENSOR_SDI" and its non-tri-state driver. File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 39
+    Warning (13035): Inserted always-enabled tri-state buffer between "GSENSOR_SDI" and its non-tri-state driver. File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 39
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 40
+    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 40
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "GSENSOR_SDI~synth" File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 39
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "sound_out" is stuck at GND File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 43
+    Warning (13010): Node "GSENSOR_SDI~synth" File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 39
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 24 assignments for entity "ADXL345_Driver" -- entity does not exist in design
@@ -1538,25 +1475,25 @@ Warning (20013): Ignored 24 assignments for entity "vga_top" -- entity does not 
     Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity vga_top -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity vga_top -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity vga_top -section_id Top was ignored
-Info (144001): Generated suppressed messages file C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 15853 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 15965 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 29 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 15818 logic cells
+    Info (21061): Implemented 15930 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 229 warnings
-    Info: Peak virtual memory: 4907 megabytes
-    Info: Processing ended: Thu Nov 18 16:27:24 2021
-    Info: Elapsed time: 00:01:08
-    Info: Total CPU time (on all processors): 00:01:22
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 212 warnings
+    Info: Peak virtual memory: 4969 megabytes
+    Info: Processing ended: Fri Nov 19 16:21:04 2021
+    Info: Elapsed time: 00:01:00
+    Info: Total CPU time (on all processors): 00:01:12
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.map.smsg.
+The suppressed messages can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.map.smsg.
 
 

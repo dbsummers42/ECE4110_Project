@@ -124,9 +124,10 @@ architecture PROJ0_ARCH of PROJ0 is
 			CLK60HZ: OUT STD_LOGIC);
 	end component;
 	
-	component sounds is
-	port (sound_effect : inout integer range 0 to 10 := 0;
-			max10_clk : IN STD_LOGIC;
+	component sounds_controller is
+	port (sound_effect : in integer range 0 to 10 := 0;
+			max10_clk: IN STD_LOGIC;
+			sound_trigger : IN STD_LOGIC;
 			sound_pin : OUT STD_LOGIC);
 	end component;
 	
@@ -163,6 +164,7 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal player_face_right : STD_LOGIC := '1';
 	signal exhaust_level, tilt_level_x, tilt_level_y, pulse_position : integer range 0 to 1000 := 0;
 	signal sound_effect : integer range 0 to 10 := 0;
+	signal sound_trigger : STD_LOGIC := '0';
 	
 	
 begin
@@ -173,7 +175,7 @@ begin
 	tilt_y <= data_y(7 downto 4);
 	tilt_level_x <= to_integer(unsigned(tilt_x));
 	tilt_level_y <= to_integer(unsigned(tilt_y));
-	
+
 	
 -- Just need 3 components for VGA system 
 	U1	:	vga_pll_25_175 port map(pixel_clk_m, pll_OUT_to_vga_controller_IN);
@@ -181,12 +183,13 @@ begin
 	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, shotPosition_x, shotPosition_y, facingDirection, exhaust_level, pulse_position, red_m, green_m, blue_m);
 	U4 : ADXL345_controller port map ('1', pixel_clk_m, open, data_x, data_y, data_z, GSENSOR_SDI, GSENSOR_SDO, GSENSOR_CS_N, GSENSOR_SCLK);
 	U5 : CLK_50MHZ_to_60HZ port map(pixel_clk_m, clk_60HZ);
-	U6	: sounds port map (sound_effect, pixel_clk_m, sound_out);
+	U6	: sounds_controller port map (sound_effect, pixel_clk_m, sound_trigger, sound_out);
 	
 	
 	HZ60_Update: Process(clk_60HZ)
 	begin
 		if(clk_60HZ'event and clk_60HZ = '1') then
+				sound_trigger <= '0';
 			if(gameStart = '1' and pause = '0') then
 			
 				facingDirection <= direction_x;
@@ -379,7 +382,8 @@ begin
 								currentShotIndex <= currentShotIndex + 1;
 							end if;
 							shotCounter <= 1;
-							sound_effect <= 1;	
+							sound_effect <= 1;
+							sound_trigger <= '1';
 						end if;
 					end if;
 				elsif(shotCounter = maxShotCounter) then
