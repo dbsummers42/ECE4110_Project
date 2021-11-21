@@ -382,7 +382,7 @@ begin
 								currentShotIndex <= currentShotIndex + 1;
 							end if;
 							shotCounter <= 1;
-							sound_effect <= 1;
+							sound_effect <= 4;
 							sound_trigger <= '1';
 						end if;
 					end if;
@@ -407,6 +407,8 @@ begin
 									if(((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 3) >= (enemyPosition_y(I) + enemySize(I))))) then
 										enemyPosition_x(I) <= -1;
 										shotPosition_x(J) <= -99;
+										sound_effect <= 2;
+										sound_trigger <= '1';
 										-- Add score here 
 									end if;
 								end if;
@@ -415,6 +417,8 @@ begin
 									if(((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 3) >= (enemyPosition_y(I) + enemySize(I))))) then
 										enemyPosition_x(I) <= -1;
 										shotPosition_x(J) <= -99;
+										sound_effect <= 2;
+										sound_trigger <= '1';
 										-- Add score here
 									end if;
 								end if;
@@ -433,8 +437,12 @@ begin
 								num_lives <= num_lives -1;
 								enemyPosition_x(I) <= -1;
 								invincible_counter <= 1;
+								sound_effect <= 3;
+								sound_trigger <= '1';
 								if(num_lives = 1) then
 									gamestart <= '0';
+									sound_effect <= 5;
+									sound_trigger <= '1';
 								end if;
 							end if;
 						elsif((player_Left >= (enemyPosition_x(I) - enemySize(I))) and (player_Left <= enemyPosition_x(i))) then
@@ -442,8 +450,12 @@ begin
 								num_lives <= num_lives -1;
 								enemyPosition_x(I) <= -1;
 								invincible_counter <= 1;
+								sound_effect <= 3;
+								sound_trigger <= '1';
 								if(num_lives = 1) then
 									gamestart <= '0';
+									sound_effect <= 5;
+									sound_trigger <= '1';
 								end if;
 							end if;
 						elsif((player_Top <= (enemyPosition_y(I) + enemySize(I))) and (player_Top >= enemyPosition_y(i))) then 
@@ -451,8 +463,12 @@ begin
 								num_lives <= num_lives -1;
 								enemyPosition_x(I) <= -1;
 								invincible_counter <= 1;
+								sound_effect <= 3;
+								sound_trigger <= '1';
 								if(num_lives = 1) then
 									gamestart <= '0';
+									sound_effect <= 5;
+									sound_trigger <= '1';
 								end if;
 							end if;
 						elsif((player_Bottom <= (enemyPosition_y(I) + enemySize(I))) and (player_Bottom >= enemyPosition_y(i))) then
@@ -460,8 +476,12 @@ begin
 								num_lives <= num_lives -1;
 								enemyPosition_x(I) <= -1;
 								invincible_counter <= 1;
+								sound_effect <= 3;
+								sound_trigger <= '1';
 								if(num_lives = 1) then
 									gamestart <= '0';
+									sound_effect <= 5;
+									sound_trigger <= '1';
 								end if;
 							end if;
 						end if;
@@ -502,6 +522,8 @@ begin
 					player_top 	<= 220;
 					player_bottom	<= 260;
 					num_lives <= 3;
+					sound_effect <= 1;
+					sound_trigger <= '1';
 					
 				end if;
 			else
