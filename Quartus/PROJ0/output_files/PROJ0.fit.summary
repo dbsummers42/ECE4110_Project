@@ -1,14 +1,14 @@
-Fitter Status : Successful - Sun Nov 21 14:00:46 2021
+Fitter Status : Successful - Sun Nov 21 20:01:11 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : PROJ0
 Top-level Entity Name : PROJ0
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 15,928 / 49,760 ( 32 % )
-    Total combinational functions : 15,864 / 49,760 ( 32 % )
-    Dedicated logic registers : 930 / 49,760 ( 2 % )
-Total registers : 930
+Total logic elements : 26,472 / 49,760 ( 53 % )
+    Total combinational functions : 26,404 / 49,760 ( 53 % )
+    Dedicated logic registers : 854 / 49,760 ( 2 % )
+Total registers : 854
 Total pins : 34 / 360 ( 9 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )

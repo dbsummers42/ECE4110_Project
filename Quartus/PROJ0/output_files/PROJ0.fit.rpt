@@ -1,5 +1,5 @@
 Fitter report for PROJ0
-Sun Nov 21 14:00:46 2021
+Sun Nov 21 20:01:11 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -71,17 +71,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sun Nov 21 14:00:46 2021       ;
+; Fitter Status                      ; Successful - Sun Nov 21 20:01:11 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PROJ0                                       ;
 ; Top-level Entity Name              ; PROJ0                                       ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 15,928 / 49,760 ( 32 % )                    ;
-;     Total combinational functions  ; 15,864 / 49,760 ( 32 % )                    ;
-;     Dedicated logic registers      ; 930 / 49,760 ( 2 % )                        ;
-; Total registers                    ; 930                                         ;
+; Total logic elements               ; 26,472 / 49,760 ( 53 % )                    ;
+;     Total combinational functions  ; 26,404 / 49,760 ( 53 % )                    ;
+;     Dedicated logic registers      ; 854 / 49,760 ( 2 % )                        ;
+; Total registers                    ; 854                                         ;
 ; Total pins                         ; 34 / 360 ( 9 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -154,22 +154,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 2.41        ;
-; Maximum used               ; 16          ;
+; Average used               ; 1.38        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  10.1%      ;
-;     Processor 3            ;   9.9%      ;
-;     Processor 4            ;   9.9%      ;
-;     Processor 5            ;   9.8%      ;
-;     Processor 6            ;   9.8%      ;
-;     Processor 7            ;   9.7%      ;
-;     Processor 8            ;   9.7%      ;
-;     Processors 9-16        ;   9.0%      ;
+;     Processor 2            ;  12.9%      ;
+;     Processor 3            ;  12.7%      ;
+;     Processor 4            ;  12.7%      ;
 +----------------------------+-------------+
 
 
@@ -179,8 +174,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]        ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+----------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                      ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 16880 ) ; 0.00 % ( 0 / 16880 )       ; 0.00 % ( 0 / 16880 )     ;
-;     -- Achieved     ; 0.00 % ( 0 / 16880 ) ; 0.00 % ( 0 / 16880 )       ; 0.00 % ( 0 / 16880 )     ;
+;     -- Requested    ; 0.00 % ( 0 / 27344 ) ; 0.00 % ( 0 / 27344 )       ; 0.00 % ( 0 / 27344 )     ;
+;     -- Achieved     ; 0.00 % ( 0 / 27344 ) ; 0.00 % ( 0 / 27344 )       ; 0.00 % ( 0 / 27344 )     ;
 ;                     ;                      ;                            ;                          ;
 ; Routing (by net)    ;                      ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )     ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -203,7 +198,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 16862 )  ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 27326 )  ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 18 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -211,7 +206,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.pin.
+The pin-out file can be found in C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.pin.
 
 
 +------------------------------------------------------------------------+
@@ -219,29 +214,29 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Total logic elements                        ; 15,928 / 49,760 ( 32 % ) ;
-;     -- Combinational with no register       ; 14998                    ;
-;     -- Register only                        ; 64                       ;
-;     -- Combinational with a register        ; 866                      ;
+; Total logic elements                        ; 26,472 / 49,760 ( 53 % ) ;
+;     -- Combinational with no register       ; 25618                    ;
+;     -- Register only                        ; 68                       ;
+;     -- Combinational with a register        ; 786                      ;
 ;                                             ;                          ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 4276                     ;
-;     -- 3 input functions                    ; 9228                     ;
-;     -- <=2 input functions                  ; 2360                     ;
-;     -- Register only                        ; 64                       ;
+;     -- 4 input functions                    ; 6949                     ;
+;     -- 3 input functions                    ; 11088                    ;
+;     -- <=2 input functions                  ; 8367                     ;
+;     -- Register only                        ; 68                       ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 10483                    ;
-;     -- arithmetic mode                      ; 5381                     ;
+;     -- normal mode                          ; 15553                    ;
+;     -- arithmetic mode                      ; 10851                    ;
 ;                                             ;                          ;
-; Total registers*                            ; 930 / 51,509 ( 2 % )     ;
-;     -- Dedicated logic registers            ; 930 / 49,760 ( 2 % )     ;
+; Total registers*                            ; 854 / 51,509 ( 2 % )     ;
+;     -- Dedicated logic registers            ; 854 / 49,760 ( 2 % )     ;
 ;     -- I/O registers                        ; 0 / 1,749 ( 0 % )        ;
 ;                                             ;                          ;
-; Total LABs:  partially or completely used   ; 1,152 / 3,110 ( 37 % )   ;
+; Total LABs:  partially or completely used   ; 1,926 / 3,110 ( 62 % )   ;
 ; Virtual pins                                ; 0                        ;
 ; I/O pins                                    ; 34 / 360 ( 9 % )         ;
-;     -- Clock pins                           ; 4 / 8 ( 50 % )           ;
+;     -- Clock pins                           ; 2 / 8 ( 25 % )           ;
 ;     -- Dedicated input pins                 ; 1 / 1 ( 100 % )          ;
 ;                                             ;                          ;
 ; M9Ks                                        ; 0 / 182 ( 0 % )          ;
@@ -258,12 +253,12 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; Remote update blocks                        ; 0 / 1 ( 0 % )            ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )            ;
 ; Impedance control blocks                    ; 0 / 1 ( 0 % )            ;
-; Average interconnect usage (total/H/V)      ; 15.2% / 14.7% / 15.9%    ;
-; Peak interconnect usage (total/H/V)         ; 65.9% / 64.0% / 68.6%    ;
-; Maximum fan-out                             ; 666                      ;
-; Highest non-global fan-out                  ; 119                      ;
-; Total fan-out                               ; 51725                    ;
-; Average fan-out                             ; 3.05                     ;
+; Average interconnect usage (total/H/V)      ; 22.9% / 21.6% / 24.9%    ;
+; Peak interconnect usage (total/H/V)         ; 64.2% / 60.4% / 69.8%    ;
+; Maximum fan-out                             ; 590                      ;
+; Highest non-global fan-out                  ; 169                      ;
+; Total fan-out                               ; 79195                    ;
+; Average fan-out                             ; 2.89                     ;
 +---------------------------------------------+--------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -276,26 +271,26 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 +---------------------------------------------+------------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                    ; Low                            ;
 ;                                             ;                        ;                                ;
-; Total logic elements                        ; 15928 / 49760 ( 32 % ) ; 0 / 49760 ( 0 % )              ;
-;     -- Combinational with no register       ; 14998                  ; 0                              ;
-;     -- Register only                        ; 64                     ; 0                              ;
-;     -- Combinational with a register        ; 866                    ; 0                              ;
+; Total logic elements                        ; 26472 / 49760 ( 53 % ) ; 0 / 49760 ( 0 % )              ;
+;     -- Combinational with no register       ; 25618                  ; 0                              ;
+;     -- Register only                        ; 68                     ; 0                              ;
+;     -- Combinational with a register        ; 786                    ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Logic element usage by number of LUT inputs ;                        ;                                ;
-;     -- 4 input functions                    ; 4276                   ; 0                              ;
-;     -- 3 input functions                    ; 9228                   ; 0                              ;
-;     -- <=2 input functions                  ; 2360                   ; 0                              ;
-;     -- Register only                        ; 64                     ; 0                              ;
+;     -- 4 input functions                    ; 6949                   ; 0                              ;
+;     -- 3 input functions                    ; 11088                  ; 0                              ;
+;     -- <=2 input functions                  ; 8367                   ; 0                              ;
+;     -- Register only                        ; 68                     ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Logic elements by mode                      ;                        ;                                ;
-;     -- normal mode                          ; 10483                  ; 0                              ;
-;     -- arithmetic mode                      ; 5381                   ; 0                              ;
+;     -- normal mode                          ; 15553                  ; 0                              ;
+;     -- arithmetic mode                      ; 10851                  ; 0                              ;
 ;                                             ;                        ;                                ;
-; Total registers                             ; 930                    ; 0                              ;
-;     -- Dedicated logic registers            ; 930 / 49760 ( 2 % )    ; 0 / 49760 ( 0 % )              ;
+; Total registers                             ; 854                    ; 0                              ;
+;     -- Dedicated logic registers            ; 854 / 49760 ( 2 % )    ; 0 / 49760 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                      ; 0                              ;
 ;                                             ;                        ;                                ;
-; Total LABs:  partially or completely used   ; 1152 / 3110 ( 37 % )   ; 0 / 3110 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 1926 / 3110 ( 62 % )   ; 0 / 3110 ( 0 % )               ;
 ;                                             ;                        ;                                ;
 ; Virtual pins                                ; 0                      ; 0                              ;
 ; I/O pins                                    ; 34                     ; 0                              ;
@@ -314,8 +309,8 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ;     -- Registered Output Connections        ; 0                      ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Internal Connections                        ;                        ;                                ;
-;     -- Total Connections                    ; 51729                  ; 53                             ;
-;     -- Registered Connections               ; 17495                  ; 0                              ;
+;     -- Total Connections                    ; 79199                  ; 53                             ;
+;     -- Registered Connections               ; 17562                  ; 0                              ;
 ;                                             ;                        ;                                ;
 ; External Connections                        ;                        ;                                ;
 ;     -- Top                                  ; 4                      ; 43                             ;
@@ -364,27 +359,27 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; blue_m[1]    ; T1    ; 2        ; 0            ; 15           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; blue_m[2]    ; P4    ; 2        ; 0            ; 23           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; blue_m[3]    ; N2    ; 2        ; 0            ; 18           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
-; blue_m[4]    ; N8    ; 2        ; 0            ; 13           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; blue_m[5]    ; N5    ; 2        ; 0            ; 23           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; blue_m[6]    ; N9    ; 2        ; 0            ; 13           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; blue_m[7]    ; M8    ; 2        ; 0            ; 18           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; blue_m[4]    ; C6    ; 8        ; 29           ; 39           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; blue_m[5]    ; C3    ; 8        ; 20           ; 39           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; blue_m[6]    ; J3    ; 1A       ; 0            ; 34           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; blue_m[7]    ; B2    ; 8        ; 22           ; 39           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
 ; green_m[0]   ; W1    ; 2        ; 0            ; 9            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; green_m[1]   ; T2    ; 2        ; 0            ; 15           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; green_m[2]   ; R2    ; 2        ; 0            ; 3            ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; green_m[3]   ; R1    ; 2        ; 0            ; 3            ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
-; green_m[4]   ; D3    ; 1B       ; 0            ; 30           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; green_m[5]   ; R7    ; 2        ; 0            ; 9            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; green_m[6]   ; C4    ; 8        ; 24           ; 39           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; green_m[7]   ; E10   ; 8        ; 36           ; 39           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; green_m[4]   ; V3    ; 2        ; 0            ; 10           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; green_m[5]   ; U3    ; 2        ; 0            ; 10           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; green_m[6]   ; N4    ; 2        ; 0            ; 23           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; green_m[7]   ; U4    ; 2        ; 0            ; 10           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
 ; h_sync_m     ; N3    ; 2        ; 0            ; 18           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; red_m[0]     ; AA1   ; 3        ; 18           ; 0            ; 28           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; red_m[1]     ; V1    ; 2        ; 0            ; 12           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; red_m[2]     ; Y2    ; 3        ; 16           ; 0            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; red_m[3]     ; Y1    ; 3        ; 16           ; 0            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
-; red_m[4]     ; A3    ; 8        ; 26           ; 39           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; red_m[5]     ; D7    ; 8        ; 29           ; 39           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; red_m[6]     ; B3    ; 8        ; 26           ; 39           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; red_m[7]     ; E9    ; 8        ; 29           ; 39           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; red_m[4]     ; A13   ; 7        ; 54           ; 54           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; red_m[5]     ; N19   ; 6        ; 78           ; 34           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; red_m[6]     ; K18   ; 6        ; 78           ; 42           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; red_m[7]     ; J12   ; 7        ; 54           ; 54           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
 ; sound_out    ; Y19   ; 4        ; 62           ; 0            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; v_sync_m     ; N1    ; 2        ; 0            ; 13           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 +--------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
@@ -421,15 +416,15 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 +----------+------------------+---------------+--------------+
 ; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
 +----------+------------------+---------------+--------------+
-; 1A       ; 0 / 16 ( 0 % )   ; 2.5V          ; --           ;
-; 1B       ; 5 / 24 ( 21 % )  ; 2.5V          ; --           ;
-; 2        ; 16 / 36 ( 44 % ) ; 2.5V          ; --           ;
+; 1A       ; 1 / 16 ( 6 % )   ; 2.5V          ; --           ;
+; 1B       ; 4 / 24 ( 17 % )  ; 2.5V          ; --           ;
+; 2        ; 15 / 36 ( 42 % ) ; 2.5V          ; --           ;
 ; 3        ; 4 / 48 ( 8 % )   ; 2.5V          ; --           ;
 ; 4        ; 5 / 48 ( 10 % )  ; 2.5V          ; --           ;
 ; 5        ; 0 / 40 ( 0 % )   ; 2.5V          ; --           ;
-; 6        ; 0 / 60 ( 0 % )   ; 2.5V          ; --           ;
-; 7        ; 2 / 52 ( 4 % )   ; 2.5V          ; --           ;
-; 8        ; 10 / 36 ( 28 % ) ; 2.5V          ; --           ;
+; 6        ; 2 / 60 ( 3 % )   ; 2.5V          ; --           ;
+; 7        ; 4 / 52 ( 8 % )   ; 2.5V          ; --           ;
+; 8        ; 7 / 36 ( 19 % )  ; 2.5V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
@@ -440,7 +435,7 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 +----------+------------+----------+------------------------------------------------+--------+-----------------------+---------+------------+-----------------+----------+--------------+
 ; A1       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; A2       ; 481        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; A3       ; 483        ; 8        ; red_m[4]                                       ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; A3       ; 483        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A4       ; 475        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A5       ; 473        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A6       ; 471        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -450,7 +445,7 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; A10      ; 439        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A11      ; 437        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A12      ; 435        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; A13      ; 433        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; A13      ; 433        ; 7        ; red_m[4]                                       ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; A14      ; 425        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A15      ; 421        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; A16      ; 419        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -505,8 +500,8 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; AB21     ; 225        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB22     ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; B1       ; 495        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; B2       ; 493        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; B3       ; 484        ; 8        ; red_m[6]                                       ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; B2       ; 493        ; 8        ; blue_m[7]                                      ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; B3       ; 484        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B4       ; 486        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B5       ; 485        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; B6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -528,10 +523,10 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; B22      ; 365        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; C1       ; 33         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; --       ; --           ;
 ; C2       ; 499        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; C3       ; 497        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; C4       ; 487        ; 8        ; green_m[6]                                     ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; C3       ; 497        ; 8        ; blue_m[5]                                      ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; C4       ; 487        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C5       ; 489        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; C6       ; 477        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; C6       ; 477        ; 8        ; blue_m[4]                                      ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C7       ; 467        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C8       ; 465        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; C9       ; 450        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -550,11 +545,11 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; C22      ; 343        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; D1       ; 35         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; D2       ; 31         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; D3       ; 29         ; 1B       ; green_m[4]                                     ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; D3       ; 29         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; D4       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; D5       ; 491        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; D6       ; 496        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; D7       ; 479        ; 8        ; red_m[5]                                       ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; D7       ; 479        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; --       ; --           ;
 ; D8       ; 472        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; D9       ; 474        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; D10      ; 476        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -578,8 +573,8 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; E6       ; 498        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E7       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; E8       ; 488        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; E9       ; 478        ; 8        ; red_m[7]                                       ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
-; E10      ; 466        ; 8        ; green_m[7]                                     ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
+; E9       ; 478        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; E10      ; 466        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E11      ; 464        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E12      ; 429        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; E13      ; 430        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -660,7 +655,7 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; H22      ; 321        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J1       ; 46         ; 1B       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J2       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; J3       ; 15         ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; J3       ; 15         ; 1A       ; blue_m[6]                                      ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; J4       ; 8          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J5       ;            ;          ; ANAIN2                                         ;        ;                       ;         ; --         ;                 ; --       ; --           ;
 ; J6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -669,7 +664,7 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; J9       ; 6          ; 1A       ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J10      ; 468        ; 8        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; J11      ; 446        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
-; J12      ; 434        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
+; J12      ; 434        ; 7        ; red_m[7]                                       ; output ; 2.5 V                 ;         ; Column I/O ; N               ; no       ; Off          ;
 ; J13      ; 422        ; 7        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; J14      ; 368        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J15      ; 370        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -697,7 +692,7 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; K15      ; 358        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; K16      ;            ; 6        ; VCCIO6                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; K17      ;            ; 6        ; VCCIO6                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; K18      ; 360        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; K18      ; 360        ; 6        ; red_m[6]                                       ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; K19      ; 361        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; K20      ; 363        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; K21      ; 326        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -731,7 +726,7 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; M5       ; 38         ; 1B       ; ~ALTERA_TDO~                                   ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; M6       ;            ; 1B       ; VCCIO1B                                        ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; M7       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; M8       ; 72         ; 2        ; blue_m[7]                                      ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; M8       ; 72         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M9       ; 74         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M10      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; M11      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -749,12 +744,12 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; N1       ; 87         ; 2        ; v_sync_m                                       ; output ; 2.5 V                 ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; N2       ; 75         ; 2        ; blue_m[3]                                      ; output ; 2.5 V                 ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; N3       ; 73         ; 2        ; h_sync_m                                       ; output ; 2.5 V                 ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; N4       ; 56         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; N5       ; 58         ; 2        ; blue_m[5]                                      ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N4       ; 56         ; 2        ; green_m[6]                                     ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N5       ; 58         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N6       ;            ; 2        ; VCCIO2                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; N7       ;            ; 2        ; VCCIO2                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; N8       ; 84         ; 2        ; blue_m[4]                                      ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
-; N9       ; 86         ; 2        ; blue_m[6]                                      ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N8       ; 84         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; N9       ; 86         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N10      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; N11      ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
 ; N12      ;            ; --       ; VCC                                            ; power  ;                       ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -764,7 +759,7 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; N16      ;            ; 5        ; VCCIO5                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; N17      ;            ; 6        ; VCCIO6                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; N18      ; 336        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; N19      ; 338        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; N19      ; 338        ; 6        ; red_m[5]                                       ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; N20      ; 339        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N21      ; 313        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N22      ; 307        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -796,7 +791,7 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; R4       ; 80         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R5       ; 82         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R6       ;            ; 2        ; VCCIO2                                         ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
-; R7       ; 98         ; 2        ; green_m[5]                                     ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; R7       ; 98         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R8       ;            ; --       ; VCCA1                                          ; power  ;                       ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; R9       ; 140        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; R10      ; 152        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -836,8 +831,8 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; T22      ; 295        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; U1       ; 89         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; U2       ; 90         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; U3       ; 93         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
-; U4       ; 92         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; U3       ; 93         ; 2        ; green_m[5]                                     ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U4       ; 92         ; 2        ; green_m[7]                                     ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; U5       ; 94         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; U6       ; 128        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; U7       ; 130        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
@@ -858,7 +853,7 @@ The pin-out file can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project
 ; U22      ; 302        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
 ; V1       ; 91         ; 2        ; red_m[1]                                       ; output ; 2.5 V                 ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; V2       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
-; V3       ; 95         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Row I/O    ;                 ; no       ; On           ;
+; V3       ; 95         ; 2        ; green_m[4]                                     ; output ; 2.5 V                 ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; V4       ; 125        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V5       ; 127        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                ;        ;                       ;         ; Column I/O ;                 ; no       ; On           ;
 ; V6       ;            ;          ; GND                                            ; gnd    ;                       ;         ; --         ;                 ; --       ; --           ;
@@ -1030,31 +1025,87 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +--------------+-------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                         ;
-+-------------------------------------------------+---------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+---------------+-------------------+------------------+------------+-------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; Compilation Hierarchy Node                      ; Logic Cells   ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs  ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                                                     ; Entity Name           ; Library Name ;
-+-------------------------------------------------+---------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+---------------+-------------------+------------------+------------+-------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; |PROJ0                                          ; 15928 (12663) ; 930 (666)                 ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 34   ; 0            ; 14998 (12127) ; 64 (31)           ; 866 (509)        ; 0          ; |PROJ0                                                                                                                  ; PROJ0                 ; work         ;
-;    |ADXL345_controller:U4|                      ; 176 (0)       ; 95 (0)                    ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 81 (0)        ; 24 (0)            ; 71 (0)           ; 0          ; |PROJ0|ADXL345_controller:U4                                                                                            ; ADXL345_controller    ; work         ;
-;       |gsensor:U0|                              ; 176 (116)     ; 95 (57)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 81 (59)       ; 24 (10)           ; 71 (49)          ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0                                                                                 ; gsensor               ; work         ;
-;          |spi:u0|                               ; 60 (60)       ; 38 (38)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 22 (22)       ; 14 (14)           ; 24 (24)          ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0                                                                          ; spi                   ; work         ;
-;    |CLK_50MHZ_to_60HZ:U5|                       ; 57 (57)       ; 33 (33)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 24 (24)       ; 1 (1)             ; 32 (32)          ; 0          ; |PROJ0|CLK_50MHZ_to_60HZ:U5                                                                                             ; CLK_50MHZ_to_60HZ     ; work         ;
-;    |hw_image_generator:U3|                      ; 1672 (1672)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1528 (1528)   ; 0 (0)             ; 144 (144)        ; 0          ; |PROJ0|hw_image_generator:U3                                                                                            ; hw_image_generator    ; work         ;
-;    |sounds_controller:U6|                       ; 1293 (840)    ; 94 (94)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1199 (746)    ; 6 (6)             ; 88 (84)          ; 0          ; |PROJ0|sounds_controller:U6                                                                                             ; sounds_controller     ; work         ;
-;       |lpm_divide:Div0|                         ; 225 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 225 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div0                                                                             ; lpm_divide            ; work         ;
-;          |lpm_divide_dbo:auto_generated|        ; 225 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 225 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div0|lpm_divide_dbo:auto_generated                                               ; lpm_divide_dbo        ; work         ;
-;             |abs_divider_ibg:divider|           ; 225 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 225 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div0|lpm_divide_dbo:auto_generated|abs_divider_ibg:divider                       ; abs_divider_ibg       ; work         ;
-;                |alt_u_div_ohe:divider|          ; 225 (225)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 225 (225)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div0|lpm_divide_dbo:auto_generated|abs_divider_ibg:divider|alt_u_div_ohe:divider ; alt_u_div_ohe         ; work         ;
-;       |lpm_divide:Div1|                         ; 232 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 228 (0)       ; 0 (0)             ; 4 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div1                                                                             ; lpm_divide            ; work         ;
-;          |lpm_divide_dbo:auto_generated|        ; 232 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 228 (0)       ; 0 (0)             ; 4 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div1|lpm_divide_dbo:auto_generated                                               ; lpm_divide_dbo        ; work         ;
-;             |abs_divider_ibg:divider|           ; 232 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 228 (0)       ; 0 (0)             ; 4 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div1|lpm_divide_dbo:auto_generated|abs_divider_ibg:divider                       ; abs_divider_ibg       ; work         ;
-;                |alt_u_div_ohe:divider|          ; 232 (232)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 228 (228)     ; 0 (0)             ; 4 (4)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div1|lpm_divide_dbo:auto_generated|abs_divider_ibg:divider|alt_u_div_ohe:divider ; alt_u_div_ohe         ; work         ;
-;    |vga_controller:U2|                          ; 81 (81)       ; 42 (42)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 39 (39)       ; 2 (2)             ; 40 (40)          ; 0          ; |PROJ0|vga_controller:U2                                                                                                ; vga_controller        ; work         ;
-;    |vga_pll_25_175:U1|                          ; 0 (0)         ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)         ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|vga_pll_25_175:U1                                                                                                ; vga_pll_25_175        ; work         ;
-;       |altpll:altpll_component|                 ; 0 (0)         ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)         ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|vga_pll_25_175:U1|altpll:altpll_component                                                                        ; altpll                ; work         ;
-;          |vga_pll_25_175_altpll:auto_generated| ; 0 (0)         ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)         ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated                                   ; vga_pll_25_175_altpll ; work         ;
-+-------------------------------------------------+---------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+---------------+-------------------+------------------+------------+-------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                              ;
++-------------------------------------------------+---------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+---------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node                      ; Logic Cells   ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs  ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                                                          ; Entity Name           ; Library Name ;
++-------------------------------------------------+---------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+---------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; |PROJ0                                          ; 26472 (19443) ; 854 (590)                 ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 34   ; 0            ; 25618 (18928) ; 68 (30)           ; 786 (494)        ; 0          ; |PROJ0                                                                                                                       ; PROJ0                 ; work         ;
+;    |ADXL345_controller:U4|                      ; 172 (0)       ; 95 (0)                    ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 77 (0)        ; 20 (0)            ; 75 (0)           ; 0          ; |PROJ0|ADXL345_controller:U4                                                                                                 ; ADXL345_controller    ; work         ;
+;       |gsensor:U0|                              ; 172 (113)     ; 95 (57)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 77 (56)       ; 20 (9)            ; 75 (50)          ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0                                                                                      ; gsensor               ; work         ;
+;          |spi:u0|                               ; 59 (59)       ; 38 (38)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 21 (21)       ; 11 (11)           ; 27 (27)          ; 0          ; |PROJ0|ADXL345_controller:U4|gsensor:U0|spi:u0                                                                               ; spi                   ; work         ;
+;    |CLK_50MHZ_to_60HZ:U5|                       ; 57 (57)       ; 33 (33)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 24 (24)       ; 1 (1)             ; 32 (32)          ; 0          ; |PROJ0|CLK_50MHZ_to_60HZ:U5                                                                                                  ; CLK_50MHZ_to_60HZ     ; work         ;
+;    |hw_image_generator:U3|                      ; 5140 (2251)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5060 (2171)   ; 0 (0)             ; 80 (80)          ; 0          ; |PROJ0|hw_image_generator:U3                                                                                                 ; hw_image_generator    ; work         ;
+;       |lpm_divide:Div0|                         ; 122 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 122 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div0                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_avl:auto_generated|        ; 122 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 122 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div0|lpm_divide_avl:auto_generated                                                   ; lpm_divide_avl        ; work         ;
+;             |sign_div_unsign_cnh:divider|       ; 122 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 122 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div0|lpm_divide_avl:auto_generated|sign_div_unsign_cnh:divider                       ; sign_div_unsign_cnh   ; work         ;
+;                |alt_u_div_2le:divider|          ; 122 (122)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 122 (122)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div0|lpm_divide_avl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider ; alt_u_div_2le         ; work         ;
+;       |lpm_divide:Div1|                         ; 223 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 223 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div1                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_6vl:auto_generated|        ; 223 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 223 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div1|lpm_divide_6vl:auto_generated                                                   ; lpm_divide_6vl        ; work         ;
+;             |sign_div_unsign_8nh:divider|       ; 223 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 223 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div1|lpm_divide_6vl:auto_generated|sign_div_unsign_8nh:divider                       ; sign_div_unsign_8nh   ; work         ;
+;                |alt_u_div_qke:divider|          ; 223 (223)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 223 (223)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div1|lpm_divide_6vl:auto_generated|sign_div_unsign_8nh:divider|alt_u_div_qke:divider ; alt_u_div_qke         ; work         ;
+;       |lpm_divide:Div2|                         ; 233 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 233 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div2                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_stl:auto_generated|        ; 233 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 233 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div2|lpm_divide_stl:auto_generated                                                   ; lpm_divide_stl        ; work         ;
+;             |sign_div_unsign_ulh:divider|       ; 233 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 233 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div2|lpm_divide_stl:auto_generated|sign_div_unsign_ulh:divider                       ; sign_div_unsign_ulh   ; work         ;
+;                |alt_u_div_6ie:divider|          ; 233 (233)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 233 (233)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div2|lpm_divide_stl:auto_generated|sign_div_unsign_ulh:divider|alt_u_div_6ie:divider ; alt_u_div_6ie         ; work         ;
+;       |lpm_divide:Div3|                         ; 186 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 186 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div3                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_ptl:auto_generated|        ; 186 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 186 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div3|lpm_divide_ptl:auto_generated                                                   ; lpm_divide_ptl        ; work         ;
+;             |sign_div_unsign_rlh:divider|       ; 186 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 186 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div3|lpm_divide_ptl:auto_generated|sign_div_unsign_rlh:divider                       ; sign_div_unsign_rlh   ; work         ;
+;                |alt_u_div_0ie:divider|          ; 186 (186)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 186 (186)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Div3|lpm_divide_ptl:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_0ie:divider ; alt_u_div_0ie         ; work         ;
+;       |lpm_divide:Mod0|                         ; 9 (0)         ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (0)         ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod0                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_gnl:auto_generated|        ; 9 (0)         ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (0)         ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod0|lpm_divide_gnl:auto_generated                                                   ; lpm_divide_gnl        ; work         ;
+;             |sign_div_unsign_fnh:divider|       ; 9 (0)         ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (0)         ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod0|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider                       ; sign_div_unsign_fnh   ; work         ;
+;                |alt_u_div_8le:divider|          ; 9 (9)         ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)         ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod0|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_8le:divider ; alt_u_div_8le         ; work         ;
+;       |lpm_divide:Mod1|                         ; 168 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 168 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod1                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_gnl:auto_generated|        ; 168 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 168 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod1|lpm_divide_gnl:auto_generated                                                   ; lpm_divide_gnl        ; work         ;
+;             |sign_div_unsign_fnh:divider|       ; 168 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 168 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod1|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider                       ; sign_div_unsign_fnh   ; work         ;
+;                |alt_u_div_8le:divider|          ; 168 (168)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 168 (168)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod1|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_8le:divider ; alt_u_div_8le         ; work         ;
+;       |lpm_divide:Mod2|                         ; 165 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 165 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod2                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_gnl:auto_generated|        ; 165 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 165 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod2|lpm_divide_gnl:auto_generated                                                   ; lpm_divide_gnl        ; work         ;
+;             |sign_div_unsign_fnh:divider|       ; 165 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 165 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod2|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider                       ; sign_div_unsign_fnh   ; work         ;
+;                |alt_u_div_8le:divider|          ; 165 (165)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 165 (165)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod2|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_8le:divider ; alt_u_div_8le         ; work         ;
+;       |lpm_divide:Mod3|                         ; 315 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 315 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod3                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_gnl:auto_generated|        ; 315 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 315 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod3|lpm_divide_gnl:auto_generated                                                   ; lpm_divide_gnl        ; work         ;
+;             |sign_div_unsign_fnh:divider|       ; 315 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 315 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod3|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider                       ; sign_div_unsign_fnh   ; work         ;
+;                |alt_u_div_8le:divider|          ; 315 (315)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 315 (315)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod3|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_8le:divider ; alt_u_div_8le         ; work         ;
+;       |lpm_divide:Mod4|                         ; 291 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 291 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod4                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_gnl:auto_generated|        ; 291 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 291 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod4|lpm_divide_gnl:auto_generated                                                   ; lpm_divide_gnl        ; work         ;
+;             |sign_div_unsign_fnh:divider|       ; 291 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 291 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod4|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider                       ; sign_div_unsign_fnh   ; work         ;
+;                |alt_u_div_8le:divider|          ; 291 (291)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 291 (291)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod4|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_8le:divider ; alt_u_div_8le         ; work         ;
+;       |lpm_divide:Mod5|                         ; 393 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 393 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod5                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_gnl:auto_generated|        ; 393 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 393 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod5|lpm_divide_gnl:auto_generated                                                   ; lpm_divide_gnl        ; work         ;
+;             |sign_div_unsign_fnh:divider|       ; 393 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 393 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod5|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider                       ; sign_div_unsign_fnh   ; work         ;
+;                |alt_u_div_8le:divider|          ; 393 (393)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 393 (393)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod5|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_8le:divider ; alt_u_div_8le         ; work         ;
+;       |lpm_divide:Mod6|                         ; 374 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 374 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod6                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_gnl:auto_generated|        ; 374 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 374 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod6|lpm_divide_gnl:auto_generated                                                   ; lpm_divide_gnl        ; work         ;
+;             |sign_div_unsign_fnh:divider|       ; 374 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 374 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod6|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider                       ; sign_div_unsign_fnh   ; work         ;
+;                |alt_u_div_8le:divider|          ; 374 (374)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 374 (374)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod6|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_8le:divider ; alt_u_div_8le         ; work         ;
+;       |lpm_divide:Mod7|                         ; 410 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 410 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod7                                                                                 ; lpm_divide            ; work         ;
+;          |lpm_divide_gnl:auto_generated|        ; 410 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 410 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod7|lpm_divide_gnl:auto_generated                                                   ; lpm_divide_gnl        ; work         ;
+;             |sign_div_unsign_fnh:divider|       ; 410 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 410 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod7|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider                       ; sign_div_unsign_fnh   ; work         ;
+;                |alt_u_div_8le:divider|          ; 410 (410)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 410 (410)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|hw_image_generator:U3|lpm_divide:Mod7|lpm_divide_gnl:auto_generated|sign_div_unsign_fnh:divider|alt_u_div_8le:divider ; alt_u_div_8le         ; work         ;
+;    |lpm_divide:Div0|                            ; 155 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 155 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|lpm_divide:Div0                                                                                                       ; lpm_divide            ; work         ;
+;       |lpm_divide_9vl:auto_generated|           ; 155 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 155 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|lpm_divide:Div0|lpm_divide_9vl:auto_generated                                                                         ; lpm_divide_9vl        ; work         ;
+;          |sign_div_unsign_bnh:divider|          ; 155 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 155 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|lpm_divide:Div0|lpm_divide_9vl:auto_generated|sign_div_unsign_bnh:divider                                             ; sign_div_unsign_bnh   ; work         ;
+;             |alt_u_div_0le:divider|             ; 155 (155)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 155 (155)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|lpm_divide:Div0|lpm_divide_9vl:auto_generated|sign_div_unsign_bnh:divider|alt_u_div_0le:divider                       ; alt_u_div_0le         ; work         ;
+;    |lpm_divide:Div1|                            ; 162 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 162 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|lpm_divide:Div1                                                                                                       ; lpm_divide            ; work         ;
+;       |lpm_divide_9vl:auto_generated|           ; 162 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 162 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|lpm_divide:Div1|lpm_divide_9vl:auto_generated                                                                         ; lpm_divide_9vl        ; work         ;
+;          |sign_div_unsign_bnh:divider|          ; 162 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 162 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|lpm_divide:Div1|lpm_divide_9vl:auto_generated|sign_div_unsign_bnh:divider                                             ; sign_div_unsign_bnh   ; work         ;
+;             |alt_u_div_0le:divider|             ; 162 (162)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 162 (162)     ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|lpm_divide:Div1|lpm_divide_9vl:auto_generated|sign_div_unsign_bnh:divider|alt_u_div_0le:divider                       ; alt_u_div_0le         ; work         ;
+;    |sounds_controller:U6|                       ; 1278 (823)    ; 94 (94)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1184 (730)    ; 8 (8)             ; 86 (83)          ; 0          ; |PROJ0|sounds_controller:U6                                                                                                  ; sounds_controller     ; work         ;
+;       |lpm_divide:Div0|                         ; 225 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 223 (0)       ; 0 (0)             ; 2 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div0                                                                                  ; lpm_divide            ; work         ;
+;          |lpm_divide_dbo:auto_generated|        ; 225 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 223 (0)       ; 0 (0)             ; 2 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div0|lpm_divide_dbo:auto_generated                                                    ; lpm_divide_dbo        ; work         ;
+;             |abs_divider_ibg:divider|           ; 225 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 223 (0)       ; 0 (0)             ; 2 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div0|lpm_divide_dbo:auto_generated|abs_divider_ibg:divider                            ; abs_divider_ibg       ; work         ;
+;                |alt_u_div_ohe:divider|          ; 225 (225)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 223 (223)     ; 0 (0)             ; 2 (2)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div0|lpm_divide_dbo:auto_generated|abs_divider_ibg:divider|alt_u_div_ohe:divider      ; alt_u_div_ohe         ; work         ;
+;       |lpm_divide:Div1|                         ; 232 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 231 (0)       ; 0 (0)             ; 1 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div1                                                                                  ; lpm_divide            ; work         ;
+;          |lpm_divide_dbo:auto_generated|        ; 232 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 231 (0)       ; 0 (0)             ; 1 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div1|lpm_divide_dbo:auto_generated                                                    ; lpm_divide_dbo        ; work         ;
+;             |abs_divider_ibg:divider|           ; 232 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 231 (0)       ; 0 (0)             ; 1 (0)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div1|lpm_divide_dbo:auto_generated|abs_divider_ibg:divider                            ; abs_divider_ibg       ; work         ;
+;                |alt_u_div_ohe:divider|          ; 232 (232)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 231 (231)     ; 0 (0)             ; 1 (1)            ; 0          ; |PROJ0|sounds_controller:U6|lpm_divide:Div1|lpm_divide_dbo:auto_generated|abs_divider_ibg:divider|alt_u_div_ohe:divider      ; alt_u_div_ohe         ; work         ;
+;    |vga_controller:U2|                          ; 70 (70)       ; 42 (42)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 28 (28)       ; 9 (9)             ; 33 (33)          ; 0          ; |PROJ0|vga_controller:U2                                                                                                     ; vga_controller        ; work         ;
+;    |vga_pll_25_175:U1|                          ; 0 (0)         ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)         ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|vga_pll_25_175:U1                                                                                                     ; vga_pll_25_175        ; work         ;
+;       |altpll:altpll_component|                 ; 0 (0)         ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)         ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|vga_pll_25_175:U1|altpll:altpll_component                                                                             ; altpll                ; work         ;
+;          |vga_pll_25_175_altpll:auto_generated| ; 0 (0)         ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)         ; 0 (0)             ; 0 (0)            ; 0          ; |PROJ0|vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated                                        ; vga_pll_25_175_altpll ; work         ;
++-------------------------------------------------+---------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+---------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -1111,18 +1162,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; key0                                                             ;                   ;         ;
 ;      - shotDirection[0]~2                                        ; 0                 ; 6       ;
 ;      - player_right~0                                            ; 0                 ; 6       ;
-;      - enemyPosition_x[0][1]~618                                 ; 0                 ; 6       ;
-;      - num_lives[7]~19                                           ; 0                 ; 6       ;
-;      - enemyPosition_x[5][2]~1283                                ; 0                 ; 6       ;
-;      - enemyPosition_x[7][2]~1294                                ; 0                 ; 6       ;
-;      - gameStart~6                                               ; 0                 ; 6       ;
-;      - enemyPosition_y~64                                        ; 0                 ; 6       ;
-;      - enemyPosition_y~65                                        ; 0                 ; 6       ;
-;      - enemyPosition_y~66                                        ; 0                 ; 6       ;
-;      - enemyPosition_y~67                                        ; 0                 ; 6       ;
-;      - player_top~63                                             ; 0                 ; 6       ;
-;      - player_left~75                                            ; 0                 ; 6       ;
-;      - player_left~76                                            ; 0                 ; 6       ;
+;      - enemyPosition_x[9][2]~38                                  ; 0                 ; 6       ;
+;      - gameStart~7                                               ; 0                 ; 6       ;
+;      - sound_trigger~31                                          ; 0                 ; 6       ;
+;      - enemyPosition_y~98                                        ; 0                 ; 6       ;
+;      - enemyPosition_y~99                                        ; 0                 ; 6       ;
+;      - enemyPosition_y~100                                       ; 0                 ; 6       ;
+;      - enemyPosition_y~101                                       ; 0                 ; 6       ;
+;      - enemyPosition_y~102                                       ; 0                 ; 6       ;
+;      - enemyPosition_y~103                                       ; 0                 ; 6       ;
+;      - enemyPosition_y~104                                       ; 0                 ; 6       ;
+;      - enemyPosition_y~105                                       ; 0                 ; 6       ;
+;      - enemyPosition_y~106                                       ; 0                 ; 6       ;
 ; pixel_clk_m                                                      ;                   ;         ;
 ; key1                                                             ;                   ;         ;
 ;      - pause~2                                                   ; 0                 ; 6       ;
@@ -1135,52 +1186,45 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------+--------------------+---------+---------------------------------------+--------+----------------------+------------------+---------------------------+
 ; Name                                                                                            ; Location           ; Fan-Out ; Usage                                 ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-------------------------------------------------------------------------------------------------+--------------------+---------+---------------------------------------+--------+----------------------+------------------+---------------------------+
-; ADXL345_controller:U4|gsensor:U0|Decoder0~3                                                     ; LCCOMB_X40_Y30_N12 ; 4       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; ADXL345_controller:U4|gsensor:U0|Decoder0~4                                                     ; LCCOMB_X40_Y30_N30 ; 4       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; ADXL345_controller:U4|gsensor:U0|Selector1~2                                                    ; LCCOMB_X42_Y31_N4  ; 9       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; ADXL345_controller:U4|gsensor:U0|spi:u0|Selector2~0                                             ; LCCOMB_X42_Y31_N30 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; ADXL345_controller:U4|gsensor:U0|spi:u0|rx_data[7]~1                                            ; LCCOMB_X41_Y31_N2  ; 8       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; CLK_50MHZ_to_60HZ:U5|tmp                                                                        ; FF_X77_Y39_N5      ; 666     ; Clock                                 ; yes    ; Global Clock         ; GCLK8            ; --                        ;
-; Equal23~2                                                                                       ; LCCOMB_X44_Y22_N16 ; 20      ; Sync. clear                           ; no     ; --                   ; --               ; --                        ;
-; HZ60_Update~116                                                                                 ; LCCOMB_X57_Y30_N28 ; 117     ; Clock enable, Sync. clear, Sync. load ; no     ; --                   ; --               ; --                        ;
-; currentEnemyIndex[4]~1                                                                          ; LCCOMB_X26_Y25_N20 ; 19      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~48                                                                              ; LCCOMB_X27_Y22_N8  ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~50                                                                              ; LCCOMB_X26_Y26_N24 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~51                                                                              ; LCCOMB_X27_Y22_N10 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~52                                                                              ; LCCOMB_X27_Y22_N4  ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~53                                                                              ; LCCOMB_X27_Y22_N14 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~54                                                                              ; LCCOMB_X27_Y22_N0  ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~55                                                                              ; LCCOMB_X27_Y22_N12 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~64                                                                              ; LCCOMB_X30_Y28_N24 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~65                                                                              ; LCCOMB_X37_Y15_N24 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~66                                                                              ; LCCOMB_X45_Y26_N2  ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; enemyPosition_y~67                                                                              ; LCCOMB_X60_Y12_N30 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; num_lives[7]~19                                                                                 ; LCCOMB_X45_Y26_N22 ; 10      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; ADXL345_controller:U4|gsensor:U0|Decoder0~3                                                     ; LCCOMB_X46_Y28_N20 ; 4       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; ADXL345_controller:U4|gsensor:U0|Decoder0~4                                                     ; LCCOMB_X46_Y28_N26 ; 4       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; ADXL345_controller:U4|gsensor:U0|Selector0~2                                                    ; LCCOMB_X50_Y29_N26 ; 9       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; ADXL345_controller:U4|gsensor:U0|spi:u0|Selector2~0                                             ; LCCOMB_X50_Y28_N26 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; ADXL345_controller:U4|gsensor:U0|spi:u0|rx_data[7]~1                                            ; LCCOMB_X51_Y28_N26 ; 8       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; CLK_50MHZ_to_60HZ:U5|tmp                                                                        ; FF_X45_Y1_N23      ; 590     ; Clock                                 ; yes    ; Global Clock         ; GCLK17           ; --                        ;
+; Equal23~2                                                                                       ; LCCOMB_X35_Y24_N16 ; 17      ; Sync. clear                           ; no     ; --                   ; --               ; --                        ;
+; HZ60_Update~0                                                                                   ; LCCOMB_X55_Y23_N30 ; 146     ; Clock enable, Sync. clear, Sync. load ; no     ; --                   ; --               ; --                        ;
+; currentEnemyIndex[3]~8                                                                          ; LCCOMB_X34_Y25_N24 ; 18      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_x[9][2]~38                                                                        ; LCCOMB_X24_Y23_N20 ; 29      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_y~100                                                                             ; LCCOMB_X39_Y23_N26 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_y~101                                                                             ; LCCOMB_X45_Y25_N16 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_y~102                                                                             ; LCCOMB_X34_Y23_N20 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_y~103                                                                             ; LCCOMB_X35_Y25_N26 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_y~104                                                                             ; LCCOMB_X34_Y25_N26 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_y~105                                                                             ; LCCOMB_X37_Y31_N30 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_y~106                                                                             ; LCCOMB_X55_Y23_N4  ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_y~88                                                                              ; LCCOMB_X34_Y25_N22 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_y~98                                                                              ; LCCOMB_X45_Y25_N4  ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; enemyPosition_y~99                                                                              ; LCCOMB_X45_Y25_N18 ; 17      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; num_lives[1]~120                                                                                ; LCCOMB_X50_Y21_N10 ; 10      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
 ; pixel_clk_m                                                                                     ; PIN_P11            ; 222     ; Clock                                 ; yes    ; Global Clock         ; GCLK19           ; --                        ;
 ; pixel_clk_m                                                                                     ; PIN_P11            ; 2       ; Clock                                 ; no     ; --                   ; --               ; --                        ;
-; player_left~75                                                                                  ; LCCOMB_X30_Y29_N2  ; 18      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; player_left~76                                                                                  ; LCCOMB_X30_Y28_N30 ; 2       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; player_top~60                                                                                   ; LCCOMB_X62_Y30_N18 ; 2       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; player_top~63                                                                                   ; LCCOMB_X63_Y30_N6  ; 18      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; pulse_position[9]~56                                                                            ; LCCOMB_X36_Y31_N26 ; 10      ; Sync. load                            ; no     ; --                   ; --               ; --                        ;
-; shotDirection[0]~13                                                                             ; LCCOMB_X38_Y13_N30 ; 13      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_x[10][2]~394                                                                       ; LCCOMB_X31_Y12_N20 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_x[11][3]~397                                                                       ; LCCOMB_X31_Y12_N14 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_x[12][3]~399                                                                       ; LCCOMB_X31_Y10_N14 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_x[7][10]~398                                                                       ; LCCOMB_X31_Y10_N0  ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_x[8][9]~396                                                                        ; LCCOMB_X35_Y9_N14  ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_x[9][8]~395                                                                        ; LCCOMB_X30_Y9_N30  ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_y[0][10]~15                                                                        ; LCCOMB_X45_Y19_N30 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_y[1][10]~16                                                                        ; LCCOMB_X45_Y19_N28 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_y[2][10]~17                                                                        ; LCCOMB_X38_Y13_N24 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_y[3][10]~18                                                                        ; LCCOMB_X38_Y13_N12 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_y[4][10]~14                                                                        ; LCCOMB_X45_Y19_N12 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_y[5][10]~19                                                                        ; LCCOMB_X45_Y19_N6  ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; shotPosition_y[6][10]~20                                                                        ; LCCOMB_X37_Y15_N22 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; sound_effect[3]~95                                                                              ; LCCOMB_X42_Y20_N0  ; 3       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; sounds_controller:U6|\sound:sound_pin_tmp~1                                                     ; LCCOMB_X8_Y26_N22  ; 2       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; vga_controller:U2|LessThan6~0                                                                   ; LCCOMB_X45_Y33_N30 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; vga_controller:U2|LessThan7~1                                                                   ; LCCOMB_X45_Y34_N26 ; 9       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; player_left~16                                                                                  ; LCCOMB_X46_Y37_N2  ; 20      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; player_top~18                                                                                   ; LCCOMB_X61_Y20_N18 ; 20      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; shotDirection[0]~13                                                                             ; LCCOMB_X32_Y20_N18 ; 9       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; shotPosition_y[0][10]~25                                                                        ; LCCOMB_X35_Y20_N14 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; shotPosition_y[1][10]~24                                                                        ; LCCOMB_X35_Y20_N24 ; 12      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; shotPosition_y[2][10]~23                                                                        ; LCCOMB_X35_Y20_N18 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; shotPosition_y[3][10]~22                                                                        ; LCCOMB_X21_Y10_N30 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; shotPosition_y[4][10]~21                                                                        ; LCCOMB_X35_Y20_N8  ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; shotPosition_y[5][10]~20                                                                        ; LCCOMB_X21_Y10_N8  ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; shotPosition_y[6][10]~19                                                                        ; LCCOMB_X35_Y20_N22 ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; sound_effect[3]~44                                                                              ; LCCOMB_X56_Y23_N20 ; 3       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; sounds_controller:U6|\sound:sound_pin_tmp~2                                                     ; LCCOMB_X60_Y44_N30 ; 2       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; spawnCounter~12                                                                                 ; LCCOMB_X49_Y26_N28 ; 6       ; Sync. clear                           ; no     ; --                   ; --               ; --                        ;
+; spawnRate~1                                                                                     ; LCCOMB_X57_Y23_N2  ; 7       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; vga_controller:U2|LessThan6~0                                                                   ; LCCOMB_X54_Y23_N2  ; 11      ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
+; vga_controller:U2|LessThan7~0                                                                   ; LCCOMB_X57_Y15_N8  ; 9       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
 ; vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated|wire_pll1_clk[0] ; PLL_1              ; 42      ; Clock                                 ; yes    ; Global Clock         ; GCLK18           ; --                        ;
 +-------------------------------------------------------------------------------------------------+--------------------+---------+---------------------------------------+--------+----------------------+------------------+---------------------------+
 
@@ -1190,8 +1234,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name                                                                                            ; Location      ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-------------------------------------------------------------------------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; CLK_50MHZ_to_60HZ:U5|tmp                                                                        ; FF_X77_Y39_N5 ; 666     ; 140                                  ; Global Clock         ; GCLK8            ; --                        ;
-; pixel_clk_m                                                                                     ; PIN_P11       ; 222     ; 32                                   ; Global Clock         ; GCLK19           ; --                        ;
+; CLK_50MHZ_to_60HZ:U5|tmp                                                                        ; FF_X45_Y1_N23 ; 590     ; 62                                   ; Global Clock         ; GCLK17           ; --                        ;
+; pixel_clk_m                                                                                     ; PIN_P11       ; 222     ; 27                                   ; Global Clock         ; GCLK19           ; --                        ;
 ; vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated|wire_pll1_clk[0] ; PLL_1         ; 42      ; 0                                    ; Global Clock         ; GCLK18           ; --                        ;
 +-------------------------------------------------------------------------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
@@ -1201,175 +1245,172 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+---------------------------+
 ; Routing Resource Type ; Usage                     ;
 +-----------------------+---------------------------+
-; Block interconnects   ; 26,701 / 148,641 ( 18 % ) ;
-; C16 interconnects     ; 595 / 5,382 ( 11 % )      ;
-; C4 interconnects      ; 16,381 / 106,704 ( 15 % ) ;
-; Direct links          ; 1,800 / 148,641 ( 1 % )   ;
+; Block interconnects   ; 39,816 / 148,641 ( 27 % ) ;
+; C16 interconnects     ; 964 / 5,382 ( 18 % )      ;
+; C4 interconnects      ; 25,648 / 106,704 ( 24 % ) ;
+; Direct links          ; 3,630 / 148,641 ( 2 % )   ;
 ; Global clocks         ; 3 / 20 ( 15 % )           ;
-; Local interconnects   ; 7,999 / 49,760 ( 16 % )   ;
+; Local interconnects   ; 10,724 / 49,760 ( 22 % )  ;
 ; NSLEEPs               ; 0 / 500 ( 0 % )           ;
-; R24 interconnects     ; 820 / 5,406 ( 15 % )      ;
-; R4 interconnects      ; 19,792 / 147,764 ( 13 % ) ;
+; R24 interconnects     ; 1,075 / 5,406 ( 20 % )    ;
+; R4 interconnects      ; 29,814 / 147,764 ( 20 % ) ;
 +-----------------------+---------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Logic Elements                                                           ;
 +---------------------------------------------+--------------------------------+
-; Number of Logic Elements  (Average = 13.83) ; Number of LABs  (Total = 1152) ;
+; Number of Logic Elements  (Average = 13.74) ; Number of LABs  (Total = 1926) ;
 +---------------------------------------------+--------------------------------+
-; 1                                           ; 13                             ;
-; 2                                           ; 7                              ;
+; 1                                           ; 35                             ;
+; 2                                           ; 24                             ;
 ; 3                                           ; 10                             ;
-; 4                                           ; 6                              ;
-; 5                                           ; 5                              ;
-; 6                                           ; 16                             ;
-; 7                                           ; 8                              ;
-; 8                                           ; 14                             ;
-; 9                                           ; 26                             ;
-; 10                                          ; 82                             ;
-; 11                                          ; 45                             ;
-; 12                                          ; 75                             ;
-; 13                                          ; 51                             ;
-; 14                                          ; 69                             ;
-; 15                                          ; 120                            ;
-; 16                                          ; 605                            ;
+; 4                                           ; 11                             ;
+; 5                                           ; 16                             ;
+; 6                                           ; 12                             ;
+; 7                                           ; 14                             ;
+; 8                                           ; 28                             ;
+; 9                                           ; 37                             ;
+; 10                                          ; 136                            ;
+; 11                                          ; 72                             ;
+; 12                                          ; 100                            ;
+; 13                                          ; 87                             ;
+; 14                                          ; 136                            ;
+; 15                                          ; 207                            ;
+; 16                                          ; 1001                           ;
 +---------------------------------------------+--------------------------------+
 
 
 +---------------------------------------------------------------------+
 ; LAB-wide Signals                                                    ;
 +------------------------------------+--------------------------------+
-; LAB-wide Signals  (Average = 0.27) ; Number of LABs  (Total = 1152) ;
+; LAB-wide Signals  (Average = 0.15) ; Number of LABs  (Total = 1926) ;
 +------------------------------------+--------------------------------+
-; 1 Clock                            ; 202                            ;
-; 1 Clock enable                     ; 83                             ;
-; 1 Sync. clear                      ; 9                              ;
+; 1 Clock                            ; 190                            ;
+; 1 Clock enable                     ; 79                             ;
+; 1 Sync. clear                      ; 6                              ;
 ; 1 Sync. load                       ; 1                              ;
-; 2 Clock enables                    ; 11                             ;
+; 2 Clock enables                    ; 7                              ;
 +------------------------------------+--------------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                           ;
 +----------------------------------------------+--------------------------------+
-; Number of Signals Sourced  (Average = 11.27) ; Number of LABs  (Total = 1152) ;
+; Number of Signals Sourced  (Average = 12.11) ; Number of LABs  (Total = 1926) ;
 +----------------------------------------------+--------------------------------+
 ; 0                                            ; 2                              ;
-; 1                                            ; 112                            ;
-; 2                                            ; 34                             ;
-; 3                                            ; 17                             ;
-; 4                                            ; 24                             ;
-; 5                                            ; 69                             ;
-; 6                                            ; 75                             ;
-; 7                                            ; 100                            ;
-; 8                                            ; 33                             ;
-; 9                                            ; 19                             ;
-; 10                                           ; 22                             ;
-; 11                                           ; 27                             ;
-; 12                                           ; 37                             ;
-; 13                                           ; 34                             ;
-; 14                                           ; 62                             ;
-; 15                                           ; 69                             ;
-; 16                                           ; 266                            ;
-; 17                                           ; 20                             ;
-; 18                                           ; 28                             ;
+; 1                                            ; 145                            ;
+; 2                                            ; 59                             ;
+; 3                                            ; 42                             ;
+; 4                                            ; 40                             ;
+; 5                                            ; 78                             ;
+; 6                                            ; 73                             ;
+; 7                                            ; 62                             ;
+; 8                                            ; 46                             ;
+; 9                                            ; 21                             ;
+; 10                                           ; 60                             ;
+; 11                                           ; 45                             ;
+; 12                                           ; 67                             ;
+; 13                                           ; 66                             ;
+; 14                                           ; 106                            ;
+; 15                                           ; 208                            ;
+; 16                                           ; 663                            ;
+; 17                                           ; 28                             ;
+; 18                                           ; 18                             ;
 ; 19                                           ; 11                             ;
-; 20                                           ; 16                             ;
-; 21                                           ; 16                             ;
-; 22                                           ; 14                             ;
-; 23                                           ; 13                             ;
+; 20                                           ; 17                             ;
+; 21                                           ; 19                             ;
+; 22                                           ; 8                              ;
+; 23                                           ; 11                             ;
 ; 24                                           ; 5                              ;
-; 25                                           ; 7                              ;
-; 26                                           ; 7                              ;
-; 27                                           ; 2                              ;
-; 28                                           ; 5                              ;
-; 29                                           ; 3                              ;
-; 30                                           ; 2                              ;
-; 31                                           ; 0                              ;
-; 32                                           ; 1                              ;
+; 25                                           ; 8                              ;
+; 26                                           ; 10                             ;
+; 27                                           ; 3                              ;
+; 28                                           ; 2                              ;
+; 29                                           ; 0                              ;
+; 30                                           ; 3                              ;
 +----------------------------------------------+--------------------------------+
 
 
 +----------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                          ;
 +-------------------------------------------------+--------------------------------+
-; Number of Signals Sourced Out  (Average = 4.54) ; Number of LABs  (Total = 1152) ;
+; Number of Signals Sourced Out  (Average = 7.10) ; Number of LABs  (Total = 1926) ;
 +-------------------------------------------------+--------------------------------+
 ; 0                                               ; 2                              ;
-; 1                                               ; 236                            ;
-; 2                                               ; 283                            ;
-; 3                                               ; 179                            ;
-; 4                                               ; 102                            ;
-; 5                                               ; 59                             ;
-; 6                                               ; 35                             ;
-; 7                                               ; 42                             ;
-; 8                                               ; 21                             ;
-; 9                                               ; 27                             ;
-; 10                                              ; 35                             ;
-; 11                                              ; 31                             ;
-; 12                                              ; 17                             ;
-; 13                                              ; 24                             ;
-; 14                                              ; 7                              ;
-; 15                                              ; 12                             ;
-; 16                                              ; 12                             ;
-; 17                                              ; 4                              ;
-; 18                                              ; 0                              ;
-; 19                                              ; 3                              ;
-; 20                                              ; 5                              ;
+; 1                                               ; 265                            ;
+; 2                                               ; 276                            ;
+; 3                                               ; 143                            ;
+; 4                                               ; 149                            ;
+; 5                                               ; 130                            ;
+; 6                                               ; 111                            ;
+; 7                                               ; 58                             ;
+; 8                                               ; 60                             ;
+; 9                                               ; 105                            ;
+; 10                                              ; 106                            ;
+; 11                                              ; 81                             ;
+; 12                                              ; 45                             ;
+; 13                                              ; 44                             ;
+; 14                                              ; 32                             ;
+; 15                                              ; 84                             ;
+; 16                                              ; 207                            ;
+; 17                                              ; 2                              ;
+; 18                                              ; 1                              ;
+; 19                                              ; 5                              ;
+; 20                                              ; 1                              ;
 ; 21                                              ; 2                              ;
-; 22                                              ; 1                              ;
-; 23                                              ; 8                              ;
-; 24                                              ; 3                              ;
-; 25                                              ; 0                              ;
-; 26                                              ; 0                              ;
-; 27                                              ; 2                              ;
+; 22                                              ; 3                              ;
+; 23                                              ; 9                              ;
+; 24                                              ; 1                              ;
+; 25                                              ; 2                              ;
+; 26                                              ; 1                              ;
+; 27                                              ; 1                              ;
 +-------------------------------------------------+--------------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                           ;
 +----------------------------------------------+--------------------------------+
-; Number of Distinct Inputs  (Average = 22.46) ; Number of LABs  (Total = 1152) ;
+; Number of Distinct Inputs  (Average = 19.79) ; Number of LABs  (Total = 1926) ;
 +----------------------------------------------+--------------------------------+
 ; 0                                            ; 0                              ;
 ; 1                                            ; 0                              ;
-; 2                                            ; 7                              ;
-; 3                                            ; 4                              ;
-; 4                                            ; 8                              ;
-; 5                                            ; 2                              ;
-; 6                                            ; 12                             ;
-; 7                                            ; 10                             ;
-; 8                                            ; 7                              ;
-; 9                                            ; 10                             ;
-; 10                                           ; 22                             ;
-; 11                                           ; 29                             ;
-; 12                                           ; 21                             ;
-; 13                                           ; 17                             ;
-; 14                                           ; 24                             ;
-; 15                                           ; 18                             ;
-; 16                                           ; 28                             ;
-; 17                                           ; 23                             ;
-; 18                                           ; 60                             ;
-; 19                                           ; 23                             ;
-; 20                                           ; 83                             ;
-; 21                                           ; 39                             ;
-; 22                                           ; 67                             ;
-; 23                                           ; 33                             ;
-; 24                                           ; 58                             ;
-; 25                                           ; 57                             ;
-; 26                                           ; 80                             ;
-; 27                                           ; 126                            ;
-; 28                                           ; 111                            ;
-; 29                                           ; 50                             ;
-; 30                                           ; 22                             ;
-; 31                                           ; 23                             ;
-; 32                                           ; 22                             ;
+; 2                                            ; 14                             ;
+; 3                                            ; 16                             ;
+; 4                                            ; 30                             ;
+; 5                                            ; 10                             ;
+; 6                                            ; 20                             ;
+; 7                                            ; 7                              ;
+; 8                                            ; 15                             ;
+; 9                                            ; 31                             ;
+; 10                                           ; 39                             ;
+; 11                                           ; 33                             ;
+; 12                                           ; 52                             ;
+; 13                                           ; 47                             ;
+; 14                                           ; 49                             ;
+; 15                                           ; 73                             ;
+; 16                                           ; 204                            ;
+; 17                                           ; 70                             ;
+; 18                                           ; 134                            ;
+; 19                                           ; 63                             ;
+; 20                                           ; 170                            ;
+; 21                                           ; 77                             ;
+; 22                                           ; 82                             ;
+; 23                                           ; 95                             ;
+; 24                                           ; 65                             ;
+; 25                                           ; 56                             ;
+; 26                                           ; 91                             ;
+; 27                                           ; 121                            ;
+; 28                                           ; 72                             ;
+; 29                                           ; 51                             ;
+; 30                                           ; 43                             ;
+; 31                                           ; 34                             ;
+; 32                                           ; 24                             ;
 ; 33                                           ; 15                             ;
-; 34                                           ; 13                             ;
-; 35                                           ; 13                             ;
-; 36                                           ; 13                             ;
-; 37                                           ; 1                              ;
+; 34                                           ; 11                             ;
+; 35                                           ; 7                              ;
+; 36                                           ; 4                              ;
 +----------------------------------------------+--------------------------------+
 
 
@@ -1513,69 +1554,67 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+----------------------+-------------------+
 ; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
 +-----------------+----------------------+-------------------+
-; pixel_clk_m     ; pixel_clk_m          ; 4.5               ;
+; pixel_clk_m     ; pixel_clk_m          ; 4.7               ;
 +-----------------+----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                                                           ;
-+----------------------------------------------------+------------------------------------------------+-------------------+
-; Source Register                                    ; Destination Register                           ; Delay Added in ns ;
-+----------------------------------------------------+------------------------------------------------+-------------------+
-; CLK_50MHZ_to_60HZ:U5|tmp                           ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 4.433             ;
-; CLK_50MHZ_to_60HZ:U5|count[30]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[29]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[28]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[27]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[26]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[25]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[24]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[23]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[22]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[21]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[20]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[19]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[18]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[17]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[16]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[15]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[14]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[13]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[12]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[11]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[10]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[9]                      ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[8]                      ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[7]                      ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[6]                      ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[5]                      ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[4]                      ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[3]                      ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[2]                      ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[1]                      ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[0]                      ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; CLK_50MHZ_to_60HZ:U5|count[31]                     ; CLK_50MHZ_to_60HZ:U5|tmp                       ; 2.216             ;
-; sounds_controller:U6|\sound:sound_duration[13]     ; sounds_controller:U6|\sound:sound_duration[13] ; 0.049             ;
-; sound_effect[1]                                    ; sounds_controller:U6|\sound:sound_duration[13] ; 0.049             ;
-; sound_effect[2]                                    ; sounds_controller:U6|\sound:sound_duration[13] ; 0.049             ;
-; sound_effect[0]                                    ; sounds_controller:U6|\sound:sound_duration[13] ; 0.049             ;
-; ADXL345_controller:U4|gsensor:U0|spi:u0|rx_data[3] ; ADXL345_controller:U4|gsensor:U0|memory[1][3]  ; 0.035             ;
-+----------------------------------------------------+------------------------------------------------+-------------------+
-Note: This table only shows the top 38 path(s) that have the largest delay added for hold.
++-------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                 ;
++--------------------------------+--------------------------+-------------------+
+; Source Register                ; Destination Register     ; Delay Added in ns ;
++--------------------------------+--------------------------+-------------------+
+; CLK_50MHZ_to_60HZ:U5|tmp       ; CLK_50MHZ_to_60HZ:U5|tmp ; 4.700             ;
+; CLK_50MHZ_to_60HZ:U5|count[30] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[29] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[28] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[27] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[26] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[25] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[24] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[23] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[22] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[21] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[20] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[19] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[18] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[17] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[16] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[15] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[14] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[13] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[12] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[11] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[10] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[9]  ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[8]  ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[7]  ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[6]  ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[5]  ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[4]  ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[3]  ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[2]  ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[1]  ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[0]  ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; CLK_50MHZ_to_60HZ:U5|count[31] ; CLK_50MHZ_to_60HZ:U5|tmp ; 2.350             ;
+; currentSizeIndex[1]            ; enemySize[8][2]          ; 0.070             ;
+; currentSizeIndex[2]            ; enemySize[8][3]          ; 0.065             ;
+; currentSizeIndex[0]            ; enemySize[8][2]          ; 0.049             ;
++--------------------------------+--------------------------+-------------------+
+Note: This table only shows the top 36 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (119006): Selected device 10M50DAF484C7G for design "PROJ0"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
-Info (15535): Implemented PLL "vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated|pll1" as MAX 10 PLL type File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v Line: 44
-    Info (15099): Implementing clock multiplication of 74, clock division of 147, and phase shift of 0 degrees (0 ps) for vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated|wire_pll1_clk[0] port File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v Line: 44
+Info (15535): Implemented PLL "vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated|pll1" as MAX 10 PLL type File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v Line: 44
+    Info (15099): Implementing clock multiplication of 74, clock division of 147, and phase shift of 0 degrees (0 ps) for vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated|wire_pll1_clk[0] port File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v Line: 44
 Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
 Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
 Info (176444): Device migration not selected. If you intend to use device migration later, you may need to change the pin assignments as they may be incompatible with other devices
@@ -1613,14 +1652,14 @@ Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node pixel_clk_m~input (placed in PIN P11 (CLK7p, DIFFIO_TX_RX_B20p, DIFFOUT_B20p, High_Speed)) File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 26
+Info (176353): Automatically promoted node pixel_clk_m~input (placed in PIN P11 (CLK7p, DIFFIO_TX_RX_B20p, DIFFOUT_B20p, High_Speed)) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 27
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G19
-Info (176353): Automatically promoted node vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated|wire_pll1_clk[0] (placed in counter C0 of PLL_1) File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v Line: 78
+Info (176353): Automatically promoted node vga_pll_25_175:U1|altpll:altpll_component|vga_pll_25_175_altpll:auto_generated|wire_pll1_clk[0] (placed in counter C0 of PLL_1) File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/db/vga_pll_25_175_altpll.v Line: 78
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G18
-Info (176353): Automatically promoted node CLK_50MHZ_to_60HZ:U5|tmp  File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 16
+Info (176353): Automatically promoted node CLK_50MHZ_to_60HZ:U5|tmp  File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 16
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node CLK_50MHZ_to_60HZ:U5|tmp~0 File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 16
+        Info (176357): Destination node CLK_50MHZ_to_60HZ:U5|tmp~0 File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/components/CLK_50MHZ_to_60HZ.vhd Line: 16
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
@@ -1638,39 +1677,39 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  60 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 2 total pin(s) used --  50 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 4 total pin(s) used --  32 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:07
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:16
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:02
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:06
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:27
+Info (170192): Fitter placement operations ending: elapsed time is 00:01:33
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 12% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 57% of the available device resources in the region that extends from location X33_Y11 to location X44_Y21
+Info (170195): Router estimated average interconnect usage is 18% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 54% of the available device resources in the region that extends from location X33_Y11 to location X44_Y21
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:31
-Info (11888): Total time spent on timing analysis during the Fitter is 9.55 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:01:26
+Info (11888): Total time spent on timing analysis during the Fitter is 24.49 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:08
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:31
 Warning (169064): Following 2 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
-    Info (169065): Pin GSENSOR_SDI has a permanently enabled output enable File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 39
-    Info (169065): Pin GSENSOR_SDO has a permanently disabled output enable File: C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 40
-Info (144001): Generated suppressed messages file C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.fit.smsg
+    Info (169065): Pin GSENSOR_SDI has a permanently enabled output enable File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 40
+    Info (169065): Pin GSENSOR_SDO has a permanently disabled output enable File: C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/PROJ0.vhd Line: 41
+Info (144001): Generated suppressed messages file C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 6761 megabytes
-    Info: Processing ended: Sun Nov 21 14:00:48 2021
-    Info: Elapsed time: 00:01:26
-    Info: Total CPU time (on all processors): 00:05:47
+    Info: Peak virtual memory: 5791 megabytes
+    Info: Processing ended: Sun Nov 21 20:01:15 2021
+    Info: Elapsed time: 00:04:12
+    Info: Total CPU time (on all processors): 00:09:12
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/garne/Documents/GitHub/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.fit.smsg.
+The suppressed messages can be found in C:/Users/danie/Documents/ECE4110/Project/ECE4110_Project/Quartus/PROJ0/output_files/PROJ0.fit.smsg.
 
 

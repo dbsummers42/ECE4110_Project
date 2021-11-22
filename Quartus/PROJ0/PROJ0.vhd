@@ -7,6 +7,7 @@ use 		 work.my_types.all;
 package my_types is 
 	type array3 is array (0 to 2) of integer range -100 to 1000;
 	type array7 is array (0 to 6) of integer range -100 to 1000;
+	type array10 is array (0 to 9) of integer range -100 to 1000;
 	type array13 is array (0 to 12) of integer range -100 to 1000;
 	type array20 is array (0 to 19) of integer range -100 to 1000;
 end package;
@@ -83,6 +84,8 @@ architecture PROJ0_ARCH of PROJ0 is
 			row      :  IN  INTEGER range -100 to 1000;    --row pixel coordinate
 			column   :  IN  INTEGER range -100 to 1000;    --column pixel coordinate
 			
+			score		:	IN INTEGER range 0 to 100000; --Score
+			
 			player_left 	: IN INTEGER range 0 to 700;
 			player_right 	: IN INTEGER range 0 to 700;
 			player_top 		: IN INTEGER range 0 to 700;
@@ -90,8 +93,9 @@ architecture PROJ0_ARCH of PROJ0 is
 			num_lives		: IN INTEGER range 0 to 5;
 			player_Blink	: IN STD_LOGIC;
 			
-			enemyPosition_x, enemyPosition_y, enemySize : IN array20;
-			shotPosition_x, shotPosition_y: IN array13;
+			enemyPosition_x, enemyPosition_y, enemySize : IN array10;
+			shotPosition_x, shotPosition_y: IN array7;
+			shotDirection: IN STD_LOGIC_VECTOR(0 to 6);
 			
 			player_face_right : IN STD_LOGIC;
 			exhaust_level, pulse_position : IN INTEGER range 0 to 700;
@@ -133,13 +137,14 @@ architecture PROJ0_ARCH of PROJ0 is
 	
 	
 	
-	signal enemyPosition_x, enemyPosition_y, enemySize : array20 := (-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1);
+	signal enemyPosition_x, enemyPosition_y, enemySize : array10 := (-20,-20,-20,-20,-20,-20,-20,-20,-20,-20);
 	signal spawnPositions : array13 := (50, 150, 360, 75, 250, 315, 190, 60, 220, 125, 280, 100, 300);
-	signal shotPosition_x, shotPosition_y	: array13 := (-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99,-99);
-	signal shotDirection : STD_LOGIC_VECTOR (0 to 12) := "0000000000000";
+	signal shotPosition_x, shotPosition_y	: array7 := (-99,-99,-99,-99,-99,-99,-99);
+	signal shotDirection : STD_LOGIC_VECTOR (0 to 6) := "0000000";
 	signal enemySizes : array7:= (10, 57, 20, 5, 32, 69, 40);
-	signal currentEnemyIndex, currentSpawnIndex, currentSizeIndex, spawnCounter, currentShotIndex, shotCounter: INTEGER range -1 to 31 := 0;
-	signal maxEnemyIndex : INTEGER range 10 to 10 := 10;--19 to 19 := 19;
+	signal currentEnemyIndex, currentSpawnIndex, currentSizeIndex, currentShotIndex, shotCounter: INTEGER range -1 to 31 := 0;
+	signal spawnCounter	: INTEGER range 0 to 61:= 0;
+	signal maxEnemyIndex : INTEGER range 9 to 9 := 9;--19 to 19 := 19;
 	signal maxSizeIndex	: INTEGER range 6 to 6 := 6;
 	signal maxSpawnIndex	: INTEGER range 12 to 12 := 12;
 	signal maxShotIndex	: INTEGER range 6 to 6 := 6;--12 to 12 := 12;
@@ -165,6 +170,7 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal exhaust_level, tilt_level_x, tilt_level_y, pulse_position : integer range 0 to 1000 := 0;
 	signal sound_effect : integer range 0 to 10 := 0;
 	signal sound_trigger : STD_LOGIC := '0';
+	signal score : integer range 0 to 100000 := 0;
 	
 	
 begin
@@ -180,15 +186,18 @@ begin
 -- Just need 3 components for VGA system 
 	U1	:	vga_pll_25_175 port map(pixel_clk_m, pll_OUT_to_vga_controller_IN);
 	U2	:	vga_controller port map(pll_OUT_to_vga_controller_IN, '1', h_sync_m, v_sync_m, dispEn, colSignal, rowSignal, open, open);
-	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, shotPosition_x, shotPosition_y, facingDirection, exhaust_level, pulse_position, red_m, green_m, blue_m);
+	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, score, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, shotPosition_x, shotPosition_y, shotDirection, facingDirection, exhaust_level, pulse_position, red_m, green_m, blue_m);
 	U4 : ADXL345_controller port map ('1', pixel_clk_m, open, data_x, data_y, data_z, GSENSOR_SDI, GSENSOR_SDO, GSENSOR_CS_N, GSENSOR_SCLK);
 	U5 : CLK_50MHZ_to_60HZ port map(pixel_clk_m, clk_60HZ);
 	U6	: sounds_controller port map (sound_effect, pixel_clk_m, sound_trigger, sound_out);
 	
 	
 	HZ60_Update: Process(clk_60HZ)
+	variable score_tmp : integer range 0 to 100000 := 0;
 	begin
+		
 		if(clk_60HZ'event and clk_60HZ = '1') then
+				score_tmp := score;
 				sound_trigger <= '0';
 			if(gameStart = '1' and pause = '0') then
 			
@@ -209,14 +218,14 @@ begin
 					if (tilt_level_x >= 0 and tilt_level_x <= 4) then
 						exhaust_level <= 3;
 						if(player_right < 320) then
-							player_right <= player_right + 3;
-							player_left <= player_left + 3;
+							player_right <= player_right + 5;
+							player_left <= player_left + 5;
 						end if;
 					elsif (tilt_level_x >= 5 and tilt_level_x <= 9) then
 						exhaust_level <= 2;
 						if(player_right < 320) then
-							player_right <= player_right + 2;
-							player_left <= player_left + 2;
+							player_right <= player_right + 3;
+							player_left <= player_left + 3;
 						end if;
 					elsif (tilt_level_x >= 10 and tilt_level_x <= 14) then
 						exhaust_level <= 1;
@@ -237,15 +246,15 @@ begin
 						end if;
 					elsif (tilt_level_x >= 6 and tilt_level_x <= 10) then
 						exhaust_level <= 2;
-						if(player_left >= 2) then
-							player_right <= player_right - 2;
-							player_left <= player_left - 2;
-						end if;
-					elsif (tilt_level_x >= 11 and tilt_level_x <= 15) then
-						exhaust_level <= 3;
 						if(player_left >= 3) then
 							player_right <= player_right - 3;
 							player_left <= player_left - 3;
+						end if;
+					elsif (tilt_level_x >= 11 and tilt_level_x <= 15) then
+						exhaust_level <= 3;
+						if(player_left >= 5) then
+							player_right <= player_right - 5;
+							player_left <= player_left - 5;
 						end if;
 					else
 						exhaust_level <= 0;
@@ -259,26 +268,26 @@ begin
 							player_top <= player_top + 1;
 						end if;
 					elsif (tilt_level_y >= 6 and tilt_level_y <= 10) then
-						if(player_bottom + 2 < 439) then
-							player_bottom <= player_bottom + 2;
-							player_top <= player_top + 2;
-						end if;
-					elsif (tilt_level_y >= 11 and tilt_level_y <= 15) then
 						if(player_bottom + 3 < 439) then
 							player_bottom <= player_bottom + 3;
 							player_top <= player_top + 3;
 						end if;
+					elsif (tilt_level_y >= 11 and tilt_level_y <= 15) then
+						if(player_bottom + 5 < 439) then
+							player_bottom <= player_bottom + 5;
+							player_top <= player_top + 5;
+						end if;
 					end if;
 				else
 					if (tilt_level_y >= 0 and tilt_level_y <= 4) then
+						if(player_top - 5 > 41) then
+							player_top <= player_top - 5;
+							player_bottom <= player_bottom - 5;
+						end if;
+					elsif (tilt_level_y >= 5 and tilt_level_y <= 9) then
 						if(player_top - 3 > 41) then
 							player_top <= player_top - 3;
 							player_bottom <= player_bottom - 3;
-						end if;
-					elsif (tilt_level_y >= 5 and tilt_level_y <= 9) then
-						if(player_top - 2 > 41) then
-							player_top <= player_top - 2;
-							player_bottom <= player_bottom - 2;
 						end if;
 					elsif (tilt_level_y >= 10 and tilt_level_y <= 14) then
 						if(player_top - 1 > 41) then
@@ -315,7 +324,7 @@ begin
 				end if;
 				
 				if(spawnCounter = 0) then
-					if(enemyPosition_x(currentEnemyIndex) = -1) then
+					if(enemyPosition_x(currentEnemyIndex) = -20) then
 						enemyPosition_y(currentEnemyIndex) <= spawnPositions(currentSpawnIndex);
 						enemyPosition_x(currentEnemyIndex) <= 700;
 						enemySize(currentEnemyIndex) <= enemySizes(currentSizeIndex);
@@ -351,13 +360,13 @@ begin
 							if(shotPosition_x(J) <= 0) then
 								shotPosition_x(J) <= -99;
 							else
-								shotPosition_x(J) <= shotPosition_x(J) - 3;
+								shotPosition_x(J) <= shotPosition_x(J) - 7;
 							end if;
 						else
 							if(shotPosition_x(J) >= 650) then
 								shotPosition_x(J) <= -99;
 							else
-								shotPosition_x(J) <= shotPosition_x(J) + 3;
+								shotPosition_x(J) <= shotPosition_x(J) + 7;
 							end if;
 						end if;
 					end if;
@@ -367,7 +376,7 @@ begin
 					if( key0 = '0') then
 						if( shotPosition_x(currentShotIndex) = -99) then
 							if(direction_x = '1') then
-								shotPosition_x(currentShotIndex) <= player_Right + 5;
+								shotPosition_x(currentShotIndex) <= player_Right + 12;
 								shotPosition_y(currentShotIndex) <= player_Bottom;
 								shotDirection(currentShotIndex) <= '1';
 							else
@@ -394,32 +403,56 @@ begin
 				
 				
 				for I in 0 to maxEnemyIndex loop
-					if(enemyPosition_x(I) = 0) then
-						enemyPosition_x(I) <= -1;
-					elsif(enemyPosition_x(I) /= -1) then
+					if(enemyPosition_x(I) <= 0 and enemyPosition_x(I) /= -20) then
+						enemyPosition_x(I) <= -20;
+					elsif(enemyPosition_x(I) /= -20) then
 						enemyPosition_x(i) <= enemyPosition_x(I) - enemySpeed;
 					end if;
 					
 					for J in 0 to maxShotIndex loop
 						if(shotPosition_x(J) /= -99) then
 							if(shotDirection(J) = '0') then
-								if((((shotPosition_x(J) - 5) <= enemyPosition_x(i)) and ((shotPosition_x(J) - 5) >= (enemyPosition_x(i) - enemySize(I))))) then
-									if(((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 3) >= (enemyPosition_y(I) + enemySize(I))))) then
-										enemyPosition_x(I) <= -1;
+								if((((shotPosition_x(J) - 12) <= enemyPosition_x(i)) and ((shotPosition_x(J) - 12) >= (enemyPosition_x(i) - enemySize(I))))) then
+									if(((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 2) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 2) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 2) >= (enemyPosition_y(I) + enemySize(I))))) then
+										enemyPosition_x(I) <= -20;
 										shotPosition_x(J) <= -99;
 										sound_effect <= 2;
 										sound_trigger <= '1';
-										-- Add score here 
+										-- Higher score for smaller size
+										if(enemySize(I) = 5) then
+											score_tmp := score_tmp + 500;
+											if(num_Lives < 3) then
+												num_Lives <= num_Lives + 1; -- Award extra life if kill smallest enemy
+											end if;
+										elsif(enemySize(I) <= 20) then
+											score_tmp := score_tmp + 250;
+										elsif(enemySize(I) <= 40) then
+											score_tmp := score_tmp + 150;
+										else
+											score_tmp := score_tmp + 75;
+										end if;
 									end if;
 								end if;
 							else
 								if(((shotPosition_x(J) >= (enemyPosition_x(i) - enemySize(I))) and ((shotPosition_x(J) <= enemyPosition_x(I))))) then
-									if(((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 3) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 3) >= (enemyPosition_y(I) + enemySize(I))))) then
-										enemyPosition_x(I) <= -1;
+									if(((shotPosition_y(J) >= enemyPosition_y(I)) and ((shotPosition_y(J) + 2) <= (enemyPosition_y(I) + enemySize(I)))) or ((shotPosition_y(J) <= enemyPosition_y(I)) and ((shotPosition_y(J) + 2) >= enemyPosition_y(I))) or ((shotPosition_y(J) <= (enemyPosition_y(I) + enemySize(I))) and ((shotPosition_y(J) + 2) >= (enemyPosition_y(I) + enemySize(I))))) then
+										enemyPosition_x(I) <= -20;
 										shotPosition_x(J) <= -99;
 										sound_effect <= 2;
 										sound_trigger <= '1';
-										-- Add score here
+										-- Higher score for smaller size
+										if(enemySize(I) = 5) then
+											score_tmp := score_tmp + 500;
+											if(num_Lives < 3) then
+												num_Lives <= num_Lives + 1; -- Award extra life if kill smallest enemy
+											end if;
+										elsif(enemySize(I) <= 20) then
+											score_tmp := score_tmp + 250;
+										elsif(enemySize(I) <= 40) then
+											score_tmp := score_tmp + 150;
+										else
+											score_tmp := score_tmp + 75;
+										end if;
 									end if;
 								end if;
 							end if;
@@ -435,7 +468,7 @@ begin
 						if((player_Right >= (enemyPosition_x(I) - enemySize(I))) and (player_Right <= enemyPosition_x(i))) then
 							if (((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I)))) then
 								num_lives <= num_lives -1;
-								enemyPosition_x(I) <= -1;
+								enemyPosition_x(I) <= -20;
 								invincible_counter <= 1;
 								sound_effect <= 3;
 								sound_trigger <= '1';
@@ -448,7 +481,7 @@ begin
 						elsif((player_Left >= (enemyPosition_x(I) - enemySize(I))) and (player_Left <= enemyPosition_x(i))) then
 							if(((player_Top >= enemyPosition_y(I)) and ((player_Top <= (enemyPosition_y(I) + enemySize(I))))) or ((player_Bottom <= (enemyPosition_y(i) + enemySize(I))) and (player_Bottom >= enemyPosition_y(I))) or ((player_Bottom >= (enemyPosition_y(i) + enemySize(I))) and (player_Top <= enemyPosition_y(I)))) then
 								num_lives <= num_lives -1;
-								enemyPosition_x(I) <= -1;
+								enemyPosition_x(I) <= -20;
 								invincible_counter <= 1;
 								sound_effect <= 3;
 								sound_trigger <= '1';
@@ -461,7 +494,7 @@ begin
 						elsif((player_Top <= (enemyPosition_y(I) + enemySize(I))) and (player_Top >= enemyPosition_y(i))) then 
 							if(((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I)))) then
 								num_lives <= num_lives -1;
-								enemyPosition_x(I) <= -1;
+								enemyPosition_x(I) <= -20;
 								invincible_counter <= 1;
 								sound_effect <= 3;
 								sound_trigger <= '1';
@@ -474,7 +507,7 @@ begin
 						elsif((player_Bottom <= (enemyPosition_y(I) + enemySize(I))) and (player_Bottom >= enemyPosition_y(i))) then
 							if(((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I)))) then
 								num_lives <= num_lives -1;
-								enemyPosition_x(I) <= -1;
+								enemyPosition_x(I) <= -20;
 								invincible_counter <= 1;
 								sound_effect <= 3;
 								sound_trigger <= '1';
@@ -505,18 +538,28 @@ begin
 --							end if;
 --						elsif((player_Bottom <= (enemyPosition_y(I) + enemySize(I))) and (player_Bottom >= enemyPosition_y(i))) then
 --							if(((player_Left <= enemyPosition_x(I)) and ((player_Left >= (enemyPosition_x(I) - enemySize(I))))) or ((player_Right >= (enemyPosition_x(i) - enemySize(I))) and (player_Right <= enemyPosition_x(I))) or ((player_Left <= (enemyPosition_x(i) - enemySize(I))) and (player_Right >= enemyPosition_x(I)))) then
---								enemyPosition_x(I) <= -1;
+--								(I) <= -1;
 --							end if;
 --						end if;
 					end if;
 				end loop;
 				
+				if((score_tmp / 5000) > (score / 5000)) then -- every time we cross a 5000 checkpoint, increase enemy speed
+					if(enemySpeed < 6) then
+						enemySpeed <= enemySpeed + 1;
+						sound_effect <= 1;
+						sound_trigger <= '1';
+					end if;
+					if(spawnRate > 15) then
+						spawnRate <= spawnRate - 15;
+					end if;
+				end if;
 			elsif(gamestart = '0') then
 				if(key0 = '0') then
 					gamestart <= '1';
-					enemyPosition_x<= (-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1); 
-					enemyPosition_y<= (-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1); 
-					enemySize <= (-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1);
+					enemyPosition_x<= (-20,-20,-20,-20,-20,-20,-20,-20,-20,-20); 
+					enemyPosition_y<= (-20,-20,-20,-20,-20,-20,-20,-20,-20,-20);
+					enemySize <= (-20,-20,-20,-20,-20,-20,-20,-20,-20,-20);
 					player_left <= 30;
 					player_right <= 70;
 					player_top 	<= 220;
@@ -524,6 +567,9 @@ begin
 					num_lives <= 3;
 					sound_effect <= 1;
 					sound_trigger <= '1';
+					score_tmp := 0;
+					enemySpeed <= 1;
+					spawnRate <= 60;
 					
 				end if;
 			else
@@ -542,6 +588,9 @@ begin
 			
 		end if;
 		
+		
+		
+		score <= score_tmp;
 		
 	end Process;
 	
