@@ -186,7 +186,7 @@ begin
 -- Just need 3 components for VGA system 
 	U1	:	vga_pll_25_175 port map(pixel_clk_m, pll_OUT_to_vga_controller_IN);
 	U2	:	vga_controller port map(pll_OUT_to_vga_controller_IN, '1', h_sync_m, v_sync_m, dispEn, colSignal, rowSignal, open, open);
-	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, score, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, shotPosition_x, shotPosition_y, shotDirection, facingDirection, exhaust_level, pulse_position, red_m, green_m, blue_m);
+	U3	:	hw_image_generator port map(dispEn, rowSignal, colSignal, score, player_left, player_right, player_top, player_bottom, num_lives, player_Blink, enemyPosition_x, enemyPosition_y, enemySize, shotPosition_x, shotPosition_y, shotDirection, player_face_right, exhaust_level, pulse_position, red_m, green_m, blue_m);
 	U4 : ADXL345_controller port map ('1', pixel_clk_m, open, data_x, data_y, data_z, GSENSOR_SDI, GSENSOR_SDO, GSENSOR_CS_N, GSENSOR_SCLK);
 	U5 : CLK_50MHZ_to_60HZ port map(pixel_clk_m, clk_60HZ);
 	U6	: sounds_controller port map (sound_effect, pixel_clk_m, sound_trigger, sound_out);
@@ -200,21 +200,19 @@ begin
 				score_tmp := score;
 				sound_trigger <= '0';
 			if(gameStart = '1' and pause = '0') then
-			
 				facingDirection <= direction_x;
-				
 				if(pauseCounter = 0) then
-					if(key1 = '0') then
-						pause <= '1';
-						pauseCounter <= 1;
-					end if;
+						if(key1 = '0') then
+							pause <= '1';
+							pauseCounter <= 1;
+						end if;
 				elsif(pauseCounter = 60) then
 					pauseCounter <= 0;
 				else 
 					pauseCounter <= pauseCounter + 1;
 				end if;
+
 				if(direction_x = '1') then
-					player_face_right <= '1';
 					if (tilt_level_x >= 0 and tilt_level_x <= 4) then
 						exhaust_level <= 3;
 						if(player_right < 320) then
@@ -236,8 +234,10 @@ begin
 					else
 						exhaust_level <= 0;
 					end if;
+				if (tilt_level_x <= 14) then
+					player_face_right <= '1';
+				end if;
 				else
-					player_face_right <= '0';
 					if (tilt_level_x >= 1 and tilt_level_x <= 5) then
 						exhaust_level <= 1;
 						if(player_left >= 1) then
@@ -259,6 +259,9 @@ begin
 					else
 						exhaust_level <= 0;
 					end if;
+				if (tilt_level_x >= 1) then
+					player_face_right <= '0';
+				end if;
 				end if;
 				
 				if(direction_y = '0') then
@@ -371,34 +374,35 @@ begin
 						end if;
 					end if;
 				end loop;
-				
-				if(shotCounter = 0) then
-					if( key0 = '0') then
-						if( shotPosition_x(currentShotIndex) = -99) then
-							if(direction_x = '1') then
-								shotPosition_x(currentShotIndex) <= player_Right + 12;
-								shotPosition_y(currentShotIndex) <= player_Bottom;
-								shotDirection(currentShotIndex) <= '1';
-							else
-								shotPosition_x(currentShotIndex) <= player_Left;
-								shotPosition_y(currentShotIndex) <= player_Bottom;
-								shotDirection(currentShotIndex) <= '0';
-							end if; 
-							
-							if(currentShotIndex = maxShotIndex) then
-								currentShotIndex <= 0;
-							else
-								currentShotIndex <= currentShotIndex + 1;
+				if (gamestart = '1') then
+					if(shotCounter = 0) then
+						if( key0 = '0') then
+							if( shotPosition_x(currentShotIndex) = -99) then
+								if(player_face_right = '1') then
+									shotPosition_x(currentShotIndex) <= player_Right + 12;
+									shotPosition_y(currentShotIndex) <= player_Bottom;
+									shotDirection(currentShotIndex) <= '1';
+								else
+									shotPosition_x(currentShotIndex) <= player_Left;
+									shotPosition_y(currentShotIndex) <= player_Bottom;
+									shotDirection(currentShotIndex) <= '0';
+								end if; 
+								
+								if(currentShotIndex = maxShotIndex) then
+									currentShotIndex <= 0;
+								else
+									currentShotIndex <= currentShotIndex + 1;
+								end if;
+								shotCounter <= 1;
+								sound_effect <= 4;
+								sound_trigger <= '1';
 							end if;
-							shotCounter <= 1;
-							sound_effect <= 4;
-							sound_trigger <= '1';
 						end if;
+					elsif(shotCounter = maxShotCounter) then
+						shotCounter <= 0;
+					else
+						shotCounter <= shotCounter + 1;
 					end if;
-				elsif(shotCounter = maxShotCounter) then
-					shotCounter <= 0;
-				else
-					shotCounter <= shotCounter + 1;
 				end if;
 				
 				
@@ -574,16 +578,16 @@ begin
 				end if;
 			else
 				if(pauseCounter = 0) then
-					if(key1 = '0') then
-						pause <= '0';
-						pauseCounter <= 1;
-					end if;
+						if(key1 = '0') then
+							pause <= '0';
+							pauseCounter <= 1;
+						end if;
 				elsif(pauseCounter = 60) then
 					pauseCounter <= 0;
 				else 
 					pauseCounter <= pauseCounter + 1;
 				end if;
-			end if;
+		end if;
 					
 			
 		end if;
