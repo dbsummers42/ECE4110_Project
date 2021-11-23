@@ -142,7 +142,8 @@ architecture PROJ0_ARCH of PROJ0 is
 	signal shotPosition_x, shotPosition_y	: array7 := (-99,-99,-99,-99,-99,-99,-99);
 	signal shotDirection : STD_LOGIC_VECTOR (0 to 6) := "0000000";
 	signal enemySizes : array7:= (10, 57, 20, 5, 32, 69, 40);
-	signal currentEnemyIndex, currentSpawnIndex, currentSizeIndex, currentShotIndex, shotCounter: INTEGER range -1 to 31 := 0;
+	signal currentEnemyIndex, currentSpawnIndex, currentSizeIndex, currentShotIndex: INTEGER range -1 to 31 := 0;
+	signal shotCounter	: INTEGER range -1 to 31 := 1;
 	signal spawnCounter	: INTEGER range 0 to 61:= 0;
 	signal maxEnemyIndex : INTEGER range 9 to 9 := 9;--19 to 19 := 19;
 	signal maxSizeIndex	: INTEGER range 6 to 6 := 6;
@@ -574,6 +575,7 @@ begin
 					score_tmp := 0;
 					enemySpeed <= 1;
 					spawnRate <= 60;
+					shotCounter <= 1;
 					
 				end if;
 			else
